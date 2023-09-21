@@ -29,7 +29,6 @@ model Computer {
 
 model Account {
   id               String  @id @default(cuid())
-  userId           String
   type             String
   provider         String
   ProviderAccontId String
@@ -40,7 +39,9 @@ model Account {
   scope            String?
   id_token         String? @db.Text
   session_state    String?
-  user             User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, ProviderAccontId])
   @@index([userId])
@@ -53,4 +54,16 @@ model User {
   emailVerified DateTime?
   image         String?
   accounts      Account[]
+  sessions      Session[]
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  expires      DateTime
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId])
 }

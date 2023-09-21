@@ -3,7 +3,6 @@ import { CompleteUser, relatedUserSchema } from "./index"
 
 export const accountSchema = z.object({
   id: z.string(),
-  userId: z.string(),
   type: z.string(),
   provider: z.string(),
   ProviderAccontId: z.string(),
@@ -14,6 +13,7 @@ export const accountSchema = z.object({
   scope: z.string().nullish(),
   id_token: z.string().nullish(),
   session_state: z.string().nullish(),
+  userId: z.string(),
 })
 
 export interface CompleteAccount extends z.infer<typeof accountSchema> {
