@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   title: "Tee Harbor X",
   description:
     "This platform empowers creators to sell merchandise through social media integration.",
+  themeColor:[
+    {media: "(prefers-color-scheme: light", color: "white"},
+    {media: "(prefers-color-scheme: dark", color:"black"}
+  ]
 };
 
 export default function RootLayout({
