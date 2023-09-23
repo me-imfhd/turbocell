@@ -3,7 +3,6 @@ import { toast } from "sonner";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
-import { env } from "./env.mjs";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -44,9 +43,6 @@ export function isArrayOfFile(files: unknown): files is File[] {
   return files.every((file) => file instanceof File);
 }
 
-export function absoluteUrl(path: string) {
-  return `${env.VERCEL_URL}${path}`;
-}
 
 export function catchError(err: unknown) {
   if (err instanceof z.ZodError) {
