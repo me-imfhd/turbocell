@@ -45,7 +45,7 @@ export function isArrayOfFile(files: unknown): files is File[] {
 }
 
 export function absoluteUrl(path: string) {
-  return `${env.VERCEL_URL}${path}`;
+  return `${env.NEXT_PUBLIC_APP_URL}${path}`;
 }
 
 export function catchError(err: unknown) {
