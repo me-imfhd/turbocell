@@ -1,13 +1,10 @@
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { currentUser } from "@clerk/nextjs/server";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-interface LobbyLayoutProps {
-  children: React.ReactNode | null;
-}
 
-export default async function LobbyLayout({ children }: LobbyLayoutProps) {
+export default async function LobbyLayout({ children }: PropsWithChildren) {
   const user = await currentUser();
   return (
     <div>

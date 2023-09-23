@@ -8,6 +8,7 @@ import { fontSans, fontMono } from "@/lib/fonts";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import TailwindResposivenessIndicator from "@/components/TailwindResposivenessIndicator";
+import { PropsWithChildren } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +22,11 @@ export const metadata: Metadata = {
   ]
 };
 
+
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: PropsWithChildren
+) {
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>

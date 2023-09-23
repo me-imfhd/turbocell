@@ -1,5 +1,5 @@
-import { toast } from "@/components/ui/use-toast";
 import { isClerkAPIResponseError } from "@clerk/nextjs";
+import { toast } from "sonner";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
@@ -53,13 +53,11 @@ export function catchError(err: unknown) {
     const errors = err.issues.map((issue) => {
       return issue.message;
     });
-    return toast({ description: errors.join("\n") });
+    return toast(errors.join("\n"));
   } else if (err instanceof Error) {
-    return toast({ description: err.message });
+    return toast(err.message);
   } else {
-    return toast({
-      description: "Something went wrong, please try again later.",
-    });
+    return toast("Something went wrong, please try again later.");
   }
 }
 
@@ -70,11 +68,11 @@ export function catchClerkError(err: unknown) {
     const errors = err.issues.map((issue) => {
       return issue.message;
     });
-    return toast({ description: errors.join("\n") });
+    return toast(errors.join("\n"));
   } else if (isClerkAPIResponseError(err)) {
-    return toast({ description: err.errors[0]?.longMessage ?? unknownErr });
+    return toast.error(err.errors[0]?.longMessage ?? unknownErr);
   } else {
-    return toast({ description: unknownErr });
+    return toast.error(unknownErr);
   }
 }
 
