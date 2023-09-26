@@ -1,3 +1,4 @@
+import LogOutButtons from "@/components/auth/logout-buttons";
 import { PageHeader } from "@/components/page-header";
 import { Shell } from "@/components/shells/shell";
 import { SignOutButton } from "@clerk/nextjs";
@@ -11,7 +12,7 @@ export default function Page() {
         size="sm"
         className="text-center"
       />
-      {/* <LogOutButtons /> */}
+      <LogOutButtons />
     </Shell>
   );
 }

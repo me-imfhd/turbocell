@@ -62,7 +62,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               href="/signin"
               className="text-primary underline-offset-4 transition-colors hover:underline"
             >
-              Create Account
+              Sign in
             </Link>
           </div>
         </CardFooter>

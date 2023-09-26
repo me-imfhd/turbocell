@@ -34,9 +34,9 @@ type PageHeaderProps = React.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof headerDescriptionVariants> & {
     title: string;
     description?: string | null;
-    descriptionAs: React.ElementType;
-    balancedTitle: boolean;
-    balacedDescription: boolean;
+    descriptionAs?: React.ElementType;
+    balancedTitle?: boolean;
+    balacedDescription?: boolean;
   };
 
 export const PageHeader = ({
