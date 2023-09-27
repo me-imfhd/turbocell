@@ -29,7 +29,7 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
                 email={email}
               ></UserProfileDropdown>
             ) : (
-              <Link href={"/signin"}>
+              <Link href={"/sign-in"}>
                 <div
                   className={buttonVariants({
                     size: "sm",

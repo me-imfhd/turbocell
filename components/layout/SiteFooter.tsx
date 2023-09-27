@@ -38,6 +38,15 @@ const SiteFooter = () => {
               </div>
             ))}
           </section>
+          <section
+            id="newsletter"
+            aria-labelledby="newsletter-heading"
+            className="space-y-3"
+          >
+            <h4 className="text-base font-medium">
+              Subscribe to our newsletter
+            </h4>
+          </section>
         </section>
       </Shell>
     </footer>
