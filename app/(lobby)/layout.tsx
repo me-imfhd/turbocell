@@ -7,9 +7,9 @@ import React, { PropsWithChildren } from "react";
 export default async function LobbyLayout({ children }: PropsWithChildren) {
   const user = await currentUser();
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <SiteHeader user={user}></SiteHeader>
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
       <SiteFooter></SiteFooter>
     </div>
   );
