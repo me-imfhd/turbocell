@@ -138,7 +138,7 @@ export const SiteConfig = {
       items: [
         {
           title: "Skateshop",
-          href: "/about",
+          href: "https://skateshop.sadmn.com/",
           external: true,
         },
         {
