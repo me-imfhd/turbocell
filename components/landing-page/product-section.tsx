@@ -8,13 +8,13 @@ export default function HowItWorksSection() {
         <div className="py-8 text-3xl font-bold tracking-tighter md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
           How it works?
         </div>
-        <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-          <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          <div className="p-4">
             <div className="rounded-lg h-64 overflow-hidden">
               <img
                 alt="content"
                 className="object-cover object-center h-full w-full"
-                src="https://dummyimage.com/1203x503"
+                src="/images/create.jpg"
               />
             </div>
             <h2 className="text-2xl font-semibold mt-5">Create</h2>
@@ -23,12 +23,12 @@ export default function HowItWorksSection() {
               free with Harbor X.
             </p>
           </div>
-          <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+          <div className="p-4">
             <div className="rounded-lg h-64 overflow-hidden">
               <img
                 alt="content"
                 className="object-cover object-center h-full w-full"
-                src="https://dummyimage.com/1204x504"
+                src="/images/share.jpg"
               />
             </div>
             <h2 className="text-2xl font-semibold mt-5">Share</h2>
@@ -37,12 +37,12 @@ export default function HowItWorksSection() {
               products with your people.
             </p>
           </div>
-          <div className="p-4 md:w-1/3 sm:mb-0 mb-6">
+          <div className="p-4">
             <div className="rounded-lg h-64 overflow-hidden">
               <img
                 alt="content"
                 className="object-cover object-center h-full w-full"
-                src="https://dummyimage.com/1205x505"
+                src="/images/earn.jpg"
               />
             </div>
             <h2 className="text-2xl font-semibold mt-5">Earn</h2>

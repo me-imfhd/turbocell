@@ -24,10 +24,10 @@ const HeroSection = () => {
                     <div className="p-2 bg-background  bg-opacity-50 rounded-full">
                       <Icons.edit />
                     </div>
-                    <h2 className="text-xl font-bold text-white">
+                    <h2 className="text-base md:text-xl font-bold text-white">
                       Create physical & digital products
                     </h2>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm md:text-base text-muted-foreground">
                       Customize 180+ products, sell digital items, or create
                       custom goods. We manage fulfillment and the entire fan
                       experience.
@@ -37,10 +37,10 @@ const HeroSection = () => {
                     <div className="p-2 bg-background  bg-opacity-50 rounded-full">
                       <Icons.send />
                     </div>
-                    <h2 className="text-xl font-bold text-white">
+                    <h2 className="text-base md:text-xl font-bold text-white">
                       Launch a Free Store
                     </h2>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm md:text-base text-muted-foreground">
                       Sell products in your personalized, conversion-optimized
                       store. Connect a custom domain and be ready to promote in
                       minutes.
@@ -50,10 +50,10 @@ const HeroSection = () => {
                     <div className="p-2 bg-background  bg-opacity-50 rounded-full">
                       <Icons.wallet />
                     </div>
-                    <h2 className="text-xl font-bold text-white">
+                    <h2 className="text-base md:text-xl font-bold text-white">
                       Sell More Merch
                     </h2>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm md:text-base text-muted-foreground">
                       Create on Harbor X, connect your social channels and sell
                       more merch by allowing your fans to shop exactly where
                       they are.
@@ -64,7 +64,7 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="flex justify-center mt-8">
-            <Button asChild className="text-xl" variant={"default"}>
+            <Button asChild size={"lg"} className="text-xl" variant={"default"}>
               <Link href={"/create"}>Start Creating, its free</Link>
             </Button>
           </div>

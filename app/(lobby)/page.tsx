@@ -1,6 +1,9 @@
-import CreatorGrid from "@/components/layout/creator-grid";
-import HeroSection from "@/components/layout/hero-section";
-import HowItWorksSection from "@/components/layout/product-section";
+import Create from "@/components/landing-page/create";
+import CreatorGrid from "@/components/landing-page/creator-grid";
+import HeroSection from "@/components/landing-page/hero-section";
+import HowItWorksSection from "@/components/landing-page/product-section";
+import Share from "@/components/landing-page/share";
+import Store from "@/components/landing-page/store";
 
 
 export default function IndexPage() {
@@ -8,8 +11,10 @@ export default function IndexPage() {
     <div>
       <HeroSection />
       <CreatorGrid />
+      <Store />
+      <Share />
+      <Create />
       <HowItWorksSection />
-      
     </div>
   );
 }
