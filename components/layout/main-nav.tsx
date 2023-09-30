@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { menComponents,kidComponents, womenComponents, accessoriesComponent } from "@/config/products";
+// import { menComponents,kidComponents, womenComponents, accessoriesComponent } from "@/config/products";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
 import {
@@ -62,7 +62,28 @@ export function MainNav() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
+          <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+
+              <ListItem href="/docs" title="Men">
+              Stylish products for all, with quality and fashion for your store.
+              </ListItem>
+              <ListItem href="/docs/installation" title="Women">
+              Make your store and start selling now.
+              </ListItem>
+              <ListItem href="/docs/primitives/typography" title="Kids and Babies">
+                We are Open Source.
+              </ListItem>
+              <ListItem href="/docs/primitives/typography" title="Accessories">
+                We are Open Source.
+              </ListItem>
+              
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem> */}
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Men</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -125,11 +146,11 @@ export function MainNav() {
               ))}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Best Sellers
+              Go To Dashboard
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

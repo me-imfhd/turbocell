@@ -22,12 +22,14 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
         <MainNav></MainNav>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
-            {user ? (
+            {user ? (<>
+              <span>Go To Dashboard</span>
               <UserProfileDropdown
                 user={user}
                 initials={initials}
                 email={email}
               ></UserProfileDropdown>
+              </>
             ) : (
               <Link href={"/sign-in"}>
                 <div
