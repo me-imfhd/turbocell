@@ -1,0 +1,20 @@
+{
+    "name": "@harborx/db",
+    "version": "0.0.0",
+    "main": "./index.ts",
+    "types": "./index.ts",
+    "license": "MIT",
+    "scripts": {
+        "dev": "prisma studio",
+        "postinstall": "prisma generate"
+    },
+    "dependencies": {
+        "@prisma/client": "5.3.1"
+
+    },
+    "devDependencies": {
+        "prisma": "^4.2.1",
+        "zod-prisma": "^0.5.4",
+        "typescript": "4.7.4"
+    }
+}
