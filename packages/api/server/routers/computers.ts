@@ -1,9 +1,9 @@
 import { createComputer, updateComputer } from "@/lib/api/computers/mutations";
-import { publicProcedure, router } from "../trpc";
+import { publicProcedure, createTRPCRouter } from "../trpc";
 import { getComputers } from "@/lib/api/computers/queries"
 import { z } from "zod";
 import { computerIdSchema, insertComputerParams, updateComputerParams } from "@/lib/db/schema/computers";
-export const computersRouter = router({
+export const computersRouter = createTRPCRouter({
   getComputers: publicProcedure.query(async () => {
     return getComputers();
   }),
