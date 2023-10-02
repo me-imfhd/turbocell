@@ -23,6 +23,7 @@
     "devDependencies": {
       "@harborx/eslint-config": "workspace:*",
       "@harborx/tsconfig": "workspace:*",
+      "@types/node": "20.8.0",
       "eslint": "^8.50.0",
       "typescript": "^5.2.2"
     },

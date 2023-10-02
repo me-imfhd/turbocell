@@ -1,6 +1,8 @@
 {
     "extends": "@harborx/tsconfig/base.json",
     "compilerOptions": {
+      "composite": true,
+      "incremental": true,
       "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
     },
     "include": ["."],
