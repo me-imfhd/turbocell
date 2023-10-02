@@ -1,13 +1,14 @@
-import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
-import { getUserAuth } from "@harborx/auth";
-import { AuthSession } from "@harborx/auth"
-import { db } from "@harborx/db"
-
+import { db } from "@harborx/db";
+import { getSession } from "next-auth/react";
+import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
+import { inferAsyncReturnType } from "@trpc/server";
+import type { Session } from "@harborx/auth";
+import { getServerAuthSession } from "@harborx/auth";
 
 /**
  * DON'T NEED TO EDIT THIS FILE, UNLESS:
- * You want to modify request context 
- * 
+ * You want to modify request context
+ *
  * 1. CONTEXT
  *
  * This section defines the "contexts" that are available in the backend API
@@ -17,41 +18,47 @@ import { db } from "@harborx/db"
  *
  */
 
+interface CreateContextOptions {
+  session: Session | null;
+}
 
 /**
- * This helper generates the "internals" for a tRPC context. If you need to use
- * it, you can export it from here
+ * This helper generates the "internals" for a tRPC context. If you need to use it, you can export
+ * it from here.
  *
  * Examples of things you may need it for:
- * - testing, so we dont have to mock Next.js' req/res
- * - trpc's `createSSGHelpers` where we don't have req/res
- * @see https://create.t3.gg/en/usage/trpc#-servertrpccontextts
+ * - testing, so we don't have to mock Next.js' req/res
+ * - tRPC's `createSSGHelpers`, where we don't have req/res
+ *
+ * @see https://create.t3.gg/en/usage/trpc#-serverapitrpcts
  */
-const createInnerTRPCContext = (opts: AuthSession) => {
+const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     session: opts.session,
     db,
   };
 };
-
 /**
- * This is the actual context you'll use in your router. It will be used to
- * process every request that goes through your tRPC endpoint
- * @link https://trpc.io/docs/context
+ * This is the actual context you will use in your router. It will be used to process every request
+ * that goes through your tRPC endpoint.
+ *
+ * @see https://trpc.io/docs/context
  */
 
-export async function createTRPCContext(opts?: FetchCreateContextFnOptions ) {
- const { session } = await getUserAuth();
- const source = opts.req.headers.get("x-trpc-source") ?? "unknown";
- console.log(">>> tRPC Request from", source, "by", session?.user);
+export const createTRPCContext = async (
+  opts: CreateNextContextOptions
+) => {
+  const { req, res } = opts;
+
+  // Get the session from the server using the getServerSession wrapper function
+  const session = await getServerAuthSession({ req, res });
+
   return createInnerTRPCContext({
-    session: session,
-    headers: opts && Object.fromEntries(opts.req.headers),
-  })
-}
+    session,
+  });
+};
+//took me 9 hours of grueling unpaid labour with no water to figure this shit out on my own
 
 // exporting this so we can intialize our trpc api
-
-export type Context = Awaited<ReturnType<typeof createTRPCContext>>;
-
+export type Context = inferAsyncReturnType<typeof createTRPCContext>;
 // Go to ../server/trpc to continue
