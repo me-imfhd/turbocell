@@ -1,19 +1,23 @@
 {
-    "name": "@harborx/db",
-    "version": "0.0.0",
-    "main": "./index.ts",
-    "types": "./index.ts",
-    "license": "MIT",
-    "scripts": {
-        "dev": "prisma studio",
-        "postinstall": "prisma generate"
-    },
-    "dependencies": {
-        "@prisma/client": "5.3.1"
-    },
-    "devDependencies": {
-        "prisma": "^5.3.1",
-        "typescript": "5.2.2",
-        "zod-prisma": "^0.5.4"
-    }
+  "name": "@harborx/db",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "dev": "prisma studio",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "5.3.1",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.3.1",
+    "typescript": "5.2.2",
+    "zod-prisma": "^0.5.4",
+    "@types/node": "20.8.0",
+    "@harborx/eslint-config": "workspace:*",
+    "@harborx/tsconfig": "workspace:*"
+  }
 }

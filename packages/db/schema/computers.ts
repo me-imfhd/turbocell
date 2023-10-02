@@ -1,4 +1,4 @@
-import { computerSchema } from "@/zodAutoGenSchemas";
+import { computerSchema } from "../prisma/zod";
 import { z } from "zod";
 
 export const insertComputerSchema = computerSchema;
