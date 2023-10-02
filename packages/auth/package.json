@@ -1,6 +1,6 @@
 {
     "name": "@harborx/auth",
-    "version": "0.1.0",
+    "version": "0.0.0",
     "private": true,
     "main": "./index.ts",
     "types": "./index.ts",
@@ -12,29 +12,24 @@
       "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-      "@harborx/db": "^0.1.0",
-      "@auth/core": "^0.15.2",
-      "@auth/drizzle-adapter": "^0.3.2",
+      "@harborx/db": "workspace:*",
       "@t3-oss/env-nextjs": "^0.6.1",
       "next": "^13.5.3",
-      "@clerk/nextjs": "^4.23.5",
+      "@clerk/nextjs": "^4.25.1",
       "react": "18.2.0",
       "react-dom": "18.2.0",
       "zod": "^3.22.2"
     },
     "devDependencies": {
-      "@harborx/eslint-config": "^0.2.0",
-      "@harborx/prettier-config": "^0.1.0",
-      "@harborx/tsconfig": "^0.1.0",
+      "@harborx/eslint-config": "workspace:*",
+      "@harborx/tsconfig": "workspace:*",
       "eslint": "^8.50.0",
-      "prettier": "^3.0.3",
       "typescript": "^5.2.2"
     },
     "eslintConfig": {
       "root": true,
       "extends": [
-        "@harborx/eslint-config/base"
+        "@harborx/eslint-config"
       ]
-    },
-    "prettier": "@harborx/prettier-config"
-  }
+    }
+}
