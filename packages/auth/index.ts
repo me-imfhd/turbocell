@@ -10,6 +10,7 @@ type AuthSession = {
     };
   } | null;
 };
+export {config, authMiddleware} from "./middleware"
 
 export const getUserAuth = async () => {
   const { userId } = auth();
@@ -30,3 +31,5 @@ export const checkAuth = async () => {
   const { userId } = auth();
   if (!userId) redirect("/sign-in");
 };
+
+
