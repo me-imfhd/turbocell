@@ -1,5 +1,5 @@
-import { ComputerId, computerIdSchema } from "@/lib/db/schema/computers";
-import { db } from "@/lib/db";
+import { ComputerId, computerIdSchema } from "@harborx/db/schema/computers";
+import { db } from "@harborx/db";
 
 export const getComputers = async () => {
   const c = await db.computer.findMany();

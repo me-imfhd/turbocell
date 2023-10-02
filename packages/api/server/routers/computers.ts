@@ -1,6 +1,6 @@
-import { createComputer, updateComputer } from "@/lib/api/computers/mutations";
+import { createComputer, updateComputer } from "../../api-endpoint-blogic/computers/mutations";
 import { publicProcedure, createTRPCRouter } from "../trpc";
-import { getComputers } from "@/lib/api/computers/queries"
+import { getComputers } from "../../api-endpoint-blogic/computers/queries"
 import { z } from "zod";
 import { computerIdSchema, insertComputerParams, updateComputerParams } from "@/lib/db/schema/computers";
 export const computersRouter = createTRPCRouter({

@@ -1,7 +1,7 @@
-import { env } from "@harborx/auth/env.mjs";
+import { env } from "@harborx/auth";
 function getBaseUrl() {
   if (typeof window !== "undefined") return "";
-  if (env.NEXT_PUBLIC_APP_URL) return `https://${env.NEXT_PUBLIC_APP_URL}`;
+  if (env.server.NEXT_PUBLIC_APP_URL) return `https://${env.server.NEXT_PUBLIC_APP_URL}`;
   return "http://localhost:3000";
 }
 

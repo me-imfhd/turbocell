@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db } from "@harborx/db";
 import {
   ComputerId,
   NewComputerParams,
@@ -6,7 +6,7 @@ import {
   updateComputerSchema,
   insertComputerParams,
   computerIdSchema,
-} from "@/lib/db/schema/computers";
+} from "@harborx/db/schema/computers";
 
 export const createComputer = async (computer: NewComputerParams) => {
   const newComputer = insertComputerParams.parse({
