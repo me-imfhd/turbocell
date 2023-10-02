@@ -1,5 +1,5 @@
 {
-  "extends": "../../packages/tsconfig/base.json", 
+  "extends": "@harborx/tsconfig/base.json", 
   "compilerOptions": {
     "target": "es5",
     "lib": [

@@ -1,4 +1,4 @@
 {
-  "extends": "../tsconfig/base.json",
+  "extends": "@harborx/tsconfig/base.json",
   "include": ["index.ts"]
 }
