@@ -1,9 +1,9 @@
 import { db } from "@harborx/db";
-import { getSession } from "next-auth/react";
 import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
 import { inferAsyncReturnType } from "@trpc/server";
 import type { Session } from "@harborx/auth";
 import { getServerAuthSession } from "@harborx/auth";
+import { PrismaClient } from "@prisma/client"; // don't remove this
 
 /**
  * DON'T NEED TO EDIT THIS FILE, UNLESS:
@@ -45,14 +45,11 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
  * @see https://trpc.io/docs/context
  */
 
-export const createTRPCContext = async (
-  opts: CreateNextContextOptions
-) => {
+export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   const { req, res } = opts;
 
   // Get the session from the server using the getServerSession wrapper function
   const session = await getServerAuthSession({ req, res });
-
   return createInnerTRPCContext({
     session,
   });

@@ -4,7 +4,7 @@ import { authRouter } from "./auth";
 
 export const appRouter = createTRPCRouter({
   computers: computersRouter,
-  auth: authRouter
+  auth: authRouter,
 });
 
 export type AppRouter = typeof appRouter;

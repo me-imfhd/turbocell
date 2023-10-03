@@ -10,7 +10,6 @@ import { db } from "@harborx/db";
 
 import { env } from "./env";
 
-import { redirect } from "next/navigation";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { GetServerSidePropsContext } from "next";
 export type { Session } from "next-auth";
@@ -54,21 +53,19 @@ export const authOptions: NextAuthOptions = {
      */
   ],
 };
-    // @TODO - if you wanna have auth on the edge
-    // jwt: ({ token, profile }) => {
-    //   if (profile?.id) {
-    //     token.id = profile.id;
-    //     token.image = profile.picture;
-    //   }
-    //   return token;
-    // },
+// @TODO - if you wanna have auth on the edge
+// jwt: ({ token, profile }) => {
+//   if (profile?.id) {
+//     token.id = profile.id;
+//     token.image = profile.picture;
+//   }
+//   return token;
+// },
 
-    // @TODO
-    // authorized({ request, auth }) {
-    //   return !!auth?.user
-    // }
-
-
+// @TODO
+// authorized({ request, auth }) {
+//   return !!auth?.user
+// }
 
 export const getServerAuthSession = (ctx: {
   req: GetServerSidePropsContext["req"];
