@@ -9,20 +9,16 @@ import {
 import React from "react";
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
-import { SiteHeaderProps } from "./SiteHeader";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Session } from "next-auth";
 
-type UserProfileDropdownProps = SiteHeaderProps & {
-  initials: string;
-  email: string;
+type UserProfileDropdownProps = {
+  data: Session;
+  initials: string | undefined;
 };
 
-const UserProfileDropdown = ({
-  user,
-  initials,
-  email,
-}: UserProfileDropdownProps) => {
+const UserProfileDropdown = ({ data, initials }: UserProfileDropdownProps) => {
   return (
     <>
       <DropdownMenu>
@@ -32,7 +28,10 @@ const UserProfileDropdown = ({
             className="relative h-8 w-8 rounded-full"
           >
             <Avatar className="h-8 w-8">
-              <AvatarImage src={user?.imageUrl} alt={user?.username ?? ""} />
+              <AvatarImage
+                src={data.user?.image as string}
+                alt={data.user?.name ?? ""}
+              />
               <AvatarFallback>{initials}</AvatarFallback>
             </Avatar>
           </Button>
@@ -40,11 +39,9 @@ const UserProfileDropdown = ({
         <DropdownMenuContent className="w-56" align="end" forceMount>
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
-              <p className="text-sm font-medium leading-none">
-                {user?.firstName} {user?.lastName ?? ""}
-              </p>
+              <p className="text-sm font-medium leading-none">{data.user?.name}</p>
               <p className="text-xs leading-none text-muted-foreground">
-                {email}
+                {data.user?.email}
               </p>
             </div>
           </DropdownMenuLabel>

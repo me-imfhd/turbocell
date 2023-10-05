@@ -6,6 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "prisma studio",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate",
     "postinstall": "prisma generate"
   },
   "dependencies": {

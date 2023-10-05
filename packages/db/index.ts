@@ -9,7 +9,9 @@ declare global {
 export const db =
   global.db ||
   new PrismaClient({
-    log: ["query"],
+    errorFormat:"pretty",
   });
 
 if (process.env.NODE_ENV !== "production") global.db = db;
+
+export * from "./prisma/zod/index";

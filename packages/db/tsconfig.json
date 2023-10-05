@@ -1,6 +1,6 @@
 {
   "extends": "@harborx/tsconfig/base.json",
-  "include": ["index.ts"],
+  "include": ["."],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "composite": true
