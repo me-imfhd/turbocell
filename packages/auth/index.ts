@@ -37,7 +37,7 @@ export const authOptions: NextAuthOptions = {
   // any?! I know.
   // This is a temporary fix for prisma client.
   // @see https://github.com/prisma/prisma/issues/16117
-  secret: env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET as string,
   pages: {
     signIn: "/sign-in",
     signOut: "/sign-out",
@@ -45,12 +45,12 @@ export const authOptions: NextAuthOptions = {
   },
   providers: [
     DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+      clientId: process.env.DISCORD_CLIENT_ID as string,
+      clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
     }),
     GoogleProvider({
-      clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
   callbacks: {
@@ -87,66 +87,17 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
-// export const authOptions: NextAuthOptions = {
-//   // secret: env.NEXTAUTH_SECRET,
-
-//   // callbacks: {
-//   //   session: ({ session, user }) => ({
-//   //     ...session,
-//   //     user: {
-//   //       ...session.user,
-//   //       id: user.id,
-//   //     },
-//   //   }),
-//   // },
-//   // adapter: PrismaAdapter(db),
-//   pages:{
-//     signIn:"/sign-in"
-//   },
-//   providers: [
-//     DiscordProvider({
-//       clientId: env.DISCORD_CLIENT_ID,
-//       clientSecret: env.DISCORD_CLIENT_SECRET,
-//     }),
-//     GoogleProvider({
-//       clientId: env.GOOGLE_CLIENT_ID,
-//       clientSecret: env.GOOGLE_CLIENT_SECRET,
-//     }),
-//     /**
-//      * ...add more providers here.
-//      *
-//      * Most other providers require a bit more work than the Discord provider. For example, the
-//      * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-//      * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-//      *
-//      * @see https://next-auth.js.org/providers/github
-//      */
-//   ],
-// };
-// @TODO - if you wanna have auth on the edge
-// jwt: ({ token, profile }) => {
-//   if (profile?.id) {
-//     token.id = profile.id;
-//     token.image = profile.picture;
-//   }
-//   return token;
-// },
 
 // @TODO
 // authorized({ request, auth }) {
 //   return !!auth?.user
 // }
 
-export const getServerAuthSession = (ctx: {
-  req: GetServerSidePropsContext["req"];
-  res: GetServerSidePropsContext["res"];
-}) => {
-  return getServerSession(ctx.req, ctx.res, authOptions);
-};
+export async function getUser(){
+  const session = await getServerSession(authOptions)
+  const user = session?.user
 
-// export const checkAuth = async () => {
-//   const { userId } = auth();
-//   if (!userId) redirect("/sign-in");
-// };
+  return user;
+}
 
 export { env } from "./env.mjs";
