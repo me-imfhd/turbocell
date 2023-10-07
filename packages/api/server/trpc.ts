@@ -1,5 +1,5 @@
+import { getUser } from "@harborx/auth";
 import { initTRPC, TRPCError } from "@trpc/server";
-import { Context } from "../trpc/context";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
@@ -15,7 +15,7 @@ import { ZodError } from "zod";
  * This is where the trpc api is initialized, connecting the context and
  * transformer
  */
-const t = initTRPC.context<Context>().create({
+const t = initTRPC.create({
   transformer: superjson,
   errorFormatter(opts) {
     const { shape, error } = opts;
@@ -63,18 +63,18 @@ export const publicProcedure = t.procedure;
  * Reusable middleware that enforces users are logged in before running the
  * procedure
  */
-const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.session?.user) {
-    throw new TRPCError({ code: "UNAUTHORIZED", message:"NOT AUTHENTICATED" });
+const enforceUserIsAuthed = t.middleware(async (opts) => {
+  const user = await getUser();
+  if (!user) {
+    throw new TRPCError({ code: "UNAUTHORIZED", message: "NOT AUTHENTICATED" });
   }
-  return next({
+  return opts.next({
     ctx: {
-      // infers the `session` as non-nullable
-      session: { ...ctx.session, user: ctx.session.user },
+      userId: user.id,
+      user: user,
     },
   });
 });
-
 /**
  * Protected (authed) procedure
  *
