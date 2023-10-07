@@ -7,8 +7,9 @@ import Store from "@/components/landing-page/store";
 
 
 export default function IndexPage() {
+
   return (
-    <div>
+    <div> 
       <HeroSection />
       <CreatorGrid />
       <Store />
