@@ -25,6 +25,6 @@ export const authRouter = createTRPCRouter({
     return { message:"You are authenticated"};
   }),
   getEasterEgg: protectedProcedure.query(() => {
-    return "You can see this secret message means you trying things out!";
+    return "You can see this secret message means you trying things out and you are logged in!";
   }),
 });
