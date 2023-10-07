@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { fontSans, fontMono } from "@/lib/fonts";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -8,7 +7,6 @@ import { cn } from "@/lib/utils";
 import TailwindResposivenessIndicator from "@/components/TailwindResposivenessIndicator";
 import { PropsWithChildren } from "react";
 import TrpcProvider from "@harborx/api/trpc/Provider"
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tee Harbor X",

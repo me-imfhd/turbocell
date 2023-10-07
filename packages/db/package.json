@@ -16,10 +16,18 @@
   },
   "devDependencies": {
     "prisma": "^5.3.1",
-    "typescript": "5.2.2",
     "zod-prisma": "^0.5.4",
     "@types/node": "20.8.0",
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
     "@harborx/eslint-config": "workspace:*",
     "@harborx/tsconfig": "workspace:*"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@harborx/eslint-config"
+    ]
   }
 }

@@ -28,7 +28,6 @@
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "@harborx/prettier-config": "workspace:*",
     "@harborx/tsconfig": "workspace:*",
     "eslint": "^8.50.0",
     "typescript": "^5.2.2"
@@ -38,6 +37,5 @@
     "extends": [
       "./base.js"
     ]
-  },
-  "prettier": "@harborx/prettier-config"
+  }
 }

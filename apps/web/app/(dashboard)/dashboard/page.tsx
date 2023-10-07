@@ -1,14 +1,19 @@
 "use client";
-
+import { ComputerData } from "@/lib/client-side-hooks/ComputerData";
 import { trpc } from "@harborx/api/trpc/client";
 import React from "react";
 
 const Page = () => {
-  const getComputers = trpc.auth.getSession.useQuery();
-  if (!getComputers.data) {
-    return <div> data undefined</div>;
+  const getSession = trpc.auth.getSession.useQuery();
+  if (getSession.isLoading) {
+    return <div>loading...</div>;
   }
-  return <div>{JSON.stringify(getComputers.data)}</div>;
+  return (
+    <div>
+      {JSON.stringify(getSession.data)}
+      <ComputerData></ComputerData>
+    </div>
+  );
 };
 
 export default Page;
