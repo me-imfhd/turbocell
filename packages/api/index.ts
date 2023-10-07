@@ -1,7 +1,5 @@
 export type { AppRouter } from "./server/routers/_app";
 export { appRouter } from "./server/routers/_app";
-export { createTRPCContext } from "./trpc/context";
-export type { Context } from "./trpc/context";
 
 // input and output types inference export
 import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
@@ -17,3 +15,4 @@ export type RouterInputs = inferRouterInputs<AppRouter>;
  * @example type HelloOutput = RouterOutputs['example']['hello']
  **/
 export type RouterOutputs = inferRouterOutputs<AppRouter>;
+
