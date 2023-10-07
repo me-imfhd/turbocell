@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    transpilePackages: ["@harborx/api"] // giving error intentionally
+    transpilePackages: ["@harborx/api"],
 }
 
 module.exports = nextConfig
