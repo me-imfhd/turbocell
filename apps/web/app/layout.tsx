@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import TailwindResposivenessIndicator from "@/components/TailwindResposivenessIndicator";
 import { PropsWithChildren } from "react";
-
+import TrpcProvider from "@harborx/api/trpc/Provider"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -31,11 +31,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
         )}
       >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {/* <TrpcProvider> */}
+            <TrpcProvider>
             {children}
             <TailwindResposivenessIndicator />
             <Toaster />
-            {/* </TrpcProvider> */}
+            </TrpcProvider>
           </ThemeProvider>
       </body>
     </html>
