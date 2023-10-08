@@ -12,6 +12,7 @@
     "@harborx/api": "workspace:*",
     "@harborx/auth": "workspace:*",
     "@harborx/db":"workspace:*",
+    "@harborx/ui":"workspace:*",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",

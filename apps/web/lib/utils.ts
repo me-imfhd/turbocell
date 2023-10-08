@@ -5,10 +5,6 @@ import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 // import { env } from "./env.mjs";
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
 export function slugify(str: string) {
   return str
     .toLowerCase()
