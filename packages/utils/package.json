@@ -1,0 +1,37 @@
+{
+  "name": "@harborx/utils",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.284.0",
+    "next": "^13.5.4",
+    "next-auth": "^4.23.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwind-merge": "^1.14.0",
+    "zod": "^3.22.3"
+  },
+  "devDependencies": {
+    "@harborx/eslint-config": "workspace:*",
+    "@harborx/tsconfig": "workspace:*",
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@harborx/eslint-config"
+    ]
+  }
+}
