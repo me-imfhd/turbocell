@@ -1,6 +1,6 @@
-import LogOutButtons from "@/components/auth/logout-buttons";
-import { PageHeader } from "@/components/page-header";
-import { Shell } from "@/components/shells/shell";
+import {LogOutButtons} from "@/components/auth/logout-buttons";
+import { Shell } from "@harborx/shadcn";
+import {PageHeader} from "@/components/page-header"
 
 export default function Page() {
   return (

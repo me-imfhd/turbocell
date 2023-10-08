@@ -1,5 +1,5 @@
-import { SiteHeader } from "@harborx/ui/components/layout/harborx";
-import { SiteFooter } from "@harborx/ui/components/layout/harborx";
+import { SiteHeader } from "@harborx/ui/layout/harborx";
+import { SiteFooter } from "@harborx/ui/layout/harborx";
 import React, { PropsWithChildren } from "react";
 import { ProfileHeader } from "@/components/layout/profile-header";
 

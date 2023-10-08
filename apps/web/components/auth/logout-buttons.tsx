@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState, useTransition } from "react";
-import { Button, buttonVariants } from "../ui/button";
+import React, { useState } from "react";
 import { useMounted } from "@/lib/hooks/use-mounted";
-import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { Skeleton } from "../ui/skeleton";
-import { cn } from "@/lib/utils";
-import { Icons } from "../icons";
+import { cn } from "@harborx/utils/utils";
+import { Button, Skeleton, buttonVariants } from "@harborx/shadcn";
+import { Icons } from "@harborx/utils/icons";
 
-const LogOutButtons = () => {
+export const LogOutButtons = () => {
   const isMounted = useMounted();
   const [isLoading, setIsLoading] = useState<boolean>(false)
   return (
@@ -54,5 +52,3 @@ const LogOutButtons = () => {
     </div>
   );
 };
-
-export default LogOutButtons;

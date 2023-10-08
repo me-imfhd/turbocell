@@ -1,7 +1,7 @@
 import { authOptions } from "@harborx/auth";
 import { getServerSession } from "next-auth";
 import React from "react";
-import { UserProfileDropdown } from "@harborx/ui/components/layout/harborx";
+import { UserProfileDropdown } from "@harborx/ui/layout/harborx";
 import Link from "next/link";
 import { buttonVariants } from "@harborx/shadcn/ui";
 
