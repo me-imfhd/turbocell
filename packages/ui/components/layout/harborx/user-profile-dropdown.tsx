@@ -7,11 +7,11 @@ import {
   DropdownMenuTrigger,
 } from "@harborx/shadcn/ui";
 import React from "react";
-import { Icons } from "@harborx/types/icons";
+import { Icons } from "@harborx/utils/icons";
 import { Button } from "@harborx/shadcn/ui";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@harborx/shadcn/ui";
-import { UserProfileDropdownProps } from "@harborx/types";
+import { UserProfileDropdownProps } from "@harborx/utils";
 
 export const UserProfileDropdown = ({
   data,

@@ -1,9 +1,9 @@
 import React from "react";
 import { Shell } from "@harborx/shadcn";
-import { Icons } from "@harborx/types/icons";
+import { Icons } from "@harborx/utils/icons";
 import Link from "next/link";
-import { Company, SiteConfig, mySocials } from "@harborx/types";
-import { cn } from "@harborx/types/utils";
+import { Company, SiteConfig, mySocials } from "@harborx/utils";
+import { cn } from "@harborx/utils/utils";
 import { buttonVariants } from "@harborx/shadcn/ui";
 
 export const SiteFooter = () => {

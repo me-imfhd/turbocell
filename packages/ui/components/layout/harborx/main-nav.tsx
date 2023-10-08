@@ -2,8 +2,8 @@
 
 import * as React from "react";
 // import { menComponents,kidComponents, womenComponents, accessoriesComponent } from "@/config/products";
-import { cn } from "@harborx/types/utils";
-import { Icons } from "@harborx/types/icons";
+import { cn } from "@harborx/utils/utils";
+import { Icons } from "@harborx/utils/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
