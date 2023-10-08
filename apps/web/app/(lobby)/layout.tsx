@@ -1,13 +1,14 @@
-import SiteHeader from "@/components/layout/SiteHeader";
-import SiteFooter from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@harborx/ui/components/layout/harborx";
+import { SiteFooter } from "@harborx/ui/components/layout/harborx";
 import React, { PropsWithChildren } from "react";
-import { useSession } from "next-auth/react";
-
+import { ProfileHeader } from "@/components/layout/profile-header";
 
 export default async function LobbyLayout({ children }: PropsWithChildren) {
   return (
     <div className="flex flex-col min-h-screen">
-      <SiteHeader ></SiteHeader>
+      <SiteHeader>
+        <ProfileHeader />
+      </SiteHeader>
       <main className="flex-1">{children}</main>
       <SiteFooter></SiteFooter>
     </div>

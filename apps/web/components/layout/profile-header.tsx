@@ -1,14 +1,14 @@
 import { authOptions } from "@harborx/auth";
 import { getServerSession } from "next-auth";
 import React from "react";
-import UserProfileDropdown from "./user-profile-dropdown";
+import { UserProfileDropdown } from "@harborx/ui/components/layout/harborx";
 import Link from "next/link";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "@harborx/shadcn/ui";
 
-const ProfileHeader = async() => {
-    const data = await getServerSession(authOptions);
-    const user = data?.user;
-    const initials = `${user?.name?.charAt(0) ?? ""}`;
+export const ProfileHeader = async () => {
+  const data = await getServerSession(authOptions);
+  const user = data?.user;
+  const initials = `${user?.name?.charAt(0) ?? ""}`;
   return (
     <>
       {user ? (
@@ -34,5 +34,3 @@ const ProfileHeader = async() => {
     </>
   );
 };
-
-export default ProfileHeader;

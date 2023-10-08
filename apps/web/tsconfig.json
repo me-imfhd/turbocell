@@ -1,5 +1,5 @@
 {
-  "extends": "@harborx/tsconfig/base.json", 
+  "extends": "@harborx/tsconfig/base.json",
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -34,9 +34,7 @@
     "baseUrl": "./"
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    ".",
     ".next/types/**/*.ts"
   ],
   "exclude": [

@@ -10,12 +10,12 @@ export default function IndexPage() {
 
   return (
     <div> 
-      <HeroSection />
+      {/* <HeroSection />
       <CreatorGrid />
       <Store />
       <Share />
       <Create />
-      <HowItWorksSection />
+      <HowItWorksSection /> */}
     </div>
   );
 }

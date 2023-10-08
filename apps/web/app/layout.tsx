@@ -1,10 +1,10 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@harborx/shadcn";
 import { fontSans, fontMono } from "@/lib/fonts";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { cn } from "@/lib/utils";
-import TailwindResposivenessIndicator from "@/components/TailwindResposivenessIndicator";
+import { ThemeProvider } from "@harborx/ui/components/ThemeProvider";
+import { cn } from "@harborx/utils/utils";
+import TailwindResposivenessIndicator from "@harborx/ui/components/TailwindResposivenessIndicator";
 import { PropsWithChildren } from "react";
 import TrpcProvider from "@harborx/api/trpc/Provider"
 
