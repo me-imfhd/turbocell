@@ -1,0 +1,1 @@
+module.exports = require("@harborx/tailwind-config/tailwind.config.ts");
