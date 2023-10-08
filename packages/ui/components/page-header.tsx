@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import Balancer from "react-wrap-balancer";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@harborx/types/utils";
 
 const headerTitleVariants = cva("font-bold tracking-tight", {
   variants: {

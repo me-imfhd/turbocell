@@ -1,1 +1,1 @@
-module.exports = require("@harborx/tailwind-config/postcss.config");
+module.exports = require("@harborx/tailwind-config/postcss");
