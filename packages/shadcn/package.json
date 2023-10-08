@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@harborx/tailwind-config":"workspace:*",
-    "@harborx/types": "workspace:*",
+    "@harborx/utils": "workspace:*",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",

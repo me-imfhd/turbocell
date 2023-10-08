@@ -1,4 +1,4 @@
-import { cn } from "@harborx/types/utils"
+import { cn } from "@harborx/utils/utils"
 
 function Skeleton({
   className,
