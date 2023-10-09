@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
   Shell,
-} from "@harborx/shadcn";
+} from "@turbocell/shadcn";
 import React from "react";
 
 type AuthProps = {

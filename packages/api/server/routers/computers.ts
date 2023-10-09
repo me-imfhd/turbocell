@@ -9,7 +9,7 @@ import {
   computerIdSchema,
   insertComputerParams,
   updateComputerParams,
-} from "@harborx/db/schema/computers";
+} from "@turbocell/db/schema/computers";
 export const computersRouter = createTRPCRouter({
   getComputers: publicProcedure.query(async () => {
     return getComputers();

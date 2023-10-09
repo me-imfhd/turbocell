@@ -1,5 +1,5 @@
 {
-  "name": "@harborx/utils",
+  "name": "@turbocell/utils",
   "version": "0.0.0",
   "private": true,
   "main": "./index.ts",
@@ -24,8 +24,8 @@
     "zod": "^3.22.3"
   },
   "devDependencies": {
-    "@harborx/eslint-config": "workspace:*",
-    "@harborx/tsconfig": "workspace:*",
+    "@turbocell/eslint-config": "workspace:*",
+    "@turbocell/tsconfig": "workspace:*",
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
@@ -33,7 +33,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@harborx/eslint-config"
+      "@turbocell/eslint-config"
     ]
   }
 }

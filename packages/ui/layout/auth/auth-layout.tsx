@@ -1,5 +1,5 @@
-import { AspectRatio } from "@harborx/shadcn";
-import { Icons } from "@harborx/utils/icons";
+import { AspectRatio } from "@turbocell/shadcn";
+import { Icons } from "@turbocell/utils/icons";
 import { Url } from "next/dist/shared/lib/router/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,8 +34,8 @@ export function AuthLayoutImage({
         href="/"
         className="flex absolute left-8 top-6 z-20 items-center text-lg font-bold tracking-tighter"
       >
-        <Icons.star className="mr-2 h-6 w-6" aria-hidden="true" />
-        <span>Harbor X</span>
+        <Icons.chevronsRight className="mr-2 h-6 w-6" aria-hidden="true" />
+        <span>Turbo Cell</span>
       </Link>
       <div className="absolute bottom-6 left-8 z-20 line-clamp-1 text-base">
         Photo by{" "}

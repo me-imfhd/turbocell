@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import { useMounted } from "@/lib/hooks/use-mounted";
 import { signOut } from "next-auth/react";
-import { cn } from "@harborx/utils/utils";
-import { Button, Skeleton, buttonVariants } from "@harborx/shadcn";
-import { Icons } from "@harborx/utils/icons";
+import { cn } from "@turbocell/utils/utils";
+import { Button, Skeleton, buttonVariants } from "@turbocell/shadcn";
+import { Icons } from "@turbocell/utils/icons";
 
 export const LogOutButtons = () => {
   const isMounted = useMounted();

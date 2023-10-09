@@ -1,4 +1,4 @@
-import { CardFooter } from "@harborx/shadcn";
+import { CardFooter } from "@turbocell/shadcn";
 import Link from "next/link";
 import React from "react";
 

@@ -1,5 +1,5 @@
 {
-  "name": "harborx-mainapp",
+  "name": "turbocell-mainapp",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@harborx/tailwind-config":"workspace:*",
-    "@harborx/api": "workspace:*",
-    "@harborx/auth": "workspace:*",
-    "@harborx/db": "workspace:*",
-    "@harborx/ui": "workspace:*",
-    "@harborx/utils":"workspace:*",
-    "@harborx/shadcn":"workspace:*",
+    "@turbocell/tailwind-config":"workspace:*",
+    "@turbocell/api": "workspace:*",
+    "@turbocell/auth": "workspace:*",
+    "@turbocell/db": "workspace:*",
+    "@turbocell/ui": "workspace:*",
+    "@turbocell/utils":"workspace:*",
+    "@turbocell/shadcn":"workspace:*",
     "@trpc/server": "^10.38.5",
     "@types/react": "18.2.25",
     "@types/react-dom": "18.2.10",
@@ -26,13 +26,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sonner": "^1.0.3",
-    "tailwind-merge": "^1.14.0",
-    "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.3"
   },
   "devDependencies": {
-    "@harborx/eslint-config": "workspace:*",
-    "@harborx/tsconfig": "workspace:*",
+    "@turbocell/eslint-config": "workspace:*",
+    "@turbocell/tsconfig": "workspace:*",
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
     "tailwindcss": "3.3.2",
@@ -41,9 +39,9 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@harborx/eslint-config/base",
-      "@harborx/eslint-config/nextjs",
-      "@harborx/eslint-config/react"
+      "@turbocell/eslint-config/base",
+      "@turbocell/eslint-config/nextjs",
+      "@turbocell/eslint-config/react"
     ]
   }
 }

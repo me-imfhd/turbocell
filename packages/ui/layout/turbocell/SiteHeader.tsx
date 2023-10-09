@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import { MainNav } from "./main-nav";
-import { buttonVariants } from "@harborx/shadcn/ui";
-import { Skeleton } from "@harborx/shadcn/ui";
-import { cn } from "@harborx/utils/utils";
+import { buttonVariants } from "@turbocell/shadcn/ui";
+import { Skeleton } from "@turbocell/shadcn/ui";
+import { cn } from "@turbocell/utils/utils";
 
 export const SiteHeader = async ({ children }: React.PropsWithChildren) => {
   return (

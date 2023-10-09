@@ -1,6 +1,6 @@
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import { getUser } from "@harborx/auth";
-import { db } from "@harborx/db";
+import { getUser } from "@turbocell/auth";
+import { db } from "@turbocell/db";
 
 export const authRouter = createTRPCRouter({
   getSession: publicProcedure.query(async () => {

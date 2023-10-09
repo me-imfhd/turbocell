@@ -1,5 +1,5 @@
 {
-  "name": "@harborx/tsconfig",
+  "name": "@turbocell/tsconfig",
   "private": true,
   "version": "0.0.0",
   "main": "base.json",

@@ -1,5 +1,5 @@
 import {LogOutButtons} from "@/components/auth/logout-buttons";
-import { Shell } from "@harborx/shadcn";
+import { Shell } from "@turbocell/shadcn";
 import {PageHeader} from "@/components/page-header"
 
 export default function Page() {

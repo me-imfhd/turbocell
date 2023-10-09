@@ -1,5 +1,5 @@
 {
-  "extends": "@harborx/tsconfig/base.json",
+  "extends": "@turbocell/tsconfig/base.json",
   "compilerOptions": {
     "target": "es5",
     "lib": [

@@ -1,5 +1,5 @@
 
-import { authOptions } from "@harborx/auth";
+import { authOptions } from "@turbocell/auth";
 import NextAuth from "next-auth";
 
 const handler = NextAuth(authOptions);

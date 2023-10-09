@@ -1,4 +1,4 @@
-import { AuthLayoutImage } from "@harborx/ui/layout";
+import { AuthLayoutImage } from "@turbocell/ui/layout";
 
 export default function AuthLayout({ children }: React.PropsWithChildren) {
   return (

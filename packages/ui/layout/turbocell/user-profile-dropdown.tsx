@@ -5,13 +5,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@harborx/shadcn/ui";
+} from "@turbocell/shadcn/ui";
 import React from "react";
-import { Icons } from "@harborx/utils/icons";
-import { Button } from "@harborx/shadcn/ui";
+import { Icons } from "@turbocell/utils/icons";
+import { Button } from "@turbocell/shadcn/ui";
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@harborx/shadcn/ui";
-import { UserProfileDropdownProps } from "@harborx/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@turbocell/shadcn/ui";
+import { UserProfileDropdownProps } from "@turbocell/utils";
 
 export const UserProfileDropdown = ({
   data,

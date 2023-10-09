@@ -26,30 +26,30 @@ importers:
 
   apps/web:
     dependencies:
-      '@harborx/api':
-        specifier: workspace:*
-        version: link:../../packages/api
-      '@harborx/auth':
-        specifier: workspace:*
-        version: link:../../packages/auth
-      '@harborx/db':
-        specifier: workspace:*
-        version: link:../../packages/db
-      '@harborx/shadcn':
-        specifier: workspace:*
-        version: link:../../packages/shadcn
-      '@harborx/tailwind-config':
-        specifier: workspace:*
-        version: link:../../tooling/tailwind
-      '@harborx/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      '@harborx/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
       '@trpc/server':
         specifier: ^10.38.5
         version: 10.40.0
+      '@turbocell/api':
+        specifier: workspace:*
+        version: link:../../packages/api
+      '@turbocell/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
+      '@turbocell/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@turbocell/shadcn':
+        specifier: workspace:*
+        version: link:../../packages/shadcn
+      '@turbocell/tailwind-config':
+        specifier: workspace:*
+        version: link:../../tooling/tailwind
+      '@turbocell/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@turbocell/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@types/react':
         specifier: 18.2.25
         version: 18.2.25
@@ -77,20 +77,14 @@ importers:
       sonner:
         specifier: ^1.0.3
         version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
-      tailwind-merge:
-        specifier: ^1.14.0
-        version: 1.14.0
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.3.2)
       zod:
         specifier: ^3.22.3
         version: 3.22.4
     devDependencies:
-      '@harborx/eslint-config':
+      '@turbocell/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
@@ -108,12 +102,6 @@ importers:
 
   packages/api:
     dependencies:
-      '@harborx/auth':
-        specifier: workspace:*
-        version: link:../auth
-      '@harborx/db':
-        specifier: workspace:*
-        version: link:../db
       '@next/eslint-plugin-next':
         specifier: ^13.5.4
         version: 13.5.4
@@ -129,6 +117,12 @@ importers:
       '@trpc/server':
         specifier: ^10.38.5
         version: 10.40.0
+      '@turbocell/auth':
+        specifier: workspace:*
+        version: link:../auth
+      '@turbocell/db':
+        specifier: workspace:*
+        version: link:../db
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -139,10 +133,10 @@ importers:
         specifier: ^3.22.2
         version: 3.22.4
     devDependencies:
-      '@harborx/eslint-config':
+      '@turbocell/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/react':
@@ -163,15 +157,15 @@ importers:
 
   packages/auth:
     dependencies:
-      '@harborx/db':
-        specifier: workspace:*
-        version: link:../db
       '@next-auth/prisma-adapter':
         specifier: 1.0.7
         version: 1.0.7(@prisma/client@5.3.1)(next-auth@4.23.2)
       '@t3-oss/env-nextjs':
         specifier: ^0.6.1
         version: 0.6.1(typescript@5.2.2)(zod@3.22.4)
+      '@turbocell/db':
+        specifier: workspace:*
+        version: link:../db
       next:
         specifier: ^13.5.4
         version: 13.5.4(react-dom@18.2.0)(react@18.2.0)
@@ -188,10 +182,10 @@ importers:
         specifier: ^3.22.3
         version: 3.22.4
     devDependencies:
-      '@harborx/eslint-config':
+      '@turbocell/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
@@ -213,10 +207,10 @@ importers:
         specifier: ^3.22.2
         version: 3.22.4
     devDependencies:
-      '@harborx/eslint-config':
+      '@turbocell/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -240,12 +234,6 @@ importers:
 
   packages/shadcn:
     dependencies:
-      '@harborx/tailwind-config':
-        specifier: workspace:*
-        version: link:../../tooling/tailwind
-      '@harborx/utils':
-        specifier: workspace:*
-        version: link:../utils
       '@radix-ui/react-aspect-ratio':
         specifier: ^1.0.3
         version: 1.0.3(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
@@ -270,6 +258,12 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.2.25)(react@18.2.0)
+      '@turbocell/tailwind-config':
+        specifier: workspace:*
+        version: link:../../tooling/tailwind
+      '@turbocell/utils':
+        specifier: workspace:*
+        version: link:../utils
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -286,7 +280,7 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/react':
@@ -307,51 +301,18 @@ importers:
 
   packages/ui:
     dependencies:
-      '@harborx/shadcn':
-        specifier: workspace:*
-        version: link:../shadcn
-      '@harborx/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@radix-ui/react-aspect-ratio':
-        specifier: ^1.0.3
-        version: 1.0.3(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-avatar':
-        specifier: ^1.0.4
-        version: 1.0.4(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-dialog':
-        specifier: ^1.0.5
-        version: 1.0.5(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-dropdown-menu':
-        specifier: ^2.0.6
-        version: 2.0.6(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-label':
-        specifier: ^2.0.2
-        version: 2.0.2(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-navigation-menu':
-        specifier: ^1.1.4
-        version: 1.1.4(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-popover':
-        specifier: ^1.0.7
-        version: 1.0.7(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-slot':
-        specifier: ^1.0.2
-        version: 1.0.2(@types/react@18.2.25)(react@18.2.0)
       '@radix-ui/react-tooltip':
         specifier: ^1.0.7
         version: 1.0.7(@types/react-dom@18.2.11)(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
+      '@turbocell/shadcn':
+        specifier: workspace:*
+        version: link:../shadcn
+      '@turbocell/utils':
+        specifier: workspace:*
+        version: link:../utils
       autoprefixer:
         specifier: ^10.4.16
         version: 10.4.16(postcss@8.4.31)
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
-      clsx:
-        specifier: ^2.0.0
-        version: 2.0.0
-      cmdk:
-        specifier: ^0.2.0
-        version: 0.2.0(@types/react@18.2.25)(react-dom@18.2.0)(react@18.2.0)
       lucide-react:
         specifier: ^0.284.0
         version: 0.284.0(react@18.2.0)
@@ -370,29 +331,20 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
-      react-wrap-balancer:
-        specifier: ^1.1.0
-        version: 1.1.0(react@18.2.0)
       sonner:
         specifier: ^1.0.3
         version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
-      tailwind-merge:
-        specifier: ^1.14.0
-        version: 1.14.0
       tailwindcss:
         specifier: 3.3.2
         version: 3.3.2
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.3.2)
     devDependencies:
-      '@harborx/eslint-config':
+      '@turbocell/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@harborx/tailwind-config':
+      '@turbocell/tailwind-config':
         specifier: workspace:*
         version: link:../../tooling/tailwind
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -447,10 +399,10 @@ importers:
         specifier: ^3.22.3
         version: 3.22.4
     devDependencies:
-      '@harborx/eslint-config':
+      '@turbocell/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       eslint:
@@ -496,7 +448,7 @@ importers:
         specifier: ^4.6.0
         version: 4.6.0(eslint@8.50.0)
     devDependencies:
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       eslint:
@@ -517,11 +469,14 @@ importers:
       tailwindcss:
         specifier: 3.3.2
         version: 3.3.2
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.3.2)
     devDependencies:
-      '@harborx/eslint-config':
+      '@turbocell/eslint-config':
         specifier: workspace:*
         version: link:../eslint
-      '@harborx/tsconfig':
+      '@turbocell/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       '@types/node':

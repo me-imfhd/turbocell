@@ -1,4 +1,4 @@
-import { Button, Input, Label } from '@harborx/shadcn'
+import { Button, Input, Label } from '@turbocell/shadcn'
 import React from 'react'
 
 export function SignInForm() {

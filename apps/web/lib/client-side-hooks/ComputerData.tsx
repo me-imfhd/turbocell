@@ -1,7 +1,7 @@
 "use client";
 
-import { trpc } from "@harborx/api/trpc/client";
-import { Button } from "@harborx/shadcn";
+import { trpc } from "@turbocell/api/trpc/client";
+import { Button } from "@turbocell/shadcn";
 
 export function ComputerData() {
   const { data, isLoading } = trpc.computers.getComputers.useQuery();

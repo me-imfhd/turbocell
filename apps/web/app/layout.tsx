@@ -1,15 +1,15 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Toaster } from "@harborx/shadcn";
+import { Toaster } from "@turbocell/shadcn";
 import { fontSans, fontMono } from "@/lib/fonts";
-import { ThemeProvider } from "@harborx/ui/components/ThemeProvider";
-import { cn } from "@harborx/utils/utils";
-import TailwindResposivenessIndicator from "@harborx/ui/components/TailwindResposivenessIndicator";
+import { ThemeProvider } from "@turbocell/ui/components/ThemeProvider";
+import { cn } from "@turbocell/utils/utils";
+import TailwindResposivenessIndicator from "@turbocell/ui/components/TailwindResposivenessIndicator";
 import { PropsWithChildren } from "react";
-import TrpcProvider from "@harborx/api/trpc/Provider"
+import TrpcProvider from "@turbocell/api/trpc/Provider"
 
 export const metadata: Metadata = {
-  title: "Harbor X",
+  title: "Turbo Cell",
   description:
     "",
   themeColor: [

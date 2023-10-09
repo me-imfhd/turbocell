@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { Icons } from "@harborx/utils/icons";
-import { Button } from "@harborx/shadcn";
+import { Icons } from "@turbocell/utils/icons";
+import { Button } from "@turbocell/shadcn";
 
 const HeroSection = () => {
   return (
@@ -22,7 +22,7 @@ const HeroSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg">
                   <div className="p-2 bg-background  bg-opacity-50 rounded-full">
-                    <Icons.edit />
+                    <Icons.moon />
                   </div>
                   <h2 className="text-base md:text-xl font-bold text-white">
                     Mordern Setup
@@ -35,7 +35,7 @@ const HeroSection = () => {
                 </div>
                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg">
                   <div className="p-2 bg-background  bg-opacity-50 rounded-full">
-                    <Icons.send />
+                    <Icons.check />
                   </div>
                   <h2 className="text-base md:text-xl font-bold text-white">
                     Type Safety & Auto-completion

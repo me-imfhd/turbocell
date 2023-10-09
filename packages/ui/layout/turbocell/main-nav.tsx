@@ -2,8 +2,8 @@
 
 import * as React from "react";
 // import { menComponents,kidComponents, womenComponents, accessoriesComponent } from "@/config/products";
-import { cn } from "@harborx/utils/utils";
-import { Icons } from "@harborx/utils/icons";
+import { cn } from "@turbocell/utils/utils";
+import { Icons } from "@turbocell/utils/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,7 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@harborx/shadcn/ui";
+} from "@turbocell/shadcn/ui";
 
 export function MainNav() {
   return (
@@ -22,8 +22,8 @@ export function MainNav() {
         href="/"
         className="hidden items-center space-x-2 lg:flex"
       >
-        <Icons.star className="h-6 w-6" aria-hidden="true" />
-        <span className="hidden font-bold lg:inline-block">Harbor X</span>
+        <Icons.chevronsRight className="h-6 w-6" aria-hidden="true" />
+        <span className="hidden font-bold lg:inline-block">Turbo Cell</span>
       </a>
       <NavigationMenu>
         <NavigationMenuList>
@@ -39,7 +39,7 @@ export function MainNav() {
                     >
                       <Icons.logo className="h-6 w-6" />
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        Harbor X
+                        Turbo Cell
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
                         Headache-Free Project Building: Embracing the Latest

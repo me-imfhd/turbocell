@@ -1,1 +1,1 @@
-module.exports = require("@harborx/tailwind-config/index");
+module.exports = require("@turbocell/tailwind-config/index");
