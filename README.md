@@ -1,8 +1,8 @@
-# turbocell
+## turbocell
 
 **Load the turbocell and execute your idea.**
 
-## Completed:
+### Completed:
 
 1. **Nextjs 13.5 App Router Implementation** - Upgraded to Next.js 13.5 for enhanced routing and server/client components.
 
@@ -36,7 +36,7 @@
     - tooling/typescript - tsconfigs
     - tooling/tailwind - tailwind config, global CSS, and CSS variables
 
-## In Process:
+### In Process:
 
 1. Docker Integration
 2. Page redirects through various buttons and links across the page
