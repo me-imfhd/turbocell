@@ -39,15 +39,16 @@
 ### In Process:
 
 1. Docker Integration
-2. Page redirects through various buttons and links across the page
+2. Deployement on aws
 3. Next-Auth Credentials Provider
 4. Tailwind Intellisense not working
-5. Project structure fixes
-6. UI fixes
+
 
 ## To do:
 
 1. Trpc's better illustration and more examples
 2. Docs
 3. Feature for switching between light and dark mode both
+4. Project structure fixes
+5. UI fixes
 
