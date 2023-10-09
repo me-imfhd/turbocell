@@ -2,7 +2,7 @@
 
 **Load the turbocell and execute your idea.**
 
-### Completed:
+## Features Completed:
 
 1. **Nextjs 13.5 App Router Implementation** - Upgraded to Next.js 13.5 for enhanced routing and server/client components.
 
@@ -44,7 +44,7 @@
 4. Tailwind Intellisense not working
 
 
-## To do:
+### To do:
 
 1. Trpc's better illustration and more examples
 2. Docs
