@@ -10,8 +10,6 @@ import {
 
 import { CompleteUser, db } from "@harborx/db";
 
-import { env } from "./env.mjs";
-
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { GetServerSidePropsContext } from "next";
 export type { Session } from "next-auth";
@@ -93,11 +91,9 @@ export const authOptions: NextAuthOptions = {
 //   return !!auth?.user
 // }
 
-export async function getUser(){
-  const session = await getServerSession(authOptions)
-  const user = session?.user
+export async function getUser() {
+  const session = await getServerSession(authOptions);
+  const user = session?.user;
 
   return user;
 }
-
-export { env } from "./env.mjs";

@@ -23,7 +23,7 @@ export function MainNav() {
         className="hidden items-center space-x-2 lg:flex"
       >
         <Icons.star className="h-6 w-6" aria-hidden="true" />
-        <span className="hidden font-bold lg:inline-block">Tee Harbor X</span>
+        <span className="hidden font-bold lg:inline-block">Harbor X</span>
       </a>
       <NavigationMenu>
         <NavigationMenuList>
@@ -39,24 +39,23 @@ export function MainNav() {
                     >
                       <Icons.logo className="h-6 w-6" />
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        Tee Harbor X
+                        Harbor X
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        This platform empowers creators to sell merchandise
-                        through social media integration.
+                        Headache-Free Project Building: Embracing the Latest
+                        Tech with Ease.
                       </p>
                     </a>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/docs" title="Products">
-                  Stylish products for all, with quality and fashion for your
-                  store.
+                <ListItem href="/docs" title="Docs">
+                  Discover template insights.
                 </ListItem>
-                <ListItem href="/docs/installation" title="Stores">
-                  Make your store and start selling now.
+                <ListItem href="/computers" title="Trpc">
+                  See TRPC in action.
                 </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Github">
-                  We are Open Source.
+                <ListItem href="https://github.com/me-imfhd" title="Github">
+                  Contribute on GitHub."
                 </ListItem>
               </ul>
             </NavigationMenuContent>

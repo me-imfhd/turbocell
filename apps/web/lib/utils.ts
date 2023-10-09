@@ -3,7 +3,6 @@ import { toast } from "sonner";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
-// import { env } from "./env.mjs";
 
 export function slugify(str: string) {
   return str
@@ -41,7 +40,7 @@ export function isArrayOfFile(files: unknown): files is File[] {
 }
 
 // export function absoluteUrl(path: string) {
-//   return `${env.NEXT_PUBLIC_APP_URL}${path}`;
+//   return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;
 // }
 
 export function catchError(err: unknown) {

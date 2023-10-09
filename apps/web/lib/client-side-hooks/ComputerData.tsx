@@ -1,19 +1,22 @@
 "use client";
 
 import { trpc } from "@harborx/api/trpc/client";
-import { Button } from "@harborx/ui/components/ui/button";
+import { Button } from "@harborx/shadcn";
 
 export function ComputerData() {
-  const { data,isLoading } = trpc.computers.getComputers.useQuery();
+  const { data, isLoading } = trpc.computers.getComputers.useQuery();
   const createComputer = trpc.computers.createComputer.useMutation();
-  if(isLoading){
-    return <div>Loading the computers...</div>
+  if (isLoading) {
+    return <div>Loading the computers...</div>;
   }
   return (
-    <>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+    <div className="flex flex-col place-items-center justify-center">
+      <div>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
       <Button
-        onClick={async() => {
+        className="w-48"
+        onClick={async () => {
           await createComputer.mutate({
             insertComputerParams: { brand: "intel", cores: 3 },
           });
@@ -22,6 +25,6 @@ export function ComputerData() {
       >
         Create Computer
       </Button>
-    </>
+    </div>
   );
 }
