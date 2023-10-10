@@ -1,8 +1,9 @@
 import {
   createComputer,
+  deleteAllComputers,
   updateComputer,
 } from "../../api-endpoint-blogic/computers/mutations";
-import { publicProcedure, createTRPCRouter } from "../trpc";
+import { publicProcedure, createTRPCRouter, protectedProcedure } from "../trpc";
 import { getComputers } from "../../api-endpoint-blogic/computers/queries";
 import { z } from "zod";
 import {
@@ -14,7 +15,7 @@ export const computersRouter = createTRPCRouter({
   getComputers: publicProcedure.query(async () => {
     return getComputers();
   }),
-  createComputer: publicProcedure
+  createComputer: protectedProcedure
     .input(
       z.object({
         insertComputerParams,
@@ -23,7 +24,7 @@ export const computersRouter = createTRPCRouter({
     .mutation(async ({ input }) => {
       return createComputer(input.insertComputerParams);
     }),
-  updateComputer: publicProcedure
+  updateComputer: protectedProcedure
     .input(
       z.object({
         id: computerIdSchema,
@@ -33,4 +34,7 @@ export const computersRouter = createTRPCRouter({
     .mutation(async ({ input }) => {
       return updateComputer(input.id.id, input.computer);
     }),
+  deleteAllComputer: protectedProcedure.mutation(async () => {
+    return deleteAllComputers();
+  }),
 });
