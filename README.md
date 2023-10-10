@@ -38,7 +38,7 @@
 
 ### In Process:
 
-1. Deployement on aws
+1. Deployement
 2. Next-Auth Credentials Provider
 3. Tailwind Intellisense not working
 

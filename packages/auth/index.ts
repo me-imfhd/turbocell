@@ -1,5 +1,6 @@
 import DiscordProvider from "next-auth/providers/discord";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook"
 
 import {
   getServerSession,
@@ -11,7 +12,6 @@ import {
 import { CompleteUser, db } from "@turbocell/db";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { GetServerSidePropsContext } from "next";
 export type { Session } from "next-auth";
 
 // Update this whenever adding new providers so that the client can
@@ -50,6 +50,10 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID as string,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string
+    })
   ],
   callbacks: {
     async session({ session, user }) {
