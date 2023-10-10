@@ -13,6 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@turbocell/shadcn/ui";
+import Link from "next/link";
 
 export function MainNav() {
   return (
@@ -60,6 +61,13 @@ export function MainNav() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
+          <NavigationMenuItem>
+          <Link href="/computers" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Computers
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
     </div>
