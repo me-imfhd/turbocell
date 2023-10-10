@@ -1,7 +1,7 @@
 "use client";
 import { ComputerData } from "@/lib/client-side-hooks/ComputerData";
 import { trpc } from "@turbocell/api/trpc/client";
-import { Button } from "@turbocell/shadcn";
+import { Button, Shell } from "@turbocell/shadcn";
 import React, { useState } from "react";
 
 const Page = () => {
@@ -10,7 +10,7 @@ const Page = () => {
     message: string;
   }>();
   return (
-    <div className="flex flex-col place-items-center justify-center">
+    <Shell as={"div"} className="flex flex-col place-items-center justify-center">
       {!sessionMessage ? (
         <Button
           onClick={() => {
@@ -24,7 +24,7 @@ const Page = () => {
       )}
 
       <ComputerData></ComputerData>
-    </div>
+    </Shell>
   );
 };
 

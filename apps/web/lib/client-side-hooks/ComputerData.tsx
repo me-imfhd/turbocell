@@ -1,30 +1,68 @@
 "use client";
-
 import { trpc } from "@turbocell/api/trpc/client";
-import { Button } from "@turbocell/shadcn";
+import { Button, Skeleton } from "@turbocell/shadcn";
+import { useState } from "react";
 
 export function ComputerData() {
-  const { data, isLoading } = trpc.computers.getComputers.useQuery();
-  const createComputer = trpc.computers.createComputer.useMutation();
-  if (isLoading) {
-    return <div>Loading the computers...</div>;
-  }
+  const utils = trpc.useContext();
+  const [loading, setloading] = useState<boolean>(false);
+  const { data: getComp, isLoading: getIsLoading, refetch} =
+    trpc.computers.getComputers.useQuery();
+  const createComp = trpc.computers.createComputer.useMutation({
+    onSuccess: () => {
+      utils.computers.getComputers.invalidate();
+      alert("Computer created successfully");
+    },
+    onError: (error) => {
+      alert(`An error occurred: ${error.message}`);
+    },
+  });
+  const deleteAllComputers = trpc.computers.deleteAllComputer.useMutation({
+    onSuccess: () => {
+      utils.computers.getComputers.invalidate();
+      alert("All computers deleted successfully")
+    },
+    onError: (error) => {
+      alert(`An error occurred: ${error.message}`);
+    },
+  });
+
   return (
-    <div className="flex flex-col place-items-center justify-center">
-      <div>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+    <div className="flex flex-col place-items-center justify-center space-y-4">
+      {getIsLoading || createComp.isLoading || deleteAllComputers.isLoading ? (
+        <Skeleton className="bg-muted w-full h-44"></Skeleton>
+        ) : (
+          <>
+          <div className="w-full bg-gradient-to-r from-background to-accent border rounded-md p-6">
+            <pre>{JSON.stringify(getComp, null, 2)}</pre>
+          </div>
+          <div className="w-full bg-gradient-to-r from-background to-accent border rounded-md p-6">
+            <pre>{JSON.stringify(deleteAllComputers.data, null, 2)}</pre>
+          </div>
+        </>
+      )}
+      <div>{createComp.error?.message}</div>
+      <div className="m-4 space-x-4">
+        <Button
+          size={"sm"}
+          onClick={() => {
+            createComp.mutate({
+              insertComputerParams: { brand: "intel", cores: 3 },
+            });
+          }}
+        >
+          Create Computer
+        </Button>
+        <Button
+          variant={"destructive"}
+          size={"sm"}
+          onClick={() => {
+            deleteAllComputers.mutate();
+          }}
+        >
+          Delete All Computers
+        </Button>
       </div>
-      <Button
-        className="w-48"
-        onClick={() => {
-          createComputer.mutate({
-            insertComputerParams: { brand: "intel", cores: 3 },
-          });
-          location.reload();
-        }}
-      >
-        Create Computer
-      </Button>
     </div>
   );
 }
