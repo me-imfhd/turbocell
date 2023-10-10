@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma db push && npx prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,7 +17,7 @@
     "@turbocell/utils":"workspace:*",
     "@turbocell/shadcn":"workspace:*",
     "@trpc/server": "^10.38.5",
-    "@types/react": "18.2.25",
+    "@types/react": "18.2.27",
     "@types/react-dom": "18.2.10",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.0.0",

@@ -6,7 +6,7 @@
   },
   "packageManager": "pnpm@8.7.5",
   "scripts": {
-    "build": "turbo build",
+    "build": "npx prisma db push && turbo build",
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo clean",
     "db:push": "pnpm -F db push",

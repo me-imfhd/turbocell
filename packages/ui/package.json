@@ -26,7 +26,7 @@
     "@turbocell/tailwind-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
     "@types/node": "20.8.0",
-    "@types/react": "^18.2.25",
+    "@types/react": "^18.2.27",
     "@types/react-dom": "^18.2.11",
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
