@@ -38,10 +38,9 @@
 
 ### In Process:
 
-1. Docker Integration
-2. Deployement on aws
-3. Next-Auth Credentials Provider
-4. Tailwind Intellisense not working
+1. Deployement on aws
+2. Next-Auth Credentials Provider
+3. Tailwind Intellisense not working
 
 
 ### To do:
