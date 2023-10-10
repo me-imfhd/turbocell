@@ -1,29 +1,27 @@
 "use client";
 import { trpc } from "@turbocell/api/trpc/client";
 import { Button, Skeleton } from "@turbocell/shadcn";
-import { useState } from "react";
 
 export function ComputerData() {
   const utils = trpc.useContext();
-  const [loading, setloading] = useState<boolean>(false);
-  const { data: getComp, isLoading: getIsLoading, refetch} =
+  const { data: getComp, isLoading: getIsLoading} =
     trpc.computers.getComputers.useQuery();
   const createComp = trpc.computers.createComputer.useMutation({
-    onSuccess: () => {
-      utils.computers.getComputers.invalidate();
-      alert("Computer created successfully");
+    onSuccess: async() => {
+      await utils.computers.getComputers.invalidate();
+      void alert("Computer created successfully");
     },
     onError: (error) => {
-      alert(`An error occurred: ${error.message}`);
+      void alert(`An error occurred: ${error.message}`);
     },
   });
   const deleteAllComputers = trpc.computers.deleteAllComputer.useMutation({
-    onSuccess: () => {
-      utils.computers.getComputers.invalidate();
-      alert("All computers deleted successfully")
+    onSuccess: async() => {
+      await utils.computers.getComputers.invalidate();
+      void alert("All computers deleted successfully")
     },
     onError: (error) => {
-      alert(`An error occurred: ${error.message}`);
+      void alert(`An error occurred: ${error.message}`);
     },
   });
 
