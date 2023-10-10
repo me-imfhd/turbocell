@@ -9,7 +9,7 @@ import { Icons } from "@turbocell/utils/icons";
 
 export const LogOutButtons = () => {
   const isMounted = useMounted();
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   return (
     <div className="flex w-full items-center space-x-2">
       {isMounted ? (
@@ -21,7 +21,7 @@ export const LogOutButtons = () => {
             disabled={isLoading}
             onClick={async () => {
               setIsLoading(true);
-              const data = await signOut({ redirect: true, callbackUrl: "/" });
+              await signOut({ redirect: true, callbackUrl: "/" });
             }}
           >
             {isLoading && (

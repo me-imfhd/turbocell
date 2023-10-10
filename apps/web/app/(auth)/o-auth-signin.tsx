@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useState, useTransition } from "react";
+import React, { useState } from "react";
 import { toast } from "sonner";
 import { signIn } from "next-auth/react";
-import { OAuthProviders } from "@turbocell/auth";
-import { useRouter } from "next/navigation";
+import type { OAuthProviders } from "@turbocell/auth";
 import { Icons } from "@turbocell/utils/icons";
 import { Button } from "@turbocell/shadcn";
 
@@ -21,10 +20,9 @@ const oauthprovider: OAuthProviderProps = [
 
 const OAuthSignIn = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const router = useRouter();
   async function handleClick(provider: OAuthProviders) {
     try {
-      const data = await signIn(provider, {callbackUrl:"/",redirect:true});
+      const data = await signIn(provider, { callbackUrl: "/", redirect: true });
       if (data?.error) {
         console.log(data.error);
         toast.error(data.error);
@@ -33,7 +31,7 @@ const OAuthSignIn = () => {
       }
     } catch (error) {
       console.log(error);
-    } 
+    }
   }
 
   return (
@@ -46,19 +44,19 @@ const OAuthSignIn = () => {
             key={provider.provider}
             variant="outline"
             className="w-full bg-background sm:w-auto"
-            onClick={() => {
+            onClick={async() => {
               setIsLoading(true);
-              handleClick(provider.provider);
+              await handleClick(provider.provider);
             }}
             disabled={isLoading}
           >
             {isLoading ? (
               <Icons.spinner
                 className="mr-2 h-4 w-4 animate-spin"
-                aria-label="true"
+                aria-label="loading..."
               />
             ) : (
-              <Icon className="mr-2 h-4 w-4" aria-label="true" />
+              <Icon className="mr-2 h-4 w-4" aria-label="laoding..." />
             )}
             {provider.name}
           </Button>

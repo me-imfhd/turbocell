@@ -3,7 +3,7 @@ import { SiteFooter, SiteHeader } from "@turbocell/ui/layout";
 import React from "react";
 
 
-export default async function DashboardLayout({
+export default function DashboardLayout({
   children,
 }: React.PropsWithChildren) {
 

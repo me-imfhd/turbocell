@@ -1,9 +1,10 @@
 import { SiteHeader } from "@turbocell/ui/layout/turbocell";
 import { SiteFooter } from "@turbocell/ui/layout/turbocell";
-import React, { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
+import React from "react";
 import { ProfileHeader } from "@/components/layout/profile-header";
 
-export default async function LobbyLayout({ children }: PropsWithChildren) {
+export default function LobbyLayout({ children }: PropsWithChildren) {
   return (
     <div className="flex flex-col min-h-screen">
       <SiteHeader>

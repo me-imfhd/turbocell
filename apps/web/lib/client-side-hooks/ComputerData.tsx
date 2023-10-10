@@ -16,8 +16,8 @@ export function ComputerData() {
       </div>
       <Button
         className="w-48"
-        onClick={async () => {
-          await createComputer.mutate({
+        onClick={() => {
+          createComputer.mutate({
             insertComputerParams: { brand: "intel", cores: 3 },
           });
           location.reload();

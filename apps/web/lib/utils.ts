@@ -1,7 +1,5 @@
 // import { isClerkAPIResponseError } from "@clerk/nextjs";
 import { toast } from "sonner";
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 
 export function slugify(str: string) {
@@ -57,7 +55,7 @@ export function catchError(err: unknown) {
 }
 
 export function catchClerkError(err: unknown) {
-  const unknownErr = "Something went wrong, please try again later.";
+  // const unknownErr = "Something went wrong, please try again later.";
 
   if (err instanceof z.ZodError) {
     const errors = err.issues.map((issue) => {

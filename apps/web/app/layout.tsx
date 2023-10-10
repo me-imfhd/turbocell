@@ -5,7 +5,7 @@ import { fontSans, fontMono } from "@/lib/fonts";
 import { ThemeProvider } from "@turbocell/ui/components/ThemeProvider";
 import { cn } from "@turbocell/utils/utils";
 import TailwindResposivenessIndicator from "@turbocell/ui/components/TailwindResposivenessIndicator";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import TrpcProvider from "@turbocell/api/trpc/Provider"
 
 export const metadata: Metadata = {

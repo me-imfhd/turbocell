@@ -41,9 +41,10 @@ const HeroSection = () => {
                     Type Safety & Auto-completion
                   </h2>
                   <p className="text-sm md:text-base text-muted-foreground">
-                    Type safe development, streamlined workflow via TurboRepo,
+                    {`Type safe development, streamlined workflow via TurboRepo,
                     and TypeScript's and TRPC and Zod for extreme type safety
-                    assurance.
+                    assurance.`}
+                    {/* ' is not allowed by eslint */}
                   </p>
                 </div>
                 <div className="flex flex-col items-center space-y-2 border-gray-800 p-4 rounded-lg">

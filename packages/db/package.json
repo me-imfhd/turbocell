@@ -27,7 +27,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@turbocell/eslint-config"
+      "@turbocell/eslint-config/base"
     ]
   }
 }
