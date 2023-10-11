@@ -1,0 +1,10 @@
+{
+  "extends": "@turbocell/tsconfig/base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "baseUrl": "src"
+  },
+  "include": ["."],
+  "exclude": ["node_modules"]
+}
+
