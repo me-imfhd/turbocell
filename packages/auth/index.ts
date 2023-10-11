@@ -1,6 +1,6 @@
 import DiscordProvider from "next-auth/providers/discord";
 import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from "next-auth/providers/facebook"
+import FacebookProvider from "next-auth/providers/facebook";
 
 import {
   getServerSession,
@@ -9,27 +9,29 @@ import {
   DefaultUser,
 } from "next-auth";
 
-import { CompleteUser, db } from "@turbocell/db";
+import { CompleteSession, CompleteUser, db } from "@turbocell/db";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 export type { Session } from "next-auth";
-
-// Update this whenever adding new providers so that the client can
-export const providers = ["discord", "google", "facebook"] as const;
 export type OAuthProviders = (typeof providers)[number];
 
 // todo extract this in a next-auth.d.ts declaration file
+// here basically we are making basic next auth User, Session, Profile interfaces and extending it with our primsa schema
+// here you are taking things in your hand be careful
 declare module "next-auth" {
-  interface Session {
+  interface User extends DefaultUser, CompleteUser {}
+  interface Session extends CompleteSession {
     user: {
       id?: string | null | undefined;
-    } & DefaultSession["user"];
+    } & DefaultSession["user"] &
+      User;
   }
-  interface User extends DefaultUser, CompleteUser {}
   interface Profile {
     id: string;
   }
 }
+// Update this whenever adding new providers so that the client can
+export const providers = ["discord", "google", "facebook"] as const;
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db as any),
   // any?! I know.
@@ -52,8 +54,8 @@ export const authOptions: NextAuthOptions = {
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID as string,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string
-    })
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
+    }),
   ],
   callbacks: {
     async session({ session, user }) {
@@ -95,8 +97,12 @@ export const authOptions: NextAuthOptions = {
 //   return !!auth?.user
 // }
 
+export type { User } from "next-auth";
 export async function getUser() {
   const session = await getServerSession(authOptions);
+  if (!session?.user) {
+    return null;
+  }
   const user = session?.user;
 
   return user;
