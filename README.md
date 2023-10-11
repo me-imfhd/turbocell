@@ -38,16 +38,12 @@
 
 ### In Process:
 
-1. Deployement
-2. Next-Auth Credentials Provider
-3. Tailwind Intellisense not working
+1. Next-Auth Credentials Provider
 
 
 ### To do:
 
-1. Trpc's better illustration and more examples
-2. Docs
-3. Feature for switching between light and dark mode both
-4. Project structure fixes
-5. UI fixes
+1. Docs
+2. Feature for switching between light and dark mode both
+3. Fix Bugs and Issues
 
