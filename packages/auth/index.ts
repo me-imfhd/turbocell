@@ -98,12 +98,14 @@ export const authOptions: NextAuthOptions = {
 // }
 
 export type { User } from "next-auth";
+export {getServerSession} from "next-auth";
 export async function getUser() {
-  const session = await getServerSession(authOptions);
-  if (!session?.user) {
-    return null;
+  try {
+    const session = await getServerSession(authOptions);
+    const user = session?.user;
+    return user;
+  } catch (err) {
+    console.error(err);
+    throw new Error((err as Error).message ?? "Error, please try again");
   }
-  const user = session?.user;
-
-  return user;
 }
