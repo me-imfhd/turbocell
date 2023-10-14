@@ -1,10 +1,12 @@
 ## Turbocell
 
-**Load the turbocell and execute your idea.**
+**Load the turbocell and build a production grade web application instantly.**
 
 ## Features Completed:
 
 1. **Nextjs 13.5 App Router Implementation** - Upgraded to Next.js 13.5 for enhanced routing and server/client components.
+
+2. **Express App** - Fully implemented Express app with routing and session-based-authentication implemented via express-session
 
 2. **Next-auth OAuth Providers** - Enabled OAuth authentication with Next-auth for secure user logins.
 
@@ -24,8 +26,9 @@
 
 10. **Shadcn Integration** - Integrated the powerful Unstyled non-component UI library.
 
-11. **11 workspace projects**
-    - apps/web - nextjs 13.5 app router app
+11. **12 workspace projects**
+    - apps/web - nextjs 13.5 app router app 
+    - apps/express-server - a well implemented monorepo-based express app with session-based-authentication
     - packages/api - api-endpoint-logic, server, trpc
     - packages/auth - next-auth
     - packages/db - prisma and zod generators

@@ -10,6 +10,7 @@ const HeroSection = () => {
         <div className="grid gap-6 items-center">
           <div className="flex flex-col justify-center space-y-8 text-center">
             <div className="space-y-2">
+              {/* todo: use taiwind variables instead fo hard coded colors */}
               <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl md:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
                 Cutting-Edge. All-in-One. Modern Tech.
               </h1>
@@ -25,7 +26,7 @@ const HeroSection = () => {
                     <Icons.moon />
                   </div>
                   <h2 className="text-base md:text-xl font-bold text-white">
-                    Mordern Setup
+                    Modern Setup
                   </h2>
                   <p className="text-sm md:text-base text-muted-foreground">
                     Seamless start with minimal setup for Turborepo powered with
