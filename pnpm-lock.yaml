@@ -41,9 +41,6 @@ importers:
       '@turbocell/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@types/js-cookie':
-        specifier: ^3.0.4
-        version: 3.0.4
       bcrypt:
         specifier: ^5.1.1
         version: 5.1.1
@@ -2101,10 +2098,6 @@ packages:
     dependencies:
       '@types/through': 0.0.31
       rxjs: 6.6.7
-    dev: false
-
-  /@types/js-cookie@3.0.4:
-    resolution: {integrity: sha512-vMMnFF+H5KYqdd/myCzq6wLDlPpteJK+jGFgBus3Da7lw+YsDmx2C8feGTzY2M3Fo823yON+HC2CL240j4OV+w==}
     dev: false
 
   /@types/json-schema@7.0.13:
