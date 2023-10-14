@@ -7,5 +7,7 @@ const server = createServer();
 setupRoutes(server);
 
 server.listen(port, () => {
-  console.log(`api running on ${port}, http://localhost:8080/example `);
+  console.log(
+    `api running on ${port}, http://localhost:${port}/user , http://localhost:${port}/getComputers`
+  );
 });
