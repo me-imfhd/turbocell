@@ -3,7 +3,7 @@ import {
   getComputers,
 } from "@turbocell/api/api-endpoint-blogic/computers/queries";
 import { ComputerId } from "@turbocell/db/schema/computers";
-import express, { Request, Response, Router } from "express";
+import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
 
 const router = createRouter();
@@ -21,7 +21,7 @@ router.get("/getComputers", async (req: Request, res: Response) => {
 router.get("/getComputer/:id", async (req: Request, res: Response) => {
   const id = req.params.id as ComputerId;
   console.log(id);
-  if (!id) {
+  if (!id) { 
     return res
       .status(400)
       .json({ message: "Computer Id not recieved, please try again" });
