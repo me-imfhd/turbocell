@@ -20,6 +20,10 @@ generator zod {
   prismaJsonNullability = true // (default) uses prisma's scheme for JSON field nullability
 }
 
+// if you change this from cuid to uuid please make sure you using cuid everywhere while validating with zod
+// for example don't get z.string().uuid() wrong with z.string().cuid()
+// if using cuid use the same to validate
+// the boilerplate vailates it by cuid so its recommended that you don't change it
 model Account {
   id                String   @id @default(cuid())
   userId            String
@@ -56,6 +60,7 @@ model User {
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
+  hashedPassword String?
   emailVerified DateTime?
   image         String?
   createdAt     DateTime  @default(now()) @map(name: "created_at")
@@ -83,7 +88,7 @@ model VerificationToken {
 
 
 model Computer {
-  id    String @id @default(uuid())
+  id    String @id @default(cuid())
   brand String
   cores Int
 }

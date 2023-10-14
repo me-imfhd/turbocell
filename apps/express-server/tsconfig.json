@@ -1,0 +1,11 @@
+{
+  "extends": "@turbocell/tsconfig/base.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "lib": ["ES2015"],
+    "rootDir": "./src",
+    "baseUrl": "src"
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}

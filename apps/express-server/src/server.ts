@@ -1,0 +1,53 @@
+import { json, urlencoded } from "body-parser";
+import express, { Express, Request, Response } from "express";
+import helmet from "helmet";
+import session from "express-session";
+import cors from "cors";
+import { userSchema } from "@turbocell/db";
+import cookieParser from "cookie-parser";
+import { z } from "zod";
+import { checkAuthenticated } from "utils/checkAuth";
+import { getSession } from "utils/getSession";
+// https://expressjs.com/en/resources/middleware.html visit here to add more middlewares of your choice
+
+export type User = z.infer<typeof userSchema>;
+
+export const createServer = (): Express => {
+  const app = express();
+  app
+    .disable("x-powered-by")
+    .use(urlencoded({ extended: true }))
+    .use(cookieParser())
+    .use(json())
+    .use(cors())
+    .use(helmet())
+    /* 
+    this creates server for storing the session data, here is your data stored
+    this uses your backend not the database
+    to store things in your own server database
+    check this out to learn more https://medium.com/@alysachan830/cookie-and-session-ii-how-session-works-in-express-session-7e08d102deb8
+    it has redis-server implementation
+    */
+    .use(
+      session({
+        secret: process.env.EXPRESS_SECRET as string,
+        resave: false,
+        saveUninitialized: false,
+      })
+    )
+    .get("/user", checkAuthenticated, (req: Request, res: Response) => {
+      const user = getSession(req, res);
+      res.json(user);
+    });
+
+  return app;
+};
+
+// this will help us to access all the user details from the req.session.user,
+// with every request we have this regardless os what type of request it is,
+// to use this when we login we attach user object to it  and when we log out we clear the entire session
+declare module "express-session" {
+  export interface Session {
+    user: User;
+  }
+}
