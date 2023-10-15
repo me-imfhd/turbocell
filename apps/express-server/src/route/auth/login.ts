@@ -2,19 +2,19 @@ import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
 import { db } from "@turbocell/db";
 import bcrypt from "bcrypt";
-
+import { loginSchema } from "@turbocell/db/schema/auth";
 const router = createRouter();
 
 router.post("/login", async (req: Request, res: Response) => {
-  const { email, password } = req.body;
+  const parsedBody = loginSchema.parse(req.body);
   try {
     const user = await db.user.findFirst({
-      where: { email: email },
+      where: { email: parsedBody.email },
     });
     if (
       user &&
       user.hashedPassword &&
-      (await bcrypt.compare(password, user.hashedPassword))
+      (await bcrypt.compare(parsedBody.password, user.hashedPassword))
     ) {
       req.session.user = user;
       res.send("Logged in");
@@ -26,5 +26,4 @@ router.post("/login", async (req: Request, res: Response) => {
   }
 });
 
-
-export {router as loginRouter}
+export { router as loginRouter };

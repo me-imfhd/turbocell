@@ -2,26 +2,27 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import { db } from "@turbocell/db";
 import { createRouter } from "utils/createRouter";
+import { signupSchema } from "@turbocell/db/schema/auth";
 
 const router = createRouter();
 
 router.post("/signup", async (req: Request, res: Response) => {
   // zod validation required
-  const body = req.body;
+  const parsedbody = signupSchema.parse(req.body);
   try {
     const user = await db.user.findFirst({
-      where: { email: body.email },
+      where: { email: parsedbody.email },
     });
     if (user) {
       return res.send("Email already exists");
     }
 
-    const hashedPassword = await bcrypt.hash(body.password, 10);
+    const hashedPassword = await bcrypt.hash(parsedbody.password, 10);
 
     const createUser = await db.user.create({
       data: {
-        email: body.email,
-        name: body.name,
+        email: parsedbody.email,
+        name: parsedbody.name,
         hashedPassword: hashedPassword,
       },
     });
