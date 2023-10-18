@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
 import formidable from "formidable";
-import { base64ToImageData, decodeBase64ToImage, encodeImageToBase64 } from "@turbocell/db";
+import { base64ToImageData, encodeImageToBase64 } from "@turbocell/db";
 
 const router = createRouter();
 
