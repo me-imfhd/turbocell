@@ -1,8 +1,10 @@
-// we do not need this if we are using next-auth or other auth-service providers
-
-// since our
 import { z } from "zod";
-import { userSchema } from "../prisma/zod";
+import { base64ToImageData } from "./imageConversion";
+import {
+  serverImageFormatValidation,
+  serverImageSizeValidation,
+  serverImageTypeValidation,
+} from "./imageValidation";
 
 export const loginSchema = z.object({
   email: z.string().email(),
@@ -13,11 +15,15 @@ export const signupSchema = loginSchema.extend({
   name: z.string().min(3).max(24),
 });
 
-export const updateUserSchema = z.object({
-  email: z.string().email(),
-  name: z.string().min(3).max(24),
-  image: z.string().optional(),
-});
+// const MAX_FILE_SIZE = 500000;
+// const ACCEPTED_IMAGE_TYPES = [
+//   "image/jpeg",
+//   "image/jpg",
+//   "image/png",
+//   "image/webp",
+// ];
+
+// export const updateUserSchema = z.object({});
 
 export const updatePasswordSchema = z
   .object({
@@ -28,3 +34,8 @@ export const updatePasswordSchema = z
     message: "Password does not match",
     path: ["confirmPassword"],
   });
+
+export type Login = z.infer<typeof loginSchema>;
+export type SignUp = z.infer<typeof signupSchema>;
+// export type UpdateUser = z.infer<typeof updateUserSchema>;
+export type UpdatePassword = z.infer<typeof updatePasswordSchema>;
