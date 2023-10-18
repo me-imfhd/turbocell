@@ -2,7 +2,7 @@
   "extends": "@turbocell/tsconfig/base.json",
   "compilerOptions": {
     "module": "CommonJS",
-    "lib": ["ES2015"],
+    "lib": ["ES2015", "DOM"],
     "rootDir": "./src",
     "baseUrl": "src"
   },

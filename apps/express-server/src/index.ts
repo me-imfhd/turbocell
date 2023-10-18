@@ -1,7 +1,7 @@
 import { setupRoutes } from "routes";
 import { createServer } from "server";
 
-const port = process.env.EXPRESSPORT || 8080;
+const port = process.env.EXPRESSPORT || 8081;
 const server = createServer();
 
 setupRoutes(server);
