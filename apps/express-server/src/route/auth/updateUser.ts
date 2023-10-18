@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
 import formidable from "formidable";
-import { base64ToImageData, encodeImageToBase64 } from "@turbocell/db";
+import fs from "fs";
+import { encodeImageToBase64 } from "@turbocell/db";
 
 const router = createRouter();
 
@@ -17,59 +18,22 @@ router.post("/updateImage", (req, res) => {
           error: err.message,
         });
       }
-      // Access the uploaded file
       const file = files.someExpressFiles; // don't know why but have use this
       if (!file) {
-        return;
+        return res.send("File not found");
       }
       if (!file[0]) {
-        return;
+        return res.send("File not found");
       }
       const finalFile: formidable.File = file[0];
-      const convert= encodeImageToBase64(finalFile.filepath);
-      console.log(finalFile.filepath);
-      const image = base64ToImageData(convert);
-      res.json(image);
+      const base64Image = encodeImageToBase64(finalFile.filepath);
 
-      return;
+      validateImage(req, res, finalFile);
 
-      // Validate the mimetype, file size, and file extension
-      const allowedMimeTypes = ["image/jpeg", "image/png", "image/webp"];
-      const finalFileMime = finalFile.mimetype as string;
-      const allowedExtensions = [".jpg", ".jpeg", ".png", ".webp"];
-      const finalFileExt = ("." +
-        finalFile.originalFilename?.split(".").at(-1)?.toLowerCase()) as string;
-      const maxFileSize = 1 * 1024 * 1024; // 1 MB
-      const finalFileSize = finalFile.size;
-
-      if (!allowedMimeTypes.includes(finalFileMime)) {
-        return res.status(400).json({
-          status: "Fail",
-          message:
-            "Invalid file type. Only JPEG, PNG, and WebP images are allowed.",
-        });
-      }
-      if (!allowedExtensions.includes(finalFileExt)) {
-        return res.status(400).json({
-          status: "Fail",
-          message:
-            "Invalid file extension. Only JPEG, PNG, and WebP images are allowed.",
-        });
-      }
-
-      if (finalFileSize > maxFileSize) {
-        return res.status(400).json({
-          status: "Fail",
-          message:
-            "File size exceeds the limit. Maximum file size allowed is 1 MB.",
-        });
-      }
-
-      res.status(200).json({
-        status: "Success",
-        message: "File uploaded successfully.",
-        finalFile,
-      });
+      res.send(`
+        <div style="margin-bottom: 10px;"><img src=${base64Image} style="width: 400px; height:400px; padding: 10px; border: 1px solid lightgray; border-radius: 5px;"></div>
+        `);
+      fs.unlinkSync(finalFile.filepath);
     });
   } catch (err) {
     res.json({
@@ -84,11 +48,43 @@ router.get("/updateUser", (req: Request, res: Response) => {
   res.send(`
   <h2 style="text-align: center; color: slategray; padding: 20px; margin-bottom: 30px;">Update Profile</h2>
   <form action="${updateImageEndpoint}" enctype="multipart/form-data" method="post" style="width: 400px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-    <div style="margin-bottom: 10px;">Text field title: <input type="text" name="title" style="width: 100%; padding: 10px; border: 1px solid lightgray; border-radius: 5px;"></div>
     <div style="margin-bottom: 10px;">File: <input type="file" name="someExpressFiles" multiple="multiple" style="width: 100%; padding: 10px; border: 1px solid lightgray; border-radius: 5px;"></div>
     <input type="submit" value="Upload" style="background-color: slategray; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
   </form>
   
     `);
 });
+
+function validateImage(req: Request, res: Response, file: formidable.File) {
+  const allowedMimeTypes = ["image/jpeg", "image/png", "image/webp"];
+  const finalFileMime = file.mimetype as string;
+  const allowedExtensions = [".jpg", ".jpeg", ".png", ".webp"];
+  const finalFileExt = ("." +
+    file.originalFilename?.split(".").at(-1)?.toLowerCase()) as string;
+  const maxFileSize = 1 * 1024 * 1024; // 1 MB
+  const finalFileSize = file.size;
+
+  if (!allowedMimeTypes.includes(finalFileMime)) {
+    return res.status(400).json({
+      status: "Fail",
+      message:
+        "Invalid file type. Only JPEG, PNG, and WebP images are allowed.",
+    });
+  }
+  if (!allowedExtensions.includes(finalFileExt)) {
+    return res.status(400).json({
+      status: "Fail",
+      message:
+        "Invalid file extension. Only JPEG, PNG, and WebP images are allowed.",
+    });
+  }
+
+  if (finalFileSize > maxFileSize) {
+    return res.status(400).json({
+      status: "Fail",
+      message:
+        "File size exceeds the limit. Maximum file size allowed is 1 MB.",
+    });
+  }
+}
 export { router as updateUserRoute };
