@@ -5,6 +5,7 @@ import { deleteComputerRoute } from "route/computers/deleteComputer";
 import { loginRouter } from "route/auth/login";
 import { signupRoute } from "route/auth/signup";
 import { logoutRouter } from "route/auth/logout";
+import { updateUserRoute } from "route/auth/updateUser";
 
 export function setupRoutes(app: Express): void {
   app.use("/", getComputerRoute);
@@ -13,4 +14,5 @@ export function setupRoutes(app: Express): void {
   app.use("/", loginRouter);
   app.use("/", signupRoute);
   app.use("/", logoutRouter);
+  app.use("/", updateUserRoute);
 }
