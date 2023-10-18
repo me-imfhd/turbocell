@@ -1,12 +1,13 @@
 import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
 import formidable from "formidable";
+import { base64ToImageData, decodeBase64ToImage, encodeImageToBase64 } from "@turbocell/db";
 
 const router = createRouter();
 
 router.post("/updateImage", (req, res) => {
   try {
-    const form = formidable({ maxFiles: 1 });
+    const form = formidable({ maxFiles: 1, uploadDir: "./" });
     form.parse(req, (err, fields, files) => {
       if (err) {
         console.log("Error parsing the files");
@@ -16,7 +17,6 @@ router.post("/updateImage", (req, res) => {
           error: err.message,
         });
       }
-
       // Access the uploaded file
       const file = files.someExpressFiles; // don't know why but have use this
       if (!file) {
@@ -26,6 +26,12 @@ router.post("/updateImage", (req, res) => {
         return;
       }
       const finalFile: formidable.File = file[0];
+      const convert= encodeImageToBase64(finalFile.filepath);
+      console.log(finalFile.filepath);
+      const image = base64ToImageData(convert);
+      res.json(image);
+
+      return;
 
       // Validate the mimetype, file size, and file extension
       const allowedMimeTypes = ["image/jpeg", "image/png", "image/webp"];
