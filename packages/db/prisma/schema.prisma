@@ -62,7 +62,7 @@ model User {
   email         String?   @unique
   hashedPassword String?
   emailVerified DateTime?
-  image         String?
+  image         String?   @db.LongText
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
