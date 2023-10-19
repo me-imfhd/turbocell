@@ -7,7 +7,7 @@ import { userSchema } from "@turbocell/db";
 import cookieParser from "cookie-parser";
 import { z } from "zod";
 import { checkAuthenticated } from "utils/checkAuth";
-import { getSession } from "utils/getSession";
+import { getUserSession } from "utils/userSession";
 // https://expressjs.com/en/resources/middleware.html visit here to add more middlewares of your choice
 
 export type User = z.infer<typeof userSchema>;
@@ -36,8 +36,17 @@ export const createServer = (): Express => {
       })
     )
     .get("/user", checkAuthenticated, (req: Request, res: Response) => {
-      const user = getSession(req, res);
-      res.json(user);
+      const user = getUserSession(req, res);
+      if (!user) {
+        return res.send("User Session not found, try again or re-login");
+      }
+      res.send(`
+      <div style="margin-bottom: 10px;">
+          <div>Name: ${user?.name}</div>
+          <div>Email: ${user?.email}</div>
+          <img src=${user?.image} style="width: auto; height:400px; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
+        </div>
+      `);
     });
 
   return app;

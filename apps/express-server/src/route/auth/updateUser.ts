@@ -2,12 +2,82 @@ import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
 import formidable from "formidable";
 import fs from "fs";
-import { encodeImageToBase64 } from "@turbocell/db";
+import { encodeImageToBase64, updateUserSchema } from "@turbocell/db";
 import { checkAuthenticated } from "utils/checkAuth";
+import { getUserSession, updateUserSession } from "utils/userSession";
 
 const router = createRouter();
 
-router.post("/updateImage",checkAuthenticated , (req, res) => {
+router.post("/updateProfile", checkAuthenticated, async (req, res) => {
+  try {
+  const parsedbody = updateUserSchema.parse(req.body);
+  if(!db){
+    return res.send("db is down, try again");
+  }
+    const update = await db.user.update({
+      where: { id: req.session.user.id },
+      data: {
+        name: parsedbody.name,
+        email: parsedbody.email,
+      },
+    });
+    updateUserSession(req,res,update);
+    res.send(`
+        <div style="margin-bottom: 10px;">
+        <div>${parsedbody.name}</div>
+        <div>${parsedbody.email}</div>
+        </div>
+        `);
+  } catch (err) {
+    res.json({
+      status: "Fail",
+      message: `Exception Occured : ${err}`,
+    });
+  }
+});
+
+router.get("/getEditProfile",checkAuthenticated, (req: Request, res: Response) => {
+  const user = getUserSession(req,res);
+  const updateProfileEndpoint = "/updateProfile";
+  const updatePicEndpoint = "/getUpdatePic";
+  res.send(`
+  <h2 style="text-align: center; color: slategray; padding: 20px; margin-bottom: 30px;">Update Profile</h2>
+    <form action="${updateProfileEndpoint}" method="post" style="width: 400px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+      <div style="margin-bottom: 10px;">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="${user?.name}" id="name" style="width: 100%; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="${user?.email}" id="email" style="width: 100%; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <input type="submit" value="Update" style="background-color: slategray; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+        <a href="${updatePicEndpoint}" style="text-decoration:none;">Update Profile Picture?</a>
+      </div>
+    </form>
+  
+  `);
+});
+router.get("/getUpdatePic", (req:Request,res:Response)=>{
+  const updatePicEndpoint = "/updateProfilePic"
+  const getEditProfileEndpoint = "/getEditProfile"
+  res.send(`
+  <h2 style="text-align: center; color: slategray; padding: 20px; margin-bottom: 30px;">Update Profile</h2>
+  <form action="${updatePicEndpoint}" enctype="multipart/form-data" method="post" style="width: 400px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+    <div style="margin-bottom: 10px;">
+      <label for="image">Image:</label>
+      <input type="file" name="someExpressFiles" id="image" multiple="multiple" style="width: 100%; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <input type="submit" value="Upload" style="background-color: slategray; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+        <a href="${getEditProfileEndpoint}" style="text-decoration:none;">Go Back</a>
+      </div>
+  </form>
+  `)
+})
+
+router.post("/updateProfilePic",checkAuthenticated, (req: Request, res: Response) => {
   try {
     const form = formidable({ maxFiles: 1, uploadDir: "./" });
     form.parse(req, async (err, fields, files) => {
@@ -20,11 +90,11 @@ router.post("/updateImage",checkAuthenticated , (req, res) => {
         });
       }
       const file = files.someExpressFiles; // don't know why but have use this
-      if (!file || !fields.name || !fields.email) {
+      if (!file) {
         return res.send("File or fields not found");
       }
-      if (!file[0] || !fields.name[0] || !fields.email[0]) {
-        return res.send("File pr fields not found");
+      if (!file[0]) {
+        return res.send("File or fields not found");
       }
       const finalFile: formidable.File = file[0];
       const base64Image = encodeImageToBase64(finalFile.filepath);
@@ -33,23 +103,19 @@ router.post("/updateImage",checkAuthenticated , (req, res) => {
       if (!result) {
         return;
       }
-
-      const name = fields.name[0];
-      const email = fields.email[0];
-      const updateUser = await db?.user.update({
+      if(!db){
+        return res.send("db is down, try again");
+      }
+      const updateUser = await db.user.update({
         where: { id: req.session.user.id },
         data: {
-          name: name,
-          email: email,
           image: base64Image,
         },
       });
-      console.log(updateUser);
+      updateUserSession(req,res,updateUser)
       res.send(`
         <div style="margin-bottom: 10px;">
-        <div>${name}</div>
-        <div>${email}</div>
-          <img src=${base64Image} style="width: 400px; height:400px; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
+          <img src=${base64Image} style="width: auto; height:400px; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
         </div>
         `);
     });
@@ -59,29 +125,6 @@ router.post("/updateImage",checkAuthenticated , (req, res) => {
       message: `Exception Occured : ${err}`,
     });
   }
-});
-
-router.get("/updateUser", (req: Request, res: Response) => {
-  const updateImageEndpoint = "/updateImage";
-  res.send(`
-  <h2 style="text-align: center; color: slategray; padding: 20px; margin-bottom: 30px;">Update Profile</h2>
-    <form action="${updateImageEndpoint}" enctype="multipart/form-data" method="post" style="width: 400px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-      <div style="margin-bottom: 10px;">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" style="width: 100%; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
-      </div>
-      <div style="margin-bottom: 10px;">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" style="width: 100%; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
-      </div>
-      <div style="margin-bottom: 10px;">
-        <label for="image">Image:</label>
-        <input type="file" name="someExpressFiles" id="image" multiple="multiple" style="width: 100%; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
-      </div>
-      <input type="submit" value="Upload" style="background-color: slategray; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-    </form>
-  
-  `);
 });
 
 function validateImage(req: Request, res: Response, file: formidable.File) {
