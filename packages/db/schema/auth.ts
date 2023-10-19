@@ -9,15 +9,11 @@ export const signupSchema = loginSchema.extend({
   name: z.string().min(3).max(24),
 });
 
-// const MAX_FILE_SIZE = 500000;
-// const ACCEPTED_IMAGE_TYPES = [
-//   "image/jpeg",
-//   "image/jpg",
-//   "image/png",
-//   "image/webp",
-// ];
 
-// export const updateUserSchema = z.object({});
+export const updateUserSchema = z.object({
+  name: z.string().min(3).max(24),
+  email: z.string().email(),
+});
 
 export const updatePasswordSchema = z
   .object({
@@ -31,5 +27,5 @@ export const updatePasswordSchema = z
 
 export type Login = z.infer<typeof loginSchema>;
 export type SignUp = z.infer<typeof signupSchema>;
-// export type UpdateUser = z.infer<typeof updateUserSchema>;
+export type UpdateUser = z.infer<typeof updateUserSchema>;
 export type UpdatePassword = z.infer<typeof updatePasswordSchema>;
