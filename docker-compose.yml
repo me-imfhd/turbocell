@@ -1,19 +1,19 @@
 version: "3.8"
 
 services:
-  db:
-    image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    expose:
-      - 3306
-    ports:
-      - 6606:3306
+  # db:
+  #   image: mysql:latest
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  #     MYSQL_DATABASE: ${MYSQL_DATABASE}
+  #     MYSQL_USER: ${MYSQL_USER}
+  #     MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  #   expose:
+  #     - 3306
+  #   ports:
+  #     - 6606:3306
   web:
     container_name: web
     build:
@@ -21,11 +21,9 @@ services:
       dockerfile: ./apps/web/Dockerfile
     restart: always
     expose:
-      - 3000
+      - 3001
     ports:
-      - 3000:3000
-    depends_on:
-      - db
+      - 3001:3001
   # express-server:
   #   container_name: express-server
   #   build:
