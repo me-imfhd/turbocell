@@ -59,7 +59,7 @@ WORKDIR /app
 # Don't run production as root
 RUN groupadd --system --gid 1001 nextjs
 RUN useradd --system --uid 1001 nodejs
-USER nextjs
+USER nodejs
 COPY --from=installer /app .
 
 CMD cd apps/web/ && pnpm start
