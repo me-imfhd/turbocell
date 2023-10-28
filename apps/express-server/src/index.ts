@@ -8,6 +8,6 @@ setupRoutes(server);
 
 server.listen(port, () => {
   console.log(
-    `api running on ${port}, http://localhost:${port}/loginViaBrowser , http://localhost:${port}/signupViaBrowser`
+    `Api running on ${port}, http://localhost:${port}/loginViaBrowser, http://localhost:${port}/signupViaBrowser`
   );
 });
