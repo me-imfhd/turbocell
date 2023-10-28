@@ -25,18 +25,17 @@ services:
       - 3000
     ports:
       - 3000:3000
-  # express-server:
-  #   container_name: express-server
-  #   build:
-  #     context: .
-  #     dockerfile: ./apps/express-server/Dockerfile
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
-  #   networks:
-  #     - app_network
-  #   depends_on:
-  #     - db
+  express-server:
+    env_file: .env
+    container_name: express-server
+    build:
+      context: .
+      dockerfile: ./apps/express-server/Dockerfile
+    restart: always
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 
