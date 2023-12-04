@@ -5,9 +5,9 @@
   "types": "./index.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "prisma studio",
-    "db:generate": "prisma generate",
-    "db:push": "prisma db push --skip-generate",
+    "db:studio": "dotenv -e ../../.env prisma db push prisma studio",
+    "db:generate": "dotenv -e ../../.env prisma db push prisma generate",
+    "db:push": "dotenv -e ../../.env prisma db push --skip-generate",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "prisma": "^5.3.1", 
+    "dotenv-cli": "^7.2.1",
     "zod-prisma": "^0.5.4",
     "@types/node": "20.8.0",
     "eslint": "^8.50.0",

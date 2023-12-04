@@ -1,41 +1,43 @@
 version: "3.8"
 
 services:
-  # db:
-  #   image: mysql:latest
-  #   command: --default-authentication-plugin=mysql_native_password
+  db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: turbocell
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  # web:
+  #   env_file: .env
+  #   container_name: web
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/web/Dockerfile
   #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  #     MYSQL_DATABASE: ${MYSQL_DATABASE}
-  #     MYSQL_USER: ${MYSQL_USER}
-  #     MYSQL_PASSWORD: ${MYSQL_PASSWORD}
   #   expose:
-  #     - 3306
+  #     - 3000
   #   ports:
-  #     - 6606:3306
-  web:
-    env_file: .env
-    container_name: web
-    build:
-      context: .
-      dockerfile: ./apps/web/Dockerfile
-    restart: always
-    expose:
-      - 3000
-    ports:
-      - 3000:3000
-  express-server:
-    env_file: .env
-    container_name: express-server
-    build:
-      context: .
-      dockerfile: ./apps/express-server/Dockerfile
-    restart: always
-    expose:
-      - 8080
-    ports:
-      - 8080:8080
+  #     - 3000:3000
+
+  # express-server:
+  #   env_file: .env
+  #   container_name: express-server
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/express-server/Dockerfile
+  #   restart: always
+  #   expose:
+  #     - 8080
+  #   ports:
+  #     - 8080:8080
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
-
+volumes:
+  db:
+    driver: local

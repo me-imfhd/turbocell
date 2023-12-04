@@ -1,7 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 datasource db {
-  provider = "mysql"
+  provider = "postgres"
   relationMode = "prisma"
   url      = env("DATABASE_URL")
 }
@@ -62,7 +62,7 @@ model User {
   email         String?   @unique
   hashedPassword String?
   emailVerified DateTime?
-  image         String?   @db.LongText
+  image         String?   @db.Text
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
