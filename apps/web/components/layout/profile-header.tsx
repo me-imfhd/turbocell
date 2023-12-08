@@ -1,6 +1,6 @@
 
 import React from "react";
-import { UserProfileDropdown } from "@turbocell/ui/layout/turbocell";
+import { UserProfileDropdown } from "@turbocell/ui/layout/main-app";
 import Link from "next/link";
 import { buttonVariants } from "@turbocell/shadcn/ui";
 import { auth } from "@turbocell/auth";

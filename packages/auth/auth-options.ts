@@ -21,6 +21,7 @@ declare module "next-auth" {
 
 const useSecureCookies = process.env.VERCEL_ENV === "production";
 
+// change turbocell-web.vercel.app with your actual deployed host domain name
 const hostname =
   process.env.NEXT_PUBLIC_DEPLOYMENT_ENV === "production"
     ? "turbocell-web.vercel.app"
