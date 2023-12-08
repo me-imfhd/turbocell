@@ -5,9 +5,9 @@ import baseConfig from "@turbocell/tailwind-config";
 export default {
   content: [
     ...baseConfig.content,
-    "../../apps/web/**/*.{ts,tsx}",
-    "../../packages/ui/**/*.{ts,tsx}",
-    "../../packages/shadcn/**/*.{ts,tsx}",
+    "app/**/*.{ts,tsx}",
+    "components/**/*.{ts,tsx}",
+    "lib/**/*.{ts,tsx}",
   ],
   presets: [baseConfig],
 } satisfies Config;
