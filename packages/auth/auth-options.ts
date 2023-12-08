@@ -23,7 +23,7 @@ const useSecureCookies = process.env.VERCEL_ENV === "production";
 
 const hostname =
   process.env.NEXT_PUBLIC_DEPLOYMENT_ENV === "production"
-    ? "turbocell-me-imfhd.vercel.app"
+    ? "turbocell-web.vercel.app"
     : "localhost";
 
 export function getNextAuthCookieName() {
