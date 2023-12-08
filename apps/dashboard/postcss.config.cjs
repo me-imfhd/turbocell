@@ -1,0 +1,1 @@
+module.exports = require("@turbocell/tailwind-config/postcss");

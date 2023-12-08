@@ -16,3 +16,4 @@ if (process.env.NODE_ENV !== "production") global.db = db;
 
 export * from "./prisma/zod/index";
 export * from "./schema/index";
+export * as z from "zod";

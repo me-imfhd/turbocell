@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { signIn } from "next-auth/react";
+import { signIn } from "@turbocell/auth";
 import type { OAuthProviders } from "@turbocell/auth";
 import { Icons } from "@turbocell/utils/icons";
 import { Button } from "@turbocell/shadcn";

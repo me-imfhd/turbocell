@@ -1,15 +1,14 @@
 {
-  "name": "turbocell-mainapp",
-  "version": "0.0.0",
+  "name": "dashboard",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "next lint"
   },
   "dependencies": {
-    "@trpc/server": "^10.38.5",
     "@turbocell/api": "workspace:*",
     "@turbocell/auth": "workspace:*",
     "@turbocell/db": "workspace:*",
@@ -17,24 +16,25 @@
     "@turbocell/tailwind-config": "workspace:*",
     "@turbocell/ui": "workspace:*",
     "@turbocell/utils": "workspace:*",
-    "@types/react": "18.2.27",
-    "@types/react-dom": "18.2.10",
+    "million": "2.6.0-beta.12",
     "autoprefixer": "^10.4.16",
-    "clsx": "^2.0.0",
-    "next": "13.5.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-query": "^3.39.3",
-    "sonner": "^1.0.3",
-    "zod": "^3.22.3"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.0.3"
   },
   "devDependencies": {
+    "@trpc/server": "^10.38.5",
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
-    "eslint": "^8.50.0",
-    "prettier": "^3.0.3",
-    "tailwindcss": "3.3.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3"
   },
   "eslintConfig": {
     "root": true,

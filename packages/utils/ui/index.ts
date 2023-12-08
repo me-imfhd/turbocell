@@ -1,4 +1,4 @@
-import { Session } from "next-auth";
+import { Session } from "@turbocell/auth";
 
 export type UserProfileDropdownProps = {
   data: Session;

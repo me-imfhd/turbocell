@@ -12,11 +12,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@turbocell/auth": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.284.0",
     "next": "^13.5.4",
-    "next-auth": "^4.23.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-wrap-balancer": "^1.1.0",
