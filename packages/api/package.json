@@ -19,15 +19,15 @@
     "@trpc/server": "^10.38.5",
     "@turbocell/auth": "workspace:*",
     "@turbocell/db": "workspace:*",
-    "react": "18.2.0",
+    "react": "^18",
     "superjson": "1.13.3",
     "zod": "^3.22.2"
   },
   "devDependencies": {
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
-    "@types/react": "18.2.27",
-    "@types/react-dom": "18.2.8",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
