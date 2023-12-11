@@ -1,4 +1,5 @@
 "use client";
+import { ComputerData } from "@/lib/client-side-hooks/ComputerData";
 import { trpc } from "@turbocell/api/trpc/client";
 import { useSession } from "@turbocell/auth";
 import { Button, Shell } from "@turbocell/shadcn";
@@ -29,6 +30,7 @@ export default function Page() {
           <div>{JSON.stringify(user.data?.user)}</div>
         </>
       )}
+      <ComputerData></ComputerData>
     </Shell>
   );
 }

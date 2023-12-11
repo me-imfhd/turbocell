@@ -50,6 +50,10 @@ export const {
       },
     },
   },
+  pages: {
+    signIn: "/sign-in",
+    signOut: "/sign-out",
+  },
   adapter: PrismaAdapter(db as any),
   providers: [
     EmailProvider({
@@ -76,9 +80,6 @@ export const {
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
     }),
   ],
-  pages: {
-    signIn: "/sign-in",
-  },
   callbacks: {
     async session({ session, user }) {
       if (user) {
