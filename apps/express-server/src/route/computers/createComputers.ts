@@ -19,7 +19,7 @@ router.post(
           message: "Error creating computer, please check your params",
         });
       }
-      res.json({ c });
+      return res.json({ c });
       // you can also do
       // res.json({ computerBrand: c.computer.brand }); see what c returns by checking its return type.
     } catch (err) {

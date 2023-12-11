@@ -20,7 +20,9 @@ router.delete(
     } catch (err) {
       return res.json({ error: err });
     }
+    return;
   }
+  
 );
 
 // todo: implement delete computer by Id

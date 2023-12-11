@@ -68,6 +68,7 @@ export function catchClerkError(err: unknown) {
   // } else {
   //   return toast.error(unknownErr);
   // }
+  return;
 }
 
 export function isMacOs() {

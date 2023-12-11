@@ -29,9 +29,9 @@ router.post("/signup", async (req: Request, res: Response) => {
 
     setUserSession(req, res, createUser);
 
-    res.json({ message: "You have signed up successfully" });
+    return res.json({ message: "You have signed up successfully" });
   } catch (err) {
-    res.send(err);
+    return res.send(err);
   }
 });
 router.get("/signupViaBrowser", (req: Request, res: Response) => {

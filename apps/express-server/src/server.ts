@@ -40,7 +40,7 @@ export const createServer = (): Express => {
       if (!user) {
         return res.send("User Session not found, try again or re-login");
       }
-      res.send(`
+      return res.send(`
       <div style="margin-bottom: 10px;">
           <div>Name: ${user?.name}</div>
           <div>Email: ${user?.email}</div>

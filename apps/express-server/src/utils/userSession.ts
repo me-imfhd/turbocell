@@ -34,7 +34,8 @@ export function updateUserSession(
   }
   try {
     req.session.user = updateUser;
+    return;
   } catch (err) {
-    res.json({ message: "Unable to update user, try again", error: err });
+    return res.json({ message: "Unable to update user, try again", error: err });
   }
 }

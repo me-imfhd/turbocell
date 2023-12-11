@@ -22,14 +22,14 @@ router.post("/updateProfile", checkAuthenticated, async (req, res) => {
       },
     });
     updateUserSession(req,res,update);
-    res.send(`
+    return res.send(`
         <div style="margin-bottom: 10px;">
         <div>${parsedbody.name}</div>
         <div>${parsedbody.email}</div>
         </div>
         `);
   } catch (err) {
-    res.json({
+    return res.json({
       status: "Fail",
       message: `Exception Occured : ${err}`,
     });
@@ -113,18 +113,19 @@ router.post("/updateProfilePic",checkAuthenticated, (req: Request, res: Response
         },
       });
       updateUserSession(req,res,updateUser)
-      res.send(`
+      return res.send(`
         <div style="margin-bottom: 10px;">
           <img src=${base64Image} style="width: auto; height:400px; padding: 10px; border: 1px solid lightgray; border-radius: 5px;">
         </div>
         `);
     });
   } catch (err) {
-    res.json({
+    return res.json({
       status: "Fail",
       message: `Exception Occured : ${err}`,
     });
   }
+  return
 });
 
 function validateImage(req: Request, res: Response, file: formidable.File) {

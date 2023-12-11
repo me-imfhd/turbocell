@@ -9,7 +9,7 @@ router.post("/logout", (req: Request, res: Response) => {
       return res.send("Error logging out");
     }
     res.clearCookie("connect.sid");
-    res.send("Logged out");
+    return res.send("Logged out");
   });
 });
 
