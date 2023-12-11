@@ -1,5 +1,5 @@
 {
-    "extends": "@turbocell/tsconfig/base.json",
+    "extends": "@turbocell/tsconfig/nextjs.json",
     "compilerOptions": {
       "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
     },
