@@ -39,15 +39,15 @@ const nextConfig = {
           dns: false,
           tls: false,
           assert: false,
-          child_process:false,
+          child_process: false,
           // fixes next-i18next dependencies
           path: false,
           fs: false,
           // fixes mapbox dependencies
           events: false,
           // fixes sentry dependencies
-          process: false
-        }
+          process: false,
+        },
       };
     }
     // config.module.exprContextCritical = false; // Workaround to suppress next-i18next warning, see https://github.com/isaachinman/next-i18next/issues/1545

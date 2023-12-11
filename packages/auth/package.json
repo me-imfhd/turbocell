@@ -12,13 +12,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@turbocell/db": "workspace:*",
     "@next-auth/prisma-adapter": "^1.0.7",
-    "next-auth": "5.0.0-beta.3"
+    "@turbocell/db": "workspace:*",
+    "next-auth": "5.0.0-beta.4",
+    "nodemailer": "^6.9.7"
   },
   "devDependencies": {
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
+    "@types/node": "20.8.0",
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"

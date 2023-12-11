@@ -1,3 +1,4 @@
+import EmailProvider from "next-auth/providers/email";
 import DiscordProvider from "next-auth/providers/discord";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
@@ -49,12 +50,19 @@ export const {
       },
     },
   },
-  pages: {
-    signIn: "/sign-in",
-    signOut: "/sign-out",
-  },
   adapter: PrismaAdapter(db as any),
   providers: [
+    EmailProvider({
+      server: {
+        host: process.env.EMAIL_SERVER_HOST,
+        port: process.env.EMAIL_SERVER_PORT,
+        auth: {
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD,
+        },
+      },
+      from: process.env.EMAIL_FROM,
+    }),
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID as string,
       clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
@@ -68,6 +76,9 @@ export const {
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
     }),
   ],
+  pages: {
+    signIn: "/sign-in",
+  },
   callbacks: {
     async session({ session, user }) {
       if (user) {

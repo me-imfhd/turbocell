@@ -5,8 +5,8 @@
   "types": "./index.ts",
   "license": "MIT",
   "scripts": {
-    "db:studio": "dotenv -e ../../.env prisma db push prisma studio",
-    "db:generate": "dotenv -e ../../.env prisma generate",
+    "db:studio": "dotenv -e ../../.env prisma studio",
+    "db:generate": "dotenv -e ../../.env prisma generate && dotenv -e ../../.env prisma db push",
     "db:push": "dotenv -e ../../.env prisma db push --skip-generate",
     "postinstall": "prisma generate"
   },
