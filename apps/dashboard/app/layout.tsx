@@ -8,6 +8,7 @@ import TailwindResposivenessIndicator from "@turbocell/ui/components/TailwindRes
 import type { PropsWithChildren } from "react";
 import TrpcProvider from "@turbocell/api/trpc/Provider";
 import { SessionProvider } from "@turbocell/auth";
+import Provider from "./_provider";
 
 export const metadata: Metadata = {
   title: "turbocell",
@@ -28,15 +29,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
           // fontMono.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <SessionProvider>
-            <TrpcProvider>
-              {children}
-              <TailwindResposivenessIndicator />
-              <Toaster />
-            </TrpcProvider>
-          </SessionProvider>
-        </ThemeProvider>
+        <Provider>
+          {children}
+          <TailwindResposivenessIndicator />
+          <Toaster />
+        </Provider>
       </body>
     </html>
   );

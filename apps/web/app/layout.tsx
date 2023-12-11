@@ -6,12 +6,12 @@ import { ThemeProvider } from "@turbocell/ui/components/ThemeProvider";
 import { cn } from "@turbocell/utils/utils";
 import TailwindResposivenessIndicator from "@turbocell/ui/components/TailwindResposivenessIndicator";
 import type { PropsWithChildren } from "react";
-import TrpcProvider from "@turbocell/api/trpc/Provider"
+import TrpcProvider from "@turbocell/api/trpc/Provider";
+import Provider from "./_provider";
 
 export const metadata: Metadata = {
   title: "Turbo Cell",
-  description:
-    "",
+  description: "",
   themeColor: [
     { media: "(prefers-color-scheme: light", color: "white" },
     { media: "(prefers-color-scheme: dark", color: "black" },
@@ -28,13 +28,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
           fontMono.variable
         )}
       >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <TrpcProvider>
-            {children}
-            <TailwindResposivenessIndicator />
-            <Toaster />
-            </TrpcProvider>
-          </ThemeProvider>
+        <Provider>
+          {children}
+          <TailwindResposivenessIndicator />
+          <Toaster />
+        </Provider>
       </body>
     </html>
   );
