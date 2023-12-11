@@ -16,25 +16,25 @@
     "@turbocell/tailwind-config": "workspace:*",
     "@turbocell/ui": "workspace:*",
     "@turbocell/utils": "workspace:*",
-    "million": "2.6.0-beta.12",
     "autoprefixer": "^10.4.16",
+    "million": "2.6.0-beta.12",
+    "next": "14.0.3",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.3"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@trpc/server": "^10.38.5",
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
-    "typescript": "^5",
-    "@types/node": "^20",
+    "@types/node": "^20.8.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.3"
+    "typescript": "^5"
   },
   "eslintConfig": {
     "root": true,
