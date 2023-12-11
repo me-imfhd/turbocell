@@ -3,7 +3,7 @@
 import TrpcProvider from "@turbocell/api/trpc/Provider";
 import { SessionProvider } from "@turbocell/auth";
 import { ThemeProvider } from "@turbocell/ui/components/ThemeProvider";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 const Provider = ({ children }: PropsWithChildren) => {
   return (

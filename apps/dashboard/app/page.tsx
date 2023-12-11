@@ -1,5 +1,6 @@
 "use client";
 import { trpc } from "@turbocell/api/trpc/client";
+import { useSession } from "@turbocell/auth";
 import { Button, Shell } from "@turbocell/shadcn";
 import React, { useState } from "react";
 
@@ -8,6 +9,7 @@ export default function Home() {
   const [sessionMessage, setSessionMessage] = useState<{
     message: string;
   }>();
+  const user = useSession();
   return (
     <Shell
       as={"div"}
@@ -22,7 +24,10 @@ export default function Home() {
           Get Session Message
         </Button>
       ) : (
-        <pre>{JSON.stringify(sessionMessage)}</pre>
+        <>
+          <pre>{JSON.stringify(sessionMessage)}</pre>
+          <div>{JSON.stringify(user.data?.user)}</div>
+        </>
       )}
     </Shell>
   );

@@ -2,11 +2,9 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Toaster } from "@turbocell/shadcn";
 import { fontSans, fontMono } from "@/lib/fonts";
-import { ThemeProvider } from "@turbocell/ui/components/ThemeProvider";
 import { cn } from "@turbocell/utils/utils";
 import TailwindResposivenessIndicator from "@turbocell/ui/components/TailwindResposivenessIndicator";
 import type { PropsWithChildren } from "react";
-import TrpcProvider from "@turbocell/api/trpc/Provider";
 import Provider from "./_provider";
 
 export const metadata: Metadata = {
