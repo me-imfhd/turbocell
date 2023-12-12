@@ -35,7 +35,7 @@ const OAuthSignIn = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-4">
+    <div className="grid grid-cols-1 gap-2 sm:grid-cols-1 sm:gap-3">
       {oauthprovider.map((provider) => {
         const Icon = Icons[provider.icon];
         return (
@@ -43,7 +43,7 @@ const OAuthSignIn = () => {
             aria-label={`Sign in with ${provider.name}`}
             key={provider.provider}
             variant="outline"
-            className="w-full bg-background sm:w-auto"
+            className="w-full bg-background sm:w-auto py-5"
             onClick={async() => {
               setIsLoading(true);
               await handleClick(provider.provider);
@@ -58,7 +58,7 @@ const OAuthSignIn = () => {
             ) : (
               <Icon className="mr-2 h-4 w-4" aria-label="laoding..." />
             )}
-            {provider.name}
+            Continue with {provider.name}
           </Button>
         );
       })}

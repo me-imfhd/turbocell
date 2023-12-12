@@ -3,17 +3,19 @@
 import { Button, Input, Label } from "@turbocell/shadcn";
 import { signIn } from "@turbocell/auth";
 import React, { useState } from "react";
+import Link from "next/link";
 
 export function SignInForm() {
   const [email, setEmail] = useState("");
   return (
     <>
-      <div className="grid gap-2">
+      <div className="grid gap-2 sm:gap-4">
         <Label htmlFor="email">Email</Label>
         <Input
           onChange={(e) => {
             setEmail(e.target.value);
           }}
+          className="py-5"
           id="email"
           type="email"
           placeholder="m@example.com"
@@ -23,7 +25,7 @@ export function SignInForm() {
         onClick={async () => {
           await signIn("email", { email, callbackUrl: "/" });
         }}
-        className="w-full"
+        className="w-full py-5"
       >
         Continue With Email
       </Button>

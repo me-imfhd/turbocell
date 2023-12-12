@@ -6,24 +6,23 @@ import {
   CardTitle,
   Shell,
 } from "@turbocell/shadcn";
+import Link from "next/link";
 import React from "react";
 
 type AuthProps = {
   OAuthSignIn: JSX.Element;
-  signInOrUpComp: JSX.Element;
+  signInComp: JSX.Element;
   title: string;
   description: string;
-  cardFooter: JSX.Element;
 };
 export function Auth({
-  signInOrUpComp,
+  signInComp,
   title,
   description,
-  cardFooter,
   OAuthSignIn,
 }: AuthProps) {
   return (
-    <Shell className="max-w-lg">
+    <Shell className="max-w-md gap-4">
       <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">{title}</CardTitle>
@@ -41,10 +40,26 @@ export function Auth({
               </span>
             </div>
           </div>
-          {signInOrUpComp}
+          {signInComp}
         </CardContent>
-        {cardFooter}
       </Card>
+      <p className="px-8 text-center text-sm text-muted-foreground">
+        By clicking continue, you agree to our{" "}
+        <Link
+          href="/terms"
+          className="underline underline-offset-4 hover:text-primary"
+        >
+          Terms of Service
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="/privacy"
+          className="underline underline-offset-4 hover:text-primary"
+        >
+          Privacy Policy
+        </Link>
+        .
+      </p>
     </Shell>
   );
 }
