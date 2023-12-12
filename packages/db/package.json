@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "db:studio": "dotenv -e ../../.env prisma studio",
-    "db:generate": "dotenv -e ../../.env prisma generate && dotenv -e ../../.env prisma db push",
+    "db:generate": "prisma generate",
     "db:push": "dotenv -e ../../.env prisma db push --skip-generate",
     "postinstall": "prisma generate"
   },
