@@ -30,6 +30,7 @@
     "@turbocell/tsconfig": "workspace:*",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/node": "20.8.0",
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
