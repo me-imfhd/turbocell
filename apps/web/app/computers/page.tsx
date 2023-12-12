@@ -27,9 +27,9 @@ export default function Page() {
       ) : (
         <>
           <pre>{JSON.stringify(sessionMessage)}</pre>
-          <div>{JSON.stringify(user.data?.user)}</div>
         </>
       )}
+      <div>{JSON.stringify(user.data?.user)}</div>
       <ComputerData></ComputerData>
     </Shell>
   );
