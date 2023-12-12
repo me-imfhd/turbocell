@@ -3,7 +3,6 @@
 import { Button, Input, Label } from "@turbocell/shadcn";
 import { signIn } from "@turbocell/auth";
 import React, { useState } from "react";
-import Link from "next/link";
 
 export function SignInForm() {
   const [email, setEmail] = useState("");
