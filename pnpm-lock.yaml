@@ -285,6 +285,9 @@ importers:
       sonner:
         specifier: ^1.0.3
         version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
+      tailwindcss:
+        specifier: 3.3.2
+        version: 3.3.2
     devDependencies:
       '@turbocell/tsconfig':
         specifier: workspace:*
