@@ -11,7 +11,7 @@ export function SignInForm() {
       <div className="grid gap-2 sm:gap-4">
         <Label htmlFor="email">Email</Label>
         <Input
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setEmail(e.target.value);
           }}
           className="py-5"
