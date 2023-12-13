@@ -1,8 +1,8 @@
 "use client";
 import { ComputerData } from "@/lib/client-side-hooks/ComputerData";
 import { trpc } from "@turbocell/api/trpc/client";
-import { useSession } from "@turbocell/auth";
-import { Button, Shell } from "@turbocell/shadcn";
+import { useSession } from "@turbocell/auth/react";
+import { Button, Shell } from "@turbocell/ui/components";
 import React, { useState } from "react";
 
 export default function Page() {

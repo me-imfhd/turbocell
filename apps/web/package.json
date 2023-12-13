@@ -13,7 +13,6 @@
     "@turbocell/api": "workspace:*",
     "@turbocell/auth": "workspace:*",
     "@turbocell/db": "workspace:*",
-    "@turbocell/shadcn": "workspace:*",
     "@turbocell/tailwind-config": "workspace:*",
     "@turbocell/ui": "workspace:*",
     "@turbocell/utils": "workspace:*",

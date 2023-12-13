@@ -5,7 +5,7 @@ const nextConfig = {
     "@turbocell/ui",
     "@turbocell/utils",
     "@turbocell/db",
-    "@turbocell/shadcn",
+    "@turbocell/ui/components",
     "@turbocell/auth",
   ],
   async headers() {

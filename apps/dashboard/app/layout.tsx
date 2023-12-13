@@ -1,11 +1,11 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Toaster } from "@turbocell/shadcn";
+import { Toaster } from "@turbocell/ui/components";
 // import { fontSans, fontMono } from "@/lib/fonts";
-import { cn } from "@turbocell/utils/utils";
 import TailwindResposivenessIndicator from "@turbocell/ui/components/TailwindResposivenessIndicator";
 import type { PropsWithChildren } from "react";
 import Provider from "./_provider";
+import { cn } from "@turbocell/ui/cn";
 
 export const metadata: Metadata = {
   title: "turbocell",

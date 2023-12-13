@@ -1,1 +1,1 @@
-export { GET, POST } from "@turbocell/auth";
+export { GET, POST } from "@turbocell/auth/server";

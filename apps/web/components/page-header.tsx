@@ -1,5 +1,5 @@
-import { Balancer, cn, cva } from "@turbocell/utils/utils";
-import type { VariantProps } from "@turbocell/utils/utils";
+import { Balancer, cn, cva, type VariantProps } from "@turbocell/ui/cn";
+
 const headerTitleVariants = cva("font-bold tracking-tight", {
   variants: {
     size: {

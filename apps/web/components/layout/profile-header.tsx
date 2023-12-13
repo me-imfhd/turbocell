@@ -2,8 +2,8 @@
 import React from "react";
 import { UserProfileDropdown } from "@turbocell/ui/layout/main-app";
 import Link from "next/link";
-import { buttonVariants } from "@turbocell/shadcn/ui";
-import { auth } from "@turbocell/auth";
+import { auth } from "@turbocell/auth/server";
+import { buttonVariants } from "@turbocell/ui/components";
 
 export const ProfileHeader = async () => {
   const data = await auth();
