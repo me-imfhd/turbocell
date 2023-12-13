@@ -11,6 +11,8 @@ import NextAuth from "./next-auth";
 
 export type { Session, DefaultSession as DefaultAuthSession } from "next-auth";
 
+export const providers = ["discord", "google", "facebook"] as const;
+export type OAuthProviders = (typeof providers)[number];
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
  * object and keep type safety.
@@ -18,7 +20,7 @@ export type { Session, DefaultSession as DefaultAuthSession } from "next-auth";
  * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
  */
 declare module "next-auth" {
-  type User = z.infer<typeof userSchema>
+  type User = z.infer<typeof userSchema>;
   interface Session extends z.infer<typeof sessionSchema> {
     user: DefaultSession["user"] & {
       id: string;
