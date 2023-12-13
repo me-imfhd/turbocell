@@ -29,7 +29,7 @@ const hostname =
     : "localhost";
 
 export function getNextAuthCookieName() {
-  const cookiePrefix = process.env.NODE_ENV === "production" ? "__Secure-" : "";
+  const cookiePrefix = process.env.VERCEL_ENV === "production" ? "__Secure-" : "";
   return `${cookiePrefix}next-auth.session-token`;
 }
 

@@ -15,7 +15,12 @@ const nextConfig = {
         source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" }, // replace this with your actual origin
+          {
+            key: "Access-Control-Allow-Origin",
+            value: process.env.NEXT_PUBLIC_DEPLOYMENT_ENV
+              ? "https://dashboard.turbocell.vercel.app"
+              : "http://localhost:3001",
+          }, // replace this with your actual origin
           {
             key: "Access-Control-Allow-Methods",
             value: "GET,DELETE,PATCH,POST,PUT",
@@ -39,15 +44,15 @@ const nextConfig = {
           dns: false,
           tls: false,
           assert: false,
-          child_process:false,
+          child_process: false,
           // fixes next-i18next dependencies
           path: false,
           fs: false,
           // fixes mapbox dependencies
           events: false,
           // fixes sentry dependencies
-          process: false
-        }
+          process: false,
+        },
       };
     }
     // config.module.exprContextCritical = false; // Workaround to suppress next-i18next warning, see https://github.com/isaachinman/next-i18next/issues/1545
