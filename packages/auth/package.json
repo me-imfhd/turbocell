@@ -1,34 +1,44 @@
 {
   "name": "@turbocell/auth",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "private": true,
-  "main": "./index.ts",
-  "types": "./index.ts",
-  "license": "MIT",
+  "exports": {
+    "./react": "./src/react.ts",
+    "./server": "./src/server.ts",
+    "./next-auth": "./src/next-auth.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "react": [
+        "./src/react.ts"
+      ],
+      "server": [
+        "./src/server.ts"
+      ],
+      "next-auth": [
+        "./src/next-auth.ts"
+      ]
+    }
+  },
   "scripts": {
-    "clean": "rm -rf .turbo node_modules",
-    "lint": "eslint .",
-    "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",
+    "format": "prettier . --check --cache --cache-location=\"node_modules/.cache/prettiercache\"",
+    "format:fix": "prettier . --write --cache --cache-location=\"node_modules/.cache/prettiercache\" --log-level=warn",
+    "lint": "eslint . --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
+    "lint:fix": "eslint . --fix --cache --cache-location \"node_modules/.cache/.eslintcache\" --max-warnings 0",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@next-auth/prisma-adapter": "^1.0.7",
+    "@auth/prisma-adapter": "^1.0.10",
     "@turbocell/db": "workspace:*",
-    "next-auth": "5.0.0-beta.4",
-    "nodemailer": "^6.9.7"
+    "next-auth": "5.0.0-beta.3"
   },
   "devDependencies": {
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
-    "@types/node": "20.8.0",
-    "eslint": "^8.50.0",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@turbocell/eslint-config/base"
-    ]
+    "@types/node": "^20.4.2",
+    "eslint": "^8.45.0",
+    "prisma": "^5.0.0",
+    "tsup": "5.12.0",
+    "typescript": "^5.1.6"
   }
 }
