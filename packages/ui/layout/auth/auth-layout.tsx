@@ -1,17 +1,16 @@
-import { AspectRatio } from "@turbocell/shadcn";
 import { Icons } from "@turbocell/utils/icons";
-import { Url } from "next/dist/shared/lib/router/router";
+import type { Url } from "next/dist/shared/lib/router/router";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { AspectRatio } from "../../components";
 
-type AuthLayoutImageProps = {
+interface AuthLayoutImageProps {
   imagesrc: string;
   alt?: string;
   linkToImage?: Url;
   photographer?: string;
   photographerId?: Url;
-};
+}
 export function AuthLayoutImage({
   imagesrc,
   alt,

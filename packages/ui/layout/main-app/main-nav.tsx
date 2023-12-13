@@ -2,18 +2,11 @@
 
 import * as React from "react";
 // import { menComponents,kidComponents, womenComponents, accessoriesComponent } from "@/config/products";
-import { cn } from "@turbocell/utils/utils";
 import { Icons } from "@turbocell/utils/icons";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@turbocell/shadcn/ui";
+
 import Link from "next/link";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "../../components";
+import { cn } from "../../cn";
 
 export function MainNav() {
   return (

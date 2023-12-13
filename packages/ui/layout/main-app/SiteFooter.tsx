@@ -1,10 +1,9 @@
 import React from "react";
-import { Shell } from "@turbocell/shadcn";
 import { Icons } from "@turbocell/utils/icons";
 import Link from "next/link";
 import { cn } from "@turbocell/utils/utils";
-import { buttonVariants } from "@turbocell/shadcn/ui";
 import { Company, mySocials } from "@turbocell/utils";
+import { Shell, buttonVariants } from "../../components";
 
 export const SiteFooter = () => {
   return (
@@ -47,7 +46,7 @@ export const SiteFooter = () => {
               return <Link href={social.href} target="_blank" rel="noreferrer">
                 <div
                   className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" })
+                    buttonVariants({ variant: "ghost", size: "xs" })
                   )}
                 >
                   <Icon className="h-4 w-4" />

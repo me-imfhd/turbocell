@@ -1,3 +1,5 @@
+import Link from "next/link";
+import React from "react";
 import {
   Card,
   CardContent,
@@ -5,16 +7,14 @@ import {
   CardHeader,
   CardTitle,
   Shell,
-} from "@turbocell/shadcn";
-import Link from "next/link";
-import React from "react";
+} from "../../components";
 
-type AuthProps = {
+interface AuthProps {
   OAuthSignIn: JSX.Element;
   signInComp: JSX.Element;
   title: string;
   description: string;
-};
+}
 export function Auth({
   signInComp,
   title,
