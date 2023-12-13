@@ -1,9 +1,11 @@
 {
   "name": "@turbocell/tsconfig",
-  "private": true,
   "version": "0.0.0",
-  "main": "base.json",
+  "private": true,
+  "main": "index.js",
   "files": [
-    "base.json"
+    "base.json",
+    "nextjs.json",
+    "react-library.json"
   ]
 }
