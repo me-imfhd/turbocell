@@ -1,6 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import { getUser } from "@turbocell/auth";
+import { getUser } from "@turbocell/auth/server";
 import { db } from "@turbocell/db";
 
 export const authRouter = createTRPCRouter({
