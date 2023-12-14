@@ -28,13 +28,5 @@
     "@turbocell/tsconfig": "workspace:*",
     "eslint": "^8.50.0",
     "typescript": "^5.2.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@turbocell/eslint-config/base",
-      "@turbocell/eslint-config/nextjs",
-      "@turbocell/eslint-config/react"
-    ]
   }
 }
