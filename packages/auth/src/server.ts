@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import type { Adapter } from "@auth/core/adapters";
+// import type { Adapter } from "@auth/core/adapters";
 import { type DefaultSession } from "next-auth";
 import { db } from "@turbocell/db";
 import type { sessionSchema, userSchema, z } from "@turbocell/db";
@@ -58,7 +58,7 @@ export const {
       },
     },
   },
-  adapter: PrismaAdapter(db) as Adapter,
+  adapter: PrismaAdapter(db),
   providers: [
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID!,

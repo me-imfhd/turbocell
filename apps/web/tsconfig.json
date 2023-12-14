@@ -14,9 +14,7 @@
     "strictNullChecks": true
   },
   "include": [
-    "**/*.js",
-    "**/*.ts",
-    "**/*.tsx",
+    ".",
     "next.config.js",
     "next-env.d.ts",
     "postcss.config.cjs",

@@ -3,10 +3,10 @@
   "display": "React Library",
   "extends": "./base.json",
   "compilerOptions": {
-    "incremental": true,
-    "lib": ["ES2015", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "lib": ["ES2015"],
     "module": "ESNext",
-    "target": "ES6",
-    "jsx": "react-jsx"
-  }
+    "target": "es6"
+  },
+  "exclude": ["dist", "build", "node_modules"]
 }
