@@ -3,29 +3,20 @@
   "display": "Next.js",
   "extends": "./base.json",
   "compilerOptions": {
-    "declaration": false,
-    "declarationMap": false,
-    "strictNullChecks": true,
-    "useUnknownInCatchVariables": true,
-    "target": "ESNext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "ES2021"],
     "allowJs": true,
+    "checkJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": [
-    "src",
-    "next-env.d.ts",
-    "../types/next-auth.d.ts",
-    "../types/*.d.ts"
-  ],
+  "include": ["src", "next-env.d.ts"],
   "exclude": ["node_modules"]
 }

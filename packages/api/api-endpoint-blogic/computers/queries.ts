@@ -1,4 +1,4 @@
-import { ComputerId, computerIdSchema } from "@turbocell/db/schema/computers";
+import { type ComputerId, computerIdSchema } from "@turbocell/db/schema/computers";
 import { db } from "@turbocell/db";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";

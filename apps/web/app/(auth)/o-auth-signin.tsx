@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { signIn } from "@turbocell/auth";
-import type { OAuthProviders } from "@turbocell/auth";
-import { Icons } from "@turbocell/utils/icons";
-import { Button } from "@turbocell/shadcn";
+import { signIn } from "@turbocell/auth/react";
+import type { OAuthProviders } from "@turbocell/auth/server";
+import { Button } from "@turbocell/ui/components";
+import { Icons } from "@turbocell/ui/icons";
+import type { Icon, LucideProps } from "@turbocell/ui/icons";
 
 type OAuthProviderProps = {
   name: string;
@@ -37,14 +38,16 @@ const OAuthSignIn = () => {
   return (
     <div className="grid grid-cols-1 gap-2 sm:grid-cols-1 sm:gap-3">
       {oauthprovider.map((provider) => {
-        const Icon = Icons[provider.icon];
+        const Icon = Icons[provider.icon] as ({
+          ...props
+        }: LucideProps) => React.JSX.Element;
         return (
           <Button
             aria-label={`Sign in with ${provider.name}`}
             key={provider.provider}
             variant="outline"
             className="w-full bg-background sm:w-auto py-5"
-            onClick={async() => {
+            onClick={async () => {
               setIsLoading(true);
               await handleClick(provider.provider);
             }}

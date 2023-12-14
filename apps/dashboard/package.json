@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/typography": "^0.5.9",
     "@turbocell/api": "workspace:*",
     "@turbocell/auth": "workspace:*",
     "@turbocell/db": "workspace:*",
-    "@turbocell/shadcn": "workspace:*",
     "@turbocell/tailwind-config": "workspace:*",
     "@turbocell/ui": "workspace:*",
     "@turbocell/utils": "workspace:*",
@@ -20,7 +21,8 @@
     "million": "2.6.0-beta.12",
     "next": "14.0.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@trpc/server": "^10.38.5",
@@ -35,13 +37,5 @@
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@turbocell/eslint-config/base",
-      "@turbocell/eslint-config/nextjs",
-      "@turbocell/eslint-config/react"
-    ]
   }
 }

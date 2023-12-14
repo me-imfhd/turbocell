@@ -13,7 +13,6 @@
     "@turbocell/api": "workspace:*",
     "@turbocell/auth": "workspace:*",
     "@turbocell/db": "workspace:*",
-    "@turbocell/shadcn": "workspace:*",
     "@turbocell/tailwind-config": "workspace:*",
     "@turbocell/ui": "workspace:*",
     "@turbocell/utils": "workspace:*",
@@ -26,23 +25,20 @@
     "react-dom": "^18",
     "react-query": "^3.39.3",
     "sonner": "^1.0.3",
+    "tailwindcss-animate": "^1.0.6",
     "zod": "^3.22.3"
   },
   "devDependencies": {
     "@turbocell/eslint-config": "workspace:*",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/typography": "^0.5.9",
     "@turbocell/tsconfig": "workspace:*",
     "@types/node": "20.8.0",
+    "postcss": "^8.4.26",
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
-    "tailwindcss": "3.3.2",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@turbocell/eslint-config/base",
-      "@turbocell/eslint-config/nextjs",
-      "@turbocell/eslint-config/react"
-    ]
   }
 }

@@ -7,7 +7,7 @@ import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
  * Inference helpers for input types
  * @example type HelloInput = RouterInputs['example']['hello']
  **/
-import { AppRouter } from "./server/routers/_app";
+import type { AppRouter } from "./server/routers/_app";
 export type RouterInputs = inferRouterInputs<AppRouter>;
 
 /**

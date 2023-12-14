@@ -1,9 +1,9 @@
 import { TRPCError } from "@trpc/server";
 import { db } from "@turbocell/db";
 import {
-  ComputerId,
-  NewComputerParams,
-  UpdateComputerParams,
+  type ComputerId,
+  type NewComputerParams,
+  type UpdateComputerParams,
   updateComputerSchema,
   insertComputerParams,
   computerIdSchema,

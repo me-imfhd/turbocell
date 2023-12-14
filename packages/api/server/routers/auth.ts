@@ -1,14 +1,14 @@
 import { TRPCError } from "@trpc/server";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import { getUser } from "@turbocell/auth";
+import { getUser } from "@turbocell/auth/server";
 import { db } from "@turbocell/db";
 
 export const authRouter = createTRPCRouter({
   getSession: publicProcedure.query(async () => {
-    try{
+    try {
       const user = await getUser();
       if (!user?.id || !user.email) {
-        return {message:"You are not authenticated, please log in"}
+        return { message: "You are not authenticated, please log in" };
       }
       const dbUser = await db.user.findFirst({
         where: {
@@ -24,10 +24,10 @@ export const authRouter = createTRPCRouter({
           },
         });
       }
-      return { message:"You are authenticated"};
-    }catch(err){
+      return { message: "You are authenticated" };
+    } catch (err) {
       throw new TRPCError({
-        code: 'INTERNAL_SERVER_ERROR',
+        code: "INTERNAL_SERVER_ERROR",
         message: (err as Error).message ?? "Error, please try again",
       });
     }

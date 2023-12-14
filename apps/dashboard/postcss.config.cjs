@@ -1,3 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-// @ts-ignore
-module.exports = require('@turbocell/tailwind-config/postcss');
+const config = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+
+module.exports = config;

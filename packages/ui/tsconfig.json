@@ -1,8 +1,8 @@
 {
-  "extends": "@turbocell/tsconfig/nextjs.json",
+  "extends": "@turbocell/tsconfig/react-library.json",
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
-  "include": [".", ".next/types/**/*.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "../../apps/web/src/components/ui/footsies.tsx", "../../apps/web/components/layout/SiteFooter.tsx"],
   "exclude": ["node_modules"]
 }
