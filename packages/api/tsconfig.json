@@ -1,6 +1,7 @@
 {
-  "extends": "@turbocell/tsconfig/react-library.json",
+  "extends": "@turbocell/tsconfig/base.json",
   "compilerOptions": {
+    "jsx": "react-jsx",
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
   "include": ["."],
