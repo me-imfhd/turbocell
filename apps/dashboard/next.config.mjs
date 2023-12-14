@@ -8,6 +8,14 @@ const nextConfig = {
     "@turbocell/ui",
     "@turbocell/auth",
   ],
+  swcMinify: true,
+  reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async headers() {
     return [
       {
@@ -18,8 +26,8 @@ const nextConfig = {
           {
             key: "Access-Control-Allow-Origin",
             value: process.env.NEXT_PUBLIC_DEPLOYMENT_ENV
-              ? "https://dashboard.turbocell.vercel.app"
-              : "http://localhost:3001",
+              ? "https://turbocell.vercel.app"
+              : "http://localhost:3000",
           }, // replace this with your actual origin
           {
             key: "Access-Control-Allow-Methods",
