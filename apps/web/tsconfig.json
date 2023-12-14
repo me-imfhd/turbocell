@@ -1,6 +1,7 @@
 {
   "extends": "@turbocell/tsconfig/nextjs.json",
   "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "baseUrl": "./",
     "paths": {
       "@/*": ["./*"]
@@ -13,7 +14,9 @@
     "strictNullChecks": true
   },
   "include": [
-    ".",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
     "next.config.js",
     "next-env.d.ts",
     "postcss.config.cjs",
