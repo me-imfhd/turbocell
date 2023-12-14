@@ -6,7 +6,7 @@
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "inlineSources": false,

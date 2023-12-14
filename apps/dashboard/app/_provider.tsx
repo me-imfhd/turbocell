@@ -9,7 +9,7 @@ const Provider = ({ children }: PropsWithChildren) => {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <TrpcProvider>
-        <SessionProvider>{children}</SessionProvider>;
+        <SessionProvider>{children}</SessionProvider>
       </TrpcProvider>
     </ThemeProvider>
   );
