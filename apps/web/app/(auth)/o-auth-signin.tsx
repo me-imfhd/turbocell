@@ -6,7 +6,7 @@ import { signIn } from "@turbocell/auth/react";
 import type { OAuthProviders } from "@turbocell/auth/server";
 import { Button } from "@turbocell/ui/components";
 import { Icons } from "@turbocell/ui/icons";
-import type { Icon, LucideProps } from "@turbocell/ui/icons";
+import type { LucideProps } from "@turbocell/ui/icons";
 
 type OAuthProviderProps = {
   name: string;

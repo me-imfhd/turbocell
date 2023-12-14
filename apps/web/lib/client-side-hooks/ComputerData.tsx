@@ -1,27 +1,26 @@
 "use client";
 import { trpc } from "@turbocell/api/trpc/client";
 import { Button, Skeleton } from "@turbocell/ui/components";
+import { toast } from "sonner";
 
 export function ComputerData() {
   const utils = trpc.useContext();
-  const { data: getComp, isLoading: getIsLoading} =
+  const { data: getComp, isLoading: getIsLoading } =
     trpc.computers.getComputers.useQuery();
   const createComp = trpc.computers.createComputer.useMutation({
-    onSuccess: async() => {
+    onSuccess: async () => {
       await utils.computers.getComputers.invalidate();
-      void alert("Computer created successfully");
     },
     onError: (error) => {
-      void alert(`An error occurred: ${error.message}`);
+      toast(`An error occurred: ${error.message}`);
     },
   });
   const deleteAllComputers = trpc.computers.deleteAllComputer.useMutation({
-    onSuccess: async() => {
+    onSuccess: async () => {
       await utils.computers.getComputers.invalidate();
-      void alert("All computers deleted successfully")
     },
     onError: (error) => {
-      void alert(`An error occurred: ${error.message}`);
+      toast(`An error occurred: ${error.message}`);
     },
   });
 
@@ -29,8 +28,8 @@ export function ComputerData() {
     <div className="flex flex-col place-items-center justify-center space-y-4">
       {getIsLoading || createComp.isLoading || deleteAllComputers.isLoading ? (
         <Skeleton className="bg-muted w-full h-44"></Skeleton>
-        ) : (
-          <>
+      ) : (
+        <>
           <div className="w-full bg-gradient-to-r from-background to-accent border rounded-md p-6">
             <pre>{JSON.stringify(getComp, null, 2)}</pre>
           </div>

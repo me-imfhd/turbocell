@@ -27,8 +27,8 @@ export const SiteFooter = () => {
             .
           </div>
           <ul className="flex-1 flex flex-row space-x-3">
-            {Company.map((link) => (
-              <li>
+            {Company.map((link,index) => (
+              <li key={index}>
                 <Link
                   href={link.href}
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground hover:underline"
@@ -39,12 +39,12 @@ export const SiteFooter = () => {
             ))}
           </ul>
           <div className="flex items-center space-x-1">
-            {mySocials.map((social) => {
+            {mySocials.map((social, index) => {
               const Icon = Icons[social.icon] as ({
                 ...props
               }: LucideProps) => JSX.Element;
               return (
-                <Link href={social.href} target="_blank" rel="noreferrer">
+                <Link key={index} href={social.href} target="_blank" rel="noreferrer">
                   <div
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "xs" })
