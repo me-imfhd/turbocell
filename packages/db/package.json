@@ -24,11 +24,5 @@
     "typescript": "^5.2.2",
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@turbocell/eslint-config/base"
-    ]
   }
 }

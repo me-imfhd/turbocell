@@ -240,7 +240,7 @@ export const Icons = {
   store: ShoppingBag,
   chart: BarChart3,
   upload: UploadCloud,
-  placeholder: Image,
+  // placeholder: Image,
   clothing: Shirt,
   shoes: Footprints,
   accessories: HardHat,

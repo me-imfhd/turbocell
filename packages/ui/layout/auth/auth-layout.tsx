@@ -1,8 +1,8 @@
-import { Icons } from "@turbocell/utils/icons";
 import type { Url } from "next/dist/shared/lib/router/router";
 import Image from "next/image";
 import Link from "next/link";
 import { AspectRatio } from "../../components";
+import { Icons } from "../../icons";
 
 interface AuthLayoutImageProps {
   imagesrc: string;

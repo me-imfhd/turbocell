@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+"use client";
+import { useState, useEffect } from "react";
 
 export function useKeyPress() {
-  const [keyPresses, setKeyPresses] = useState<string>('');
+  const [keyPresses, setKeyPresses] = useState<string>("");
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -9,17 +10,17 @@ export function useKeyPress() {
     };
 
     const handleKeyUp = () => {
-      setKeyPresses('');
+      setKeyPresses("");
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
     };
   }, []);
 
-  return Array.from(new Set(keyPresses)).join('');
+  return Array.from(new Set(keyPresses)).join("");
 }
