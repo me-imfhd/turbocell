@@ -19,7 +19,7 @@
     "@turbocell/utils": "workspace:*",
     "autoprefixer": "^10.4.16",
     "million": "2.6.0-beta.12",
-    "next": "14.0.3",
+    "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
     "tailwindcss-animate": "^1.0.7"
