@@ -21,7 +21,7 @@ export type OAuthProviders = (typeof providers)[number];
  */
 declare module "next-auth" {
   type User = z.infer<typeof userSchema>;
-  interface Session extends z.infer<typeof sessionSchema> {
+  interface Session extends z.infer<typeof sessionSchema>, DefaultSession {
     user: DefaultSession["user"] & {
       id: string;
     };
@@ -73,6 +73,18 @@ export const {
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
     }),
   ],
+  callbacks: {
+    async session({ session, user }) {
+      if (user) {
+        session.user = session.user || {};
+        session.user.id = user.id;
+        session.user.name = user.name;
+        session.user.email = user.email;
+        session.user.image = user.image;
+      }
+      return session;
+    },
+  },
 });
 
 export async function getUser() {
