@@ -37,7 +37,7 @@ declare module "next-auth" {
 
 const useSecureCookies = process.env.VERCEL_ENV === "production";
 const cookiePrefix = useSecureCookies ? "__Secure-" : "";
-const cookieDomain = useSecureCookies ? "turbocell.vercel.app" : "localhost";
+const cookieDomain = useSecureCookies ? "turbocell-web.vercel.app" : "localhost";
 
 export const {
   handlers: { GET, POST },
