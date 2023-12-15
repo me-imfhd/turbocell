@@ -19,6 +19,7 @@
     "@turbocell/api": "workspace:*",
     "@turbocell/db": "workspace:*",
     "@types/formidable": "^3.4.3",
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
+    "@types/bcrypt": "^5.0.2",
     "@types/body-parser": "^1.19.3",
     "@types/cookie-parser": "^1.4.4",
     "@types/cors": "^2.8.14",
