@@ -2,6 +2,7 @@ import { getUser } from "@turbocell/auth/server";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
+import { OpenApiMeta } from "trpc-openapi";
 
 /**
  * Initialization of tRPC backend
@@ -15,7 +16,7 @@ import { ZodError } from "zod";
  * This is where the trpc api is initialized, connecting the context and
  * transformer
  */
-const t = initTRPC.create({
+const t = initTRPC.meta<OpenApiMeta>().create({
   transformer: superjson,
   errorFormatter(opts) {
     const { shape, error } = opts;
@@ -70,6 +71,7 @@ const enforceUserIsAuthed = t.middleware(async (opts) => {
   }
   return opts.next({
     ctx: {
+      ...opts.ctx,
       userId: user.id,
       user: user,
     },
