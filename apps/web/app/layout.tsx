@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title: "Turbo Cell",
   description: "",
   themeColor: [
-    { media: "(prefers-color-scheme: light", color: "white" },
-    { media: "(prefers-color-scheme: dark", color: "black" },
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
 // You might be wonder where is session provider for next-auth, well we necessarily don't need it in app router
