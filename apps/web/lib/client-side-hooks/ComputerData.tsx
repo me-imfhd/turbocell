@@ -1,5 +1,5 @@
 "use client";
-import { trpc } from "@turbocell/api/trpc/client";
+import { trpc } from "@turbocell/trpc/trpc/client";
 import { Button, Skeleton } from "@turbocell/ui/components";
 import { toast } from "sonner";
 
