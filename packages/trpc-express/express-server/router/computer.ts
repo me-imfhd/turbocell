@@ -25,7 +25,7 @@ export const computersRouter_ex = createExpressTRPCRouter({
         tags: ["computers"],
       },
     })
-    .input(z.object({}))
+    .input(z.undefined())
     .output(
       z.object({
         computers: z.array(computerSchema),
@@ -78,7 +78,7 @@ export const computersRouter_ex = createExpressTRPCRouter({
         tags: ["computers"],
       },
     })
-    .input(z.object({}))
+    .input(z.undefined())
     .output(z.object({ computersDeleted: z.number().int() }))
     .mutation(async () => {
       return deleteAllComputers();

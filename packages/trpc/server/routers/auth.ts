@@ -7,7 +7,7 @@ import { z } from "zod";
 export const authRouter = createTRPCRouter({
   getSession: publicProcedure
     .meta({ /* 👉 */ openapi: { method: "GET", path: "/get-session" } })
-    .input(z.object({}))
+    .input(z.undefined())
     .output(z.object({ message: z.string() }))
     .query(async () => {
       try {
@@ -38,7 +38,7 @@ export const authRouter = createTRPCRouter({
       }
     }),
   getEasterEgg: protectedProcedure
-    .input(z.object({}))
+  .input(z.undefined())
     .output(z.string())
     .query(() => {
       return "You can see this secret message means you trying things out and you are logged in!";

@@ -12,7 +12,7 @@ export const authRouter_ex = createExpressTRPCRouter({
     .meta({
       /* 👉 */ openapi: { method: "GET", path: "/get-session", tags: ["auth"] },
     })
-    .input(z.object({}))
+    .input(z.undefined())
     .output(z.object({ message: z.string() }))
     .query(async ({ ctx }) => {
       try {
@@ -43,7 +43,7 @@ export const authRouter_ex = createExpressTRPCRouter({
       }
     }),
   getEasterEgg: protectedProcedure_ex
-    .input(z.object({}))
+  .input(z.undefined())
     .output(z.string())
     .query(() => {
       return "You can see this secret message means you trying things out and you are logged in!";
