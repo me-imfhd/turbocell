@@ -1,5 +1,5 @@
 "use client";
-import { trpc } from "@turbocell/api/trpc/client";
+import { trpc } from "@turbocell/trpc/trpc/client";
 import { useSession } from "@turbocell/auth/react";
 import { Button, Shell } from "@turbocell/ui/components";
 import React, { useState } from "react";

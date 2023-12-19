@@ -11,6 +11,7 @@
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.9",
+    "@turbocell/trpc": "workspace:*",
     "@turbocell/api": "workspace:*",
     "@turbocell/auth": "workspace:*",
     "@turbocell/db": "workspace:*",

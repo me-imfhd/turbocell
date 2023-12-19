@@ -1,5 +1,5 @@
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
-import { appRouter } from "@turbocell/api";
+import { appRouter } from "@turbocell/trpc";
 
 const handler = (req: Request) =>
   fetchRequestHandler({
