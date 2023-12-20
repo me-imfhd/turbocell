@@ -6,7 +6,7 @@ import { z } from "zod";
 
 export const authRouter = createTRPCRouter({
   getSession: publicProcedure
-    .meta({ /* 👉 */ openapi: { method: "GET", path: "/get-session" } })
+    .meta({ /* 👉 */ openapi: { method: "GET", path: "/get-session", tags:["auth"] } })
     .input(z.undefined())
     .output(z.object({ message: z.string() }))
     .query(async () => {

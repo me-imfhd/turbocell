@@ -6,7 +6,7 @@ import SwaggerUI from "swagger-ui-react";
 export default function Page() {
   return (
     <div className="bg-white">
-      <SwaggerUI url="http://localhost:3000/api/openapi.json"></SwaggerUI>
+      <SwaggerUI deepLinking url="http://localhost:3000/api/openapi"></SwaggerUI>
     </div>
   );
 }

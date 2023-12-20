@@ -14,7 +14,13 @@ import {
 import { computerSchema } from "@turbocell/db";
 export const computersRouter = createTRPCRouter({
   getComputers: publicProcedure
-    .meta({ /* 👉 */ openapi: { method: "GET", path: "/get-computers" } })
+    .meta({
+      /* 👉 */ openapi: {
+        method: "GET",
+        path: "/get-computers",
+        tags: ["computers"],
+      },
+    })
     .input(z.undefined())
     .output(
       z.object({
@@ -26,7 +32,13 @@ export const computersRouter = createTRPCRouter({
       return getComputers();
     }),
   createComputer: protectedProcedure
-    .meta({ /* 👉 */ openapi: { method: "POST", path: "/create-computers" } })
+    .meta({
+      /* 👉 */ openapi: {
+        method: "POST",
+        path: "/create-computers",
+        tags: ["computers"],
+      },
+    })
     .input(
       z.object({
         insertComputerParams,
@@ -37,7 +49,13 @@ export const computersRouter = createTRPCRouter({
       return createComputer(input.insertComputerParams);
     }),
   updateComputer: protectedProcedure
-    .meta({ /* 👉 */ openapi: { method: "PUT", path: "/update-computers" } })
+    .meta({
+      /* 👉 */ openapi: {
+        method: "PUT",
+        path: "/update-computers",
+        tags: ["computers"],
+      },
+    })
     .input(
       z.object({
         id: computerIdSchema,
@@ -49,7 +67,13 @@ export const computersRouter = createTRPCRouter({
       return updateComputer(input.id.id, input.computer);
     }),
   deleteAllComputer: protectedProcedure
-    .meta({ /* 👉 */ openapi: { method: "DELETE", path: "/delete-computers" } })
+    .meta({
+      /* 👉 */ openapi: {
+        method: "DELETE",
+        path: "/delete-computers",
+        tags: ["computers"],
+      },
+    })
     .input(z.undefined())
     .output(z.object({ computersDeleted: z.number().int() }))
     .mutation(async () => {
