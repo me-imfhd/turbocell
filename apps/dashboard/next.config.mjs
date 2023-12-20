@@ -2,6 +2,7 @@
 const nextConfig = {
   transpilePackages: [
     "@turbocell/api",
+    "@turbocell/trpc",
     "@turbocell/ui",
     "@turbocell/utils",
     "@turbocell/db",
