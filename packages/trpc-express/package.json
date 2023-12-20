@@ -15,12 +15,13 @@
     "@next/eslint-plugin-next": "^13.5.4",
     "@trpc/client": "^10.38.5",
     "@trpc/server": "^10.38.5",
-    "@turbocell/db": "workspace:*",
     "@turbocell/api": "workspace:*",
+    "@turbocell/db": "workspace:*",
     "express-session": "^1.17.3",
     "react": "^18",
     "superjson": "1.13.3",
     "trpc-openapi": "^1.2.0",
+    "tslib": "^2.6.2",
     "zod": "^3.22.2"
   },
   "devDependencies": {
