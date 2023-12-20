@@ -47,7 +47,7 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "exactOptionalPropertyTypes": false,
-    "noImplicitOverride": true,
+    "noImplicitOverride": false,
     "outDir": "dist",
     "baseUrl": "."
   },

@@ -50,7 +50,7 @@ export const computersRouter = createTRPCRouter({
     }),
   deleteAllComputer: protectedProcedure
     .meta({ /* 👉 */ openapi: { method: "DELETE", path: "/delete-computers" } })
-    .input(z.object({}))
+    .input(z.undefined())
     .output(z.object({ computersDeleted: z.number().int() }))
     .mutation(async () => {
       return deleteAllComputers();
