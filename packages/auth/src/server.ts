@@ -1,3 +1,4 @@
+import EmailProvider from "next-auth/providers/email";
 import DiscordProvider from "next-auth/providers/discord";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
@@ -37,7 +38,9 @@ declare module "next-auth" {
 
 const useSecureCookies = process.env.VERCEL_ENV === "production";
 const cookiePrefix = useSecureCookies ? "__Secure-" : "";
-const cookieDomain = useSecureCookies ? "turbocell-web.vercel.app" : "localhost";
+const cookieDomain = useSecureCookies
+  ? "turbocell-web.vercel.app"
+  : "localhost";
 
 export const {
   handlers: { GET, POST },
@@ -60,6 +63,17 @@ export const {
   },
   adapter: PrismaAdapter(db),
   providers: [
+    EmailProvider({
+      server: {
+        host: process.env.EMAIL_SERVER_HOST,
+        port: process.env.EMAIL_SERVER_PORT,
+        auth: {
+          user: process.env.EMAIL_SERVER_USER,
+          pass: process.env.EMAIL_SERVER_PASSWORD,
+        },
+      },
+      from: process.env.EMAIL_FROM,
+    }),
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID!,
       clientSecret: process.env.DISCORD_CLIENT_SECRET!,
