@@ -37,6 +37,7 @@
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
     "@types/node": "^20.4.2",
+    "@types/nodemailer": "^6.4.14",
     "eslint": "^8.45.0",
     "prisma": "^5.0.0",
     "tsup": "5.12.0",

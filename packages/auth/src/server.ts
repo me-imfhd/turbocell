@@ -9,6 +9,7 @@ import { type DefaultSession } from "next-auth";
 import { db } from "@turbocell/db";
 import type { sessionSchema, userSchema, z } from "@turbocell/db";
 import NextAuth from "./next-auth";
+import { CustomsendVerificationRequest } from "./sendVerificationRequest";
 
 export type { Session, DefaultSession as DefaultAuthSession } from "next-auth";
 
@@ -49,6 +50,7 @@ export const {
   pages: {
     signIn: "/sign-in",
   },
+  secret: process.env.NEXTAUTH_SECRET,
   cookies: {
     sessionToken: {
       name: `${cookiePrefix}next-auth.session-token`,
@@ -66,6 +68,7 @@ export const {
     EmailProvider({
       server: {
         host: process.env.EMAIL_SERVER_HOST,
+        //@ts-ignore
         port: process.env.EMAIL_SERVER_PORT,
         auth: {
           user: process.env.EMAIL_SERVER_USER,
@@ -73,6 +76,9 @@ export const {
         },
       },
       from: process.env.EMAIL_FROM,
+      sendVerificationRequest(params) {
+        CustomsendVerificationRequest(params);
+      },
     }),
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID!,
@@ -88,6 +94,18 @@ export const {
     }),
   ],
   callbacks: {
+    // async signIn({ user, account, email }) {
+    //   const userExists = await db.user.findFirst({
+    //     where: {
+    //       email: user.email, //the user object has an email property, which contains the email the user entered.
+    //     },
+    //   });
+    //   if (userExists) {
+    //     return true; //if the email exists in the User collection, email them a magic login link
+    //   } else {
+
+    //   }
+    // },
     async session({ session, user }) {
       if (user) {
         session.user = session.user || {};
