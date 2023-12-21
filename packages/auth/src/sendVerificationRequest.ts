@@ -192,7 +192,7 @@ export function html(params: { url: string; host: string; theme: Theme }) {
                           <tr>
                             <td>
                               <a href="https://example.com" class="dark-text-gray-50" style="text-decoration: none; font-weight: 700; color: #191847">
-                                COMPANY NAME
+                                Turbocell
                               </a>
                             </td>
                             <td align="right">
@@ -306,7 +306,7 @@ export function html(params: { url: string; host: string; theme: Theme }) {
             <tr>
               <td style="padding-left: 40px; padding-right: 40px">
                 <a href="https://example.com" class="dark-text-gray-50" style="text-decoration: none; font-weight: 700; color: #767E9D">
-                  COMPANY NAME
+                  Turbocell
                 </a>
                 <div style="line-height: 16px">&zwnj;</div>
                 <table class="sm-w-full" style="font-size: 12px; line-height: 16px" cellpadding="0" cellspacing="0" role="presentation">
@@ -354,8 +354,7 @@ export function html(params: { url: string; host: string; theme: Theme }) {
                   support team!
                   <br>
                   <br>
-                  DEMOCO USA Inc, 4 World Trade Center, 150 Greenwich Street, 62nd Floor,
-                  New York, NY 10007, USA
+                  Company Adress
                 </p>
                 <div style="line-height: 16px">&zwnj;</div>
                 <table class="sm-w-full" style="font-size: 12px; line-height: 16px" cellpadding="0" cellspacing="0" role="presentation">
@@ -405,7 +404,7 @@ export function html(params: { url: string; host: string; theme: Theme }) {
                 <div style="line-height: 16px">&zwnj;</div>
                 <p style="margin: 0; font-size: 12px; line-height: 16px">
                   This message was sent to name@domain.com. If you don't want to receive
-                  these emails from DEMOCO in the future, you can
+                  these emails from Turbocell in the future, you can
                   <a href="https://example.com" class="hover-text-slate-600 dark-text-gray-200 dark-hover-text-gray-100" style="text-decoration: none; font-weight: 700; color: #767E9D">edit your profile</a>
                   or
                   <a href="https://example.com" class="hover-text-slate-600 dark-text-gray-200 dark-hover-text-gray-100" style="text-decoration: none; font-weight: 700; color: #767E9D">unsubscribe</a>.
