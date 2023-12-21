@@ -26,7 +26,7 @@
     "react-dom": "^18",
     "react-query": "^3.39.3",
     "sonner": "^1.0.3",
-    "swagger-ui-react": "^5.10.5",
+    "swagger-ui-react": "4.11.1",
     "tailwindcss-animate": "^1.0.6",
     "zod": "^3.22.3"
   },
@@ -36,7 +36,6 @@
     "@turbocell/eslint-config": "workspace:*",
     "@turbocell/tsconfig": "workspace:*",
     "@types/node": "20.8.0",
-    "@types/swagger-ui-react": "^4.18.3",
     "eslint": "^8.50.0",
     "postcss": "^8.4.26",
     "prettier": "^3.0.3",
