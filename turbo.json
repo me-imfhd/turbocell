@@ -31,8 +31,7 @@
       ]
     },
     "dev": {
-      "persistent": true,
-      "cache": false
+      "persistent": true
     },
     "format": {
       "outputs": ["node_modules/.cache/.prettiercache"],

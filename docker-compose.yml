@@ -13,29 +13,41 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
 
-  # web:
-  #   env_file: .env
-  #   container_name: web
-  #   build:
-  #     context: .
-  #     dockerfile: ./apps/web/Dockerfile
-  #   restart: always
-  #   expose:
-  #     - 3000
-  #   ports:
-  #     - 3000:3000
+  web:
+    env_file: .env
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    restart: always
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
 
-  # express-server:
-  #   env_file: .env
-  #   container_name: express-server
-  #   build:
-  #     context: .
-  #     dockerfile: ./apps/express-server/Dockerfile
-  #   restart: always
-  #   expose:
-  #     - 8080
-  #   ports:
-  #     - 8080:8080
+  dashboard:
+    env_file: .env
+    container_name: dashboard
+    build:
+      context: .
+      dockerfile: ./apps/dashboard/Dockerfile
+    restart: always
+    expose:
+      - 3001
+    ports:
+      - 3001:3001
+
+  express-server:
+    env_file: .env
+    container_name: express-server
+    build:
+      context: .
+      dockerfile: ./apps/express-server/Dockerfile
+    restart: always
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 volumes:

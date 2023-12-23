@@ -1,6 +1,7 @@
 FROM node:18-alpine AS base
 RUN apk update
 RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache python3 py3-pip
 
 # The web Dockerfile is copy-pasted into our main docs at /docs/handbook/deploying-with-docker.
 # Make sure you update this Dockerfile, the Dockerfile in the web workspace and copy that over to Dockerfile in the docs.

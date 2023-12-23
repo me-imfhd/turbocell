@@ -24,7 +24,7 @@ WORKDIR /app
 RUN npm install --global pnpm@8.7.5
 RUN pnpm add -g turbo
 COPY . .
-RUN turbo prune turbocell-mainapp --docker
+RUN turbo prune dashboard --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM base AS installer
@@ -46,7 +46,7 @@ COPY turbo.json turbo.json
 
 RUN pnpm i
 
-RUN pnpm turbo run build --filter=turbocell-mainapp...
+RUN pnpm turbo run build --filter=dashboard...
 
 FROM base AS runner
 
@@ -63,4 +63,4 @@ RUN useradd --system --uid 1001 nodejs
 USER nodejs
 COPY --from=installer /app .
 
-CMD cd apps/web/ && pnpm start
+CMD cd apps/dashboard/ && pnpm start
