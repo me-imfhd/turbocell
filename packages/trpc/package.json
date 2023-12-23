@@ -20,6 +20,7 @@
     "@turbocell/api": "workspace:*",
     "@turbocell/auth": "workspace:*",
     "@turbocell/db": "workspace:*",
+    "next": "14.0.1",
     "react": "^18",
     "superjson": "1.13.3",
     "trpc-openapi": "^1.2.0",
