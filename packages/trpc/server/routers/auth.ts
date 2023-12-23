@@ -6,18 +6,20 @@ import { z } from "zod";
 
 export const authRouter = createTRPCRouter({
   getSession: publicProcedure
-    .meta({ /* 👉 */ openapi: { method: "GET", path: "/get-session", tags:["auth"] } })
+    .meta({
+      /* 👉 */ openapi: { method: "GET", path: "/get-session", tags: ["auth"] },
+    })
     .input(z.undefined())
     .output(z.object({ message: z.string() }))
-    .query(async () => {
+    .query(async ({ ctx }) => {
       try {
-        const user = await getUser();
-        if (!user?.id || !user.email) {
+        const user = ctx.session?.user;
+        if (!user?.id || !user?.email) {
           return { message: "You are not authenticated, please log in" };
         }
         const dbUser = await db.user.findFirst({
           where: {
-            id: user.id,
+            id: user?.id,
           },
         });
         if (!dbUser) {
@@ -38,9 +40,10 @@ export const authRouter = createTRPCRouter({
       }
     }),
   getEasterEgg: protectedProcedure
-  .input(z.undefined())
+    .input(z.undefined())
     .output(z.string())
-    .query(() => {
+    .query(({ ctx }) => {
+      const user = ctx.session?.user;
       return "You can see this secret message means you trying things out and you are logged in!";
     }),
 });
