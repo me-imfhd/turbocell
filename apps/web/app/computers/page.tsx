@@ -7,8 +7,6 @@ import React, { useState } from "react";
 
 export default function Page() {
   const session = trpc.auth.getSession.useQuery();
-  console.log(session);
-  const [error, setError] = useState<string>();
   const [sessionMessage, setSessionMessage] = useState<{
     message: string;
   }>();
@@ -24,7 +22,7 @@ export default function Page() {
             try {
               setSessionMessage(session.data);
             } catch (error) {
-              setError((error as Error).message);
+              console.log(error);
             }
           }}
         >
@@ -35,12 +33,11 @@ export default function Page() {
           <pre>{JSON.stringify(sessionMessage)}</pre>
         </>
       )}
-      {error && <div>Error: {error}</div>}
       <div>{JSON.stringify(user.data?.user)}</div>
+      <ComputerData></ComputerData>
     </Shell>
   );
 }
 
 {
-  /* <ComputerData></ComputerData>; */
 }

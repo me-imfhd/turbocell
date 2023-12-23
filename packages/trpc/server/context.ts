@@ -8,7 +8,7 @@ interface CreateInnerContextOptions
 
 export async function createContextInner(opts: CreateInnerContextOptions) {
   return {
-    db,
+    // db,
     session: opts.session,
   };
 }
