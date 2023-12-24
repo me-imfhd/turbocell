@@ -1,5 +1,9 @@
 import * as trpcNext from "@trpc/server/adapters/next";
-import { type Session, auth } from "@turbocell/auth/server";
+import {
+  type Session,
+  getServerSession,
+  authOptions,
+} from "@turbocell/auth/server";
 
 interface CreateInnerContextOptions
   extends Partial<trpcNext.CreateNextContextOptions> {
@@ -17,7 +21,7 @@ export async function createContext({
   req,
   res,
 }: trpcNext.CreateNextContextOptions) {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
   // const session = null;
   const contextInner = await createContextInner({ session });
   return {
