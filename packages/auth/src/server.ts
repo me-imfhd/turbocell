@@ -3,9 +3,13 @@ import DiscordProvider from "next-auth/providers/discord";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 
-import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 // import type { Adapter } from "@auth/core/adapters";
-import { type DefaultSession } from "next-auth";
+import {
+  NextAuthOptions,
+  type DefaultSession,
+  getServerSession,
+} from "next-auth";
 import { db } from "@turbocell/db";
 import type { sessionSchema, userSchema, z } from "@turbocell/db";
 import NextAuth from "./next-auth";
@@ -22,7 +26,7 @@ export type OAuthProviders = (typeof providers)[number];
  * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
  */
 declare module "next-auth" {
-  type User = z.infer<typeof userSchema>;
+  interface User extends z.infer<typeof userSchema> {}
   interface Session extends z.infer<typeof sessionSchema>, DefaultSession {
     user: DefaultSession["user"] & {
       id: string;
@@ -43,10 +47,7 @@ const cookieDomain = useSecureCookies
   ? "turbocell-web.vercel.app"
   : "localhost";
 
-export const {
-  handlers: { GET, POST },
-  auth,
-} = NextAuth({
+export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/sign-in",
   },
@@ -117,11 +118,14 @@ export const {
       return session;
     },
   },
-});
+};
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
+export { getServerSession } from "next-auth";
 
 export async function getUser() {
   try {
-    const session = await auth();
+    const session = await getServerSession(authOptions);
     const user = session?.user;
     return user;
   } catch (err) {

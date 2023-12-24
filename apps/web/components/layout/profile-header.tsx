@@ -1,12 +1,12 @@
 
 import React from "react";
 import Link from "next/link";
-import { auth } from "@turbocell/auth/server";
+import { authOptions, getServerSession } from "@turbocell/auth/server";
 import { buttonVariants } from "@turbocell/ui/components";
 import { UserProfileDropdown } from "./user-profile-dropdown";
 
 export const ProfileHeader = async () => {
-  const data = await auth();
+  const data = await getServerSession(authOptions);
   const user = data?.user;
   const initials = `${user?.name?.charAt(0) ?? ""}`;
   return (
