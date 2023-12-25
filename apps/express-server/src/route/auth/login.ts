@@ -6,8 +6,8 @@ import { loginSchema } from "@turbocell/db/schema/auth";
 const router = createRouter();
 
 router.post("/login", async (req: Request, res: Response) => {
-  const parsedBody = loginSchema.parse(req.body);
   try {
+    const parsedBody = loginSchema.parse(req.body);
     const user = await db.user.findFirst({
       where: { email: parsedBody.email },
     });

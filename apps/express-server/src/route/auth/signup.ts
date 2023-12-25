@@ -8,8 +8,8 @@ import { setUserSession } from "utils/userSession";
 const router = createRouter();
 
 router.post("/signup", async (req: Request, res: Response) => {
-  const parsedbody = signupSchema.parse(req.body);
   try {
+    const parsedbody = signupSchema.parse(req.body);
     const user = await db.user.findFirst({
       where: { email: parsedbody.email },
     });
