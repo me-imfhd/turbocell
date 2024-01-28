@@ -7,7 +7,7 @@ import {
   createContext_ex,
   createOpenApiExpressMiddleware,
   openApiDocument,
-} from "@turbocell/trpc-express";
+} from "@repo/trpc-express";
 
 import session from "express-session";
 export const createTRPCServer = (): Express => {

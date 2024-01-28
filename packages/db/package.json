@@ -1,5 +1,5 @@
 {
-  "name": "@turbocell/db",
+  "name": "@repo/db",
   "version": "0.0.0",
   "main": "./index.ts",
   "types": "./index.ts",
@@ -22,7 +22,7 @@
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
-    "@turbocell/eslint-config": "workspace:*",
-    "@turbocell/tsconfig": "workspace:*"
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*"
   }
 }

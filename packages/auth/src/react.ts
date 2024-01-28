@@ -1,4 +1,4 @@
-import { sessionSchema, z } from "@turbocell/db";
+import { sessionSchema, z } from "@repo/db";
 import type { DefaultSession } from "next-auth";
 import type { SessionContextValue } from "next-auth/react";
 import { useSession as useAuthSession } from "next-auth/react";

@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: [
-    "@turbocell/api",
-    "@turbocell/trpc",
-    "@turbocell/ui",
-    "@turbocell/utils",
-    "@turbocell/db",
-    "@turbocell/ui",
-    "@turbocell/auth",
+    "@repo/api",
+    "@repo/trpc",
+    "@repo/ui",
+    "@repo/utils",
+    "@repo/db",
+    "@repo/ui",
+    "@repo/auth",
   ],
   swcMinify: true,
   reactStrictMode: true,
@@ -27,7 +27,7 @@ const nextConfig = {
           {
             key: "Access-Control-Allow-Origin",
             value: process.env.NEXT_PUBLIC_DEPLOYMENT_ENV
-              ? "https://turbocell.vercel.app"
+              ? "https://repo.vercel.app"
               : "http://localhost:3000",
           }, // replace this with your actual origin
           {

@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 // import cors from 'nextjs-cors';
-import { createOpenApiNextHandler } from "@turbocell/trpc/openApi";
-import { appRouter } from "@turbocell/trpc";
+import { createOpenApiNextHandler } from "@repo/trpc/openApi";
+import { appRouter } from "@repo/trpc";
 import {
   createContextApi,
-} from "@turbocell/trpc/server/context";
+} from "@repo/trpc/server/context";
 import { NextRequest, NextResponse } from "next/server";
 
 const handler = async (

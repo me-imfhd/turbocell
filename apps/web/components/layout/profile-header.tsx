@@ -1,8 +1,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { authOptions, getServerSession } from "@turbocell/auth/server";
-import { buttonVariants } from "@turbocell/ui/components";
+import { authOptions, getServerSession } from "@repo/auth/server";
+import { buttonVariants } from "@repo/ui/components";
 import { UserProfileDropdown } from "./user-profile-dropdown";
 
 export const ProfileHeader = async () => {

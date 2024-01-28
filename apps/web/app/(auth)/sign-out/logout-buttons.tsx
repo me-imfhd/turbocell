@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import { useMounted } from "@/lib/hooks/use-mounted";
-import { Button, Skeleton, buttonVariants } from "@turbocell/ui/components";
-import { signOut } from "@turbocell/auth/react";
-import { Icons } from "@turbocell/ui/icons";
-import { cn } from "@turbocell/ui/cn";
+import { Button, Skeleton, buttonVariants } from "@repo/ui/components";
+import { signOut } from "@repo/auth/react";
+import { Icons } from "@repo/ui/icons";
+import { cn } from "@repo/ui/cn";
 
 export const LogOutButtons = () => {
   const isMounted = useMounted();

@@ -10,8 +10,8 @@ import {
   type DefaultSession,
   getServerSession,
 } from "next-auth";
-import { db } from "@turbocell/db";
-import type { sessionSchema, userSchema, z } from "@turbocell/db";
+import { db } from "@repo/db";
+import type { sessionSchema, userSchema, z } from "@repo/db";
 import NextAuth from "./next-auth";
 import { CustomsendVerificationRequest } from "./sendVerificationRequest";
 
@@ -44,7 +44,7 @@ declare module "next-auth" {
 const useSecureCookies = process.env.VERCEL_ENV === "production";
 const cookiePrefix = useSecureCookies ? "__Secure-" : "";
 const cookieDomain = useSecureCookies
-  ? "turbocell-web.vercel.app"
+  ? "repo-web.vercel.app"
   : "localhost";
 
 export const authOptions: NextAuthOptions = {

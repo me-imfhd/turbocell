@@ -1,5 +1,5 @@
 {
-  "name": "@turbocell/api",
+  "name": "@repo/api",
   "version": "0.0.0",
   "private": true,
   "main": "./index.ts",
@@ -14,15 +14,15 @@
   "dependencies": {
     "@next/eslint-plugin-next": "^13.5.4",
     "@trpc/server": "^10.38.5",
-    "@turbocell/auth": "workspace:*",
-    "@turbocell/db": "workspace:*",
+    "@repo/auth": "workspace:*",
+    "@repo/db": "workspace:*",
     "react": "^18",
     "superjson": "1.13.3",
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "@turbocell/eslint-config": "workspace:*",
-    "@turbocell/tsconfig": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/node": "20.8.0",

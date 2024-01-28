@@ -1,8 +1,8 @@
 import {
   getComputerById,
   getComputers,
-} from "@turbocell/api/api-endpoint-blogic/computers/queries";
-import { ComputerId } from "@turbocell/db/schema/computers";
+} from "@repo/api/api-endpoint-blogic/computers/queries";
+import { ComputerId } from "@repo/db/schema/computers";
 import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
 

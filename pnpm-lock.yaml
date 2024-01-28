@@ -14,10 +14,10 @@ importers:
       '@turbo/gen':
         specifier: ^1.10.14
         version: 1.11.2(@types/node@20.10.5)(typescript@5.3.3)
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:tooling/typescript
       eslint:
@@ -41,25 +41,25 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.10(tailwindcss@3.3.7)
-      '@turbocell/api':
+      '@repo/api':
         specifier: workspace:*
         version: link:../../packages/api
-      '@turbocell/auth':
+      '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@turbocell/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@turbocell/tailwind-config':
+      '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../tooling/tailwind
-      '@turbocell/trpc':
+      '@repo/trpc':
         specifier: workspace:*
         version: link:../../packages/trpc
-      '@turbocell/ui':
+      '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@turbocell/utils':
+      '@repo/utils':
         specifier: workspace:*
         version: link:../../packages/lib
       autoprefixer:
@@ -84,10 +84,10 @@ importers:
       '@trpc/server':
         specifier: ^10.38.5
         version: 10.44.1
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -117,13 +117,13 @@ importers:
 
   apps/express-server:
     dependencies:
-      '@turbocell/api':
+      '@repo/api':
         specifier: workspace:*
         version: link:../../packages/api
-      '@turbocell/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@turbocell/trpc-express':
+      '@repo/trpc-express':
         specifier: workspace:*
         version: link:../../packages/trpc-express
       '@types/formidable':
@@ -172,10 +172,10 @@ importers:
         specifier: ^3.22.2
         version: 3.22.4
     devDependencies:
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/bcrypt':
@@ -238,25 +238,25 @@ importers:
       '@trpc/server':
         specifier: ^10.38.5
         version: 10.44.1
-      '@turbocell/api':
+      '@repo/api':
         specifier: workspace:*
         version: link:../../packages/api
-      '@turbocell/auth':
+      '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@turbocell/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@turbocell/tailwind-config':
+      '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../tooling/tailwind
-      '@turbocell/trpc':
+      '@repo/trpc':
         specifier: workspace:*
         version: link:../../packages/trpc
-      '@turbocell/ui':
+      '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@turbocell/utils':
+      '@repo/utils':
         specifier: workspace:*
         version: link:../../packages/lib
       '@types/react':
@@ -302,10 +302,10 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.10(tailwindcss@3.3.7)
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -338,10 +338,10 @@ importers:
       '@trpc/server':
         specifier: ^10.38.5
         version: 10.44.1
-      '@turbocell/auth':
+      '@repo/auth':
         specifier: workspace:*
         version: link:../auth
-      '@turbocell/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../db
       react:
@@ -354,10 +354,10 @@ importers:
         specifier: ^3.22.2
         version: 3.22.4
     devDependencies:
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -384,7 +384,7 @@ importers:
       '@next-auth/prisma-adapter':
         specifier: ^1.0.7
         version: 1.0.7(@prisma/client@5.7.1)(next-auth@4.24.5)
-      '@turbocell/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../db
       next-auth:
@@ -394,10 +394,10 @@ importers:
         specifier: ^6.9.7
         version: 6.9.7
     devDependencies:
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -434,10 +434,10 @@ importers:
         specifier: ^0.5.4
         version: 0.5.4(prisma@5.7.1)(zod@3.22.4)
     devDependencies:
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -458,7 +458,7 @@ importers:
 
   packages/lib:
     dependencies:
-      '@turbocell/auth':
+      '@repo/auth':
         specifier: workspace:*
         version: link:../auth
       class-variance-authority:
@@ -489,10 +489,10 @@ importers:
         specifier: ^3.22.3
         version: 3.22.4
     devDependencies:
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -525,13 +525,13 @@ importers:
       '@trpc/server':
         specifier: ^10.38.5
         version: 10.44.1
-      '@turbocell/api':
+      '@repo/api':
         specifier: workspace:*
         version: link:../api
-      '@turbocell/auth':
+      '@repo/auth':
         specifier: workspace:*
         version: link:../auth
-      '@turbocell/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../db
       react:
@@ -547,10 +547,10 @@ importers:
         specifier: ^3.22.2
         version: 3.22.4
     devDependencies:
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -583,10 +583,10 @@ importers:
       '@trpc/server':
         specifier: ^10.38.5
         version: 10.44.1
-      '@turbocell/api':
+      '@repo/api':
         specifier: workspace:*
         version: link:../api
-      '@turbocell/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../db
       express-session:
@@ -608,10 +608,10 @@ importers:
         specifier: ^3.22.2
         version: 3.22.4
     devDependencies:
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/express':
@@ -707,7 +707,7 @@ importers:
       '@tanstack/react-table':
         specifier: ^8.10.7
         version: 8.11.0(react-dom@18.2.0)(react@18.2.0)
-      '@turbocell/utils':
+      '@repo/utils':
         specifier: workspace:*
         version: link:../lib
       autoprefixer:
@@ -759,13 +759,13 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
     devDependencies:
-      '@turbocell/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@turbocell/tailwind-config':
+      '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../tooling/tailwind
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@types/node':
@@ -792,7 +792,7 @@ importers:
       '@next/eslint-plugin-next':
         specifier: canary
         version: 14.0.5-canary.18
-      '@turbocell/tsconfig':
+      '@repo/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       '@typescript-eslint/eslint-plugin':

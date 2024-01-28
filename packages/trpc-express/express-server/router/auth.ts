@@ -1,5 +1,5 @@
 import { TRPCError } from "@trpc/server";
-import { db } from "@turbocell/db";
+import { db } from "@repo/db";
 import {
   createExpressTRPCRouter,
   protectedProcedure_ex,

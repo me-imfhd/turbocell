@@ -9,7 +9,7 @@ services:
     environment:
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
-      POSTGRES_DB: turbocell
+      POSTGRES_DB: repo
     volumes:
       - db:/var/lib/postgresql/data
 

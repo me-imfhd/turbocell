@@ -1,2 +1,2 @@
-export { GET, POST } from "@turbocell/auth/server";
+export { GET, POST } from "@repo/auth/server";
 

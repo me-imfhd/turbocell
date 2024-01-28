@@ -1,8 +1,8 @@
 "use client";
 
-import TrpcProvider from "@turbocell/trpc/trpc/Provider";
-import { SessionProvider } from "@turbocell/auth/react";
-import { ThemeProvider } from "@turbocell/ui/components/ThemeProvider";
+import TrpcProvider from "@repo/trpc/trpc/Provider";
+import { SessionProvider } from "@repo/auth/react";
+import { ThemeProvider } from "@repo/ui/components/ThemeProvider";
 import type { PropsWithChildren } from "react";
 
 const Provider = ({ children }: PropsWithChildren) => {

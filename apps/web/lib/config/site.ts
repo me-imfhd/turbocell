@@ -1,4 +1,4 @@
-import { Icons } from "@turbocell/ui/icons";
+import { Icons } from "@repo/ui/icons";
 
 type MySocialsProps = {
   title: string;

@@ -1,5 +1,5 @@
 {
-  "name": "@turbocell/auth",
+  "name": "@repo/auth",
   "version": "0.1.1",
   "private": true,
   "exports": {
@@ -29,13 +29,13 @@
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
-    "@turbocell/db": "workspace:*",
+    "@repo/db": "workspace:*",
     "next-auth": "^4.24.5",
     "nodemailer": "^6.9.7"
   },
   "devDependencies": {
-    "@turbocell/eslint-config": "workspace:*",
-    "@turbocell/tsconfig": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
     "@types/node": "^20.4.2",
     "@types/nodemailer": "^6.4.14",
     "eslint": "^8.45.0",

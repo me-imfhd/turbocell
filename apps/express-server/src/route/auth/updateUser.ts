@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
 import formidable from "formidable";
 import fs from "fs";
-import { encodeImageToBase64, updateUserSchema } from "@turbocell/db";
+import { encodeImageToBase64, updateUserSchema } from "@repo/db";
 import { checkAuthenticated } from "utils/checkAuth";
 import { getUserSession, updateUserSession } from "utils/userSession";
 

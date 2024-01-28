@@ -1,7 +1,7 @@
 import { z } from "zod";
 export type User = z.infer<typeof userSchema>;
 import {} from "express-session";
-import { userSchema } from "@turbocell/db";
+import { userSchema } from "@repo/db";
 
 declare module "express-session" {
   export interface Session {

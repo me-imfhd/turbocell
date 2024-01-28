@@ -1,4 +1,4 @@
-import type { Session } from "@turbocell/auth/server";
+import type { Session } from "@repo/auth/server";
 
 export type UserProfileDropdownProps = {
   data: Session;

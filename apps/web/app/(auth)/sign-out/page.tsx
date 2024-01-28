@@ -1,5 +1,5 @@
 import {LogOutButtons} from "@/app/(auth)/sign-out/logout-buttons";
-import { Shell } from "@turbocell/ui/components";
+import { Shell } from "@repo/ui/components";
 import {PageHeader} from "@/components/page-header"
 
 export default function Page() {

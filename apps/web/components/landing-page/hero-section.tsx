@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { Button } from "@turbocell/ui/components";
-import { Icons } from "@turbocell/ui/icons";
+import { Button } from "@repo/ui/components";
+import { Icons } from "@repo/ui/icons";
 
 const HeroSection = () => {
   return (

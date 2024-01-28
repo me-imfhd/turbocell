@@ -1,4 +1,4 @@
-import { getUser } from "@turbocell/auth/server";
+import { getUser } from "@repo/auth/server";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";

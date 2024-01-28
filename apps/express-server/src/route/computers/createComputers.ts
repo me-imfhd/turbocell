@@ -1,4 +1,4 @@
-import { createComputer } from "@turbocell/api/api-endpoint-blogic/computers/mutations";
+import { createComputer } from "@repo/api/api-endpoint-blogic/computers/mutations";
 import { Request, Response } from "express";
 import { checkAuthenticated } from "utils/checkAuth";
 import { createRouter } from "utils/createRouter";

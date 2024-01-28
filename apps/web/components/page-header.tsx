@@ -1,4 +1,4 @@
-import { Balancer, cn, cva, type VariantProps } from "@turbocell/ui/cn";
+import { Balancer, cn, cva, type VariantProps } from "@repo/ui/cn";
 
 const headerTitleVariants = cva("font-bold tracking-tight", {
   variants: {

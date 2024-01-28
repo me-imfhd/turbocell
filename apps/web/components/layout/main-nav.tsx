@@ -4,9 +4,9 @@ import * as React from "react";
 // import { menComponents,kidComponents, womenComponents, accessoriesComponent } from "@/config/products";
 
 import Link from "next/link";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@turbocell/ui/components";
-import { cn } from "@turbocell/ui/cn";
-import { Icons } from "@turbocell/ui/icons";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@repo/ui/components";
+import { cn } from "@repo/ui/cn";
+import { Icons } from "@repo/ui/icons";
 
 export function MainNav() {
   return (

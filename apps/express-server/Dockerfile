@@ -13,7 +13,7 @@ WORKDIR /app
 RUN npm install -g pnpm@8.7.5
 RUN pnpm add -g turbo
 COPY . .
-RUN turbo prune @turbocell/express-server --docker
+RUN turbo prune @repo/express-server --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM base AS installer
@@ -33,7 +33,7 @@ COPY turbo.json turbo.json
 
 RUN pnpm i
 
-RUN pnpm turbo run build --filter=@turbocell/express-server...
+RUN pnpm turbo run build --filter=@repo/express-server...
 
 FROM base AS runner
 

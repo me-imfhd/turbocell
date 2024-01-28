@@ -1,5 +1,5 @@
-import { type ComputerId, computerIdSchema } from "@turbocell/db/schema/computers";
-import { db } from "@turbocell/db";
+import { type ComputerId, computerIdSchema } from "@repo/db/schema/computers";
+import { db } from "@repo/db";
 
 export const getComputers = async () => {
   try {

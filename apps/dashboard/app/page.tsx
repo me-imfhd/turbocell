@@ -1,7 +1,7 @@
 "use client";
-import { trpc } from "@turbocell/trpc/trpc/client";
-import { useSession } from "@turbocell/auth/react";
-import { Button, Shell } from "@turbocell/ui/components";
+import { trpc } from "@repo/trpc/trpc/client";
+import { useSession } from "@repo/auth/react";
+import { Button, Shell } from "@repo/ui/components";
 import React, { useState } from "react";
 
 export default function Home() {

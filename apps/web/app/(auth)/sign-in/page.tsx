@@ -1,4 +1,4 @@
-import { Auth } from "@turbocell/ui/layout";
+import { Auth } from "@repo/ui/layout";
 import OAuthSignIn from "../o-auth-signin";
 import { SignInForm } from "./sign-in-form";
 

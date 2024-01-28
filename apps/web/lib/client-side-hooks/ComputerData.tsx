@@ -1,6 +1,6 @@
 "use client";
-import { trpc } from "@turbocell/trpc/trpc/client";
-import { Button, Skeleton } from "@turbocell/ui/components";
+import { trpc } from "@repo/trpc/trpc/client";
+import { Button, Skeleton } from "@repo/ui/components";
 import { toast } from "sonner";
 
 export function ComputerData() {

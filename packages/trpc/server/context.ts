@@ -3,7 +3,7 @@ import {
   type Session,
   getServerSession,
   authOptions,
-} from "@turbocell/auth/server";
+} from "@repo/auth/server";
 
 interface CreateInnerContextOptions
   extends Partial<trpcNext.CreateNextContextOptions> {

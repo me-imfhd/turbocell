@@ -1,5 +1,5 @@
 {
-  "name": "@turbocell/utils",
+  "name": "@repo/utils",
   "version": "0.0.0",
   "private": true,
   "main": "./index.ts",
@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@turbocell/auth": "workspace:*",
+    "@repo/auth": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.284.0",
@@ -24,8 +24,8 @@
     "zod": "^3.22.3"
   },
   "devDependencies": {
-    "@turbocell/eslint-config": "workspace:*",
-    "@turbocell/tsconfig": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
     "@types/node": "20.8.0",
     "eslint": "^8.50.0",
     "prettier": "^3.0.3",

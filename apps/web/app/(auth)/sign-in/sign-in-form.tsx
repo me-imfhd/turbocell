@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Input, Label } from "@turbocell/ui/components";
-import { signIn } from "@turbocell/auth/react";
+import { Button, Input, Label } from "@repo/ui/components";
+import { signIn } from "@repo/auth/react";
 import React, { useState } from "react";
 
 export function SignInForm() {

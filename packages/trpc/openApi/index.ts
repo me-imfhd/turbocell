@@ -7,7 +7,7 @@ export const openApiDocument = generateOpenApiDocument(appRouter, {
   version: "1.0.0",
   baseUrl:
     process.env.VERCEL_ENV === "production"
-      ? "https://turbocell-web.vercel.app"
+      ? "https://repo-web.vercel.app"
       : "http://localhost:3000",
   tags: ["auth", "computers"],
 });

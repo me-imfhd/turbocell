@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { createRouter } from "utils/createRouter";
-import { db } from "@turbocell/db";
+import { db } from "@repo/db";
 import bcrypt from "bcrypt";
-import { loginSchema } from "@turbocell/db/schema/auth";
+import { loginSchema } from "@repo/db/schema/auth";
 const router = createRouter();
 
 router.post("/login", async (req: Request, res: Response) => {

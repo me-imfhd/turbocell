@@ -7,7 +7,7 @@
       "cache": false
     },
     "build": {
-      "dependsOn": ["^build", "@turbocell/db#db:generate"],
+      "dependsOn": ["^build", "@repo/db#db:generate"],
       "outputs": [".next/**", "!.next/cache/**", "next-env.d.ts"],
       "env": [
         "DATABASE_URL",

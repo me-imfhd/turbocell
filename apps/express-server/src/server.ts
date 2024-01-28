@@ -3,7 +3,7 @@ import express, { Express, Request, Response } from "express";
 import helmet from "helmet";
 import session from "express-session";
 import cors from "cors";
-import { userSchema } from "@turbocell/db";
+import { userSchema } from "@repo/db";
 import cookieParser from "cookie-parser";
 import { z } from "zod";
 import { checkAuthenticated } from "utils/checkAuth";

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Shell, buttonVariants } from "@turbocell/ui/components";
+import { Shell, buttonVariants } from "@repo/ui/components";
 import { Company, mySocials } from "@/lib/config/site";
-import { Icons, LucideProps } from "@turbocell/ui/icons";
-import { cn } from "@turbocell/ui/cn";
+import { Icons, LucideProps } from "@repo/ui/icons";
+import { cn } from "@repo/ui/cn";
 
 export const SiteFooter = () => {
   return (

@@ -2,20 +2,20 @@ import {
   createComputer,
   deleteAllComputers,
   updateComputer,
-} from "@turbocell/api/api-endpoint-blogic/computers/mutations";
-import { getComputers } from "@turbocell/api/api-endpoint-blogic/computers/queries";
+} from "@repo/api/api-endpoint-blogic/computers/mutations";
+import { getComputers } from "@repo/api/api-endpoint-blogic/computers/queries";
 import { z } from "zod";
 import {
   computerIdSchema,
   insertComputerParams,
   updateComputerParams,
-} from "@turbocell/db/schema/computers";
+} from "@repo/db/schema/computers";
 import {
   createExpressTRPCRouter,
   protectedProcedure_ex,
   publicProcedure_ex,
 } from "../trpc.express";
-import { computerSchema } from "@turbocell/db";
+import { computerSchema } from "@repo/db";
 export const computersRouter_ex = createExpressTRPCRouter({
   getComputers: publicProcedure_ex
     .meta({

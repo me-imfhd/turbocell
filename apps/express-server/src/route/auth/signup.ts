@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import { db } from "@turbocell/db";
+import { db } from "@repo/db";
 import { createRouter } from "utils/createRouter";
-import { signupSchema } from "@turbocell/db/schema/auth";
+import { signupSchema } from "@repo/db/schema/auth";
 import { setUserSession } from "utils/userSession";
 
 const router = createRouter();

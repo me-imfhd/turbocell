@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { signIn } from "@turbocell/auth/react";
-import type { OAuthProviders } from "@turbocell/auth/server";
-import { Button } from "@turbocell/ui/components";
-import { Icons } from "@turbocell/ui/icons";
-import type { LucideProps } from "@turbocell/ui/icons";
+import { signIn } from "@repo/auth/react";
+import type { OAuthProviders } from "@repo/auth/server";
+import { Button } from "@repo/ui/components";
+import { Icons } from "@repo/ui/icons";
+import type { LucideProps } from "@repo/ui/icons";
 
 type OAuthProviderProps = {
   name: string;

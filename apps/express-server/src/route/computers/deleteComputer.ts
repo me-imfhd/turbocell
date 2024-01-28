@@ -1,4 +1,4 @@
-import { deleteAllComputers } from "@turbocell/api/api-endpoint-blogic/computers/mutations";
+import { deleteAllComputers } from "@repo/api/api-endpoint-blogic/computers/mutations";
 import { Request, Response } from "express";
 import { checkAuthenticated } from "utils/checkAuth";
 import { createRouter } from "utils/createRouter";

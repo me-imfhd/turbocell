@@ -1,4 +1,4 @@
-import { openApiDocument } from "@turbocell/trpc/openApi";
+import { openApiDocument } from "@repo/trpc/openApi";
 
 // Respond with our OpenAPI schema
 export async function GET() {
