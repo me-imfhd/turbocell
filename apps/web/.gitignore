@@ -37,3 +37,6 @@ next-env.d.ts
 
 .turbo
 dist
+
+# Sentry Config File
+.env.sentry-build-plugin
