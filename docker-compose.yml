@@ -16,6 +16,8 @@ services:
   web:
     env_file: .env
     container_name: web
+    depends_on:
+      - db
     build:
       context: .
       dockerfile: ./apps/web/Dockerfile
@@ -28,6 +30,8 @@ services:
   dashboard:
     env_file: .env
     container_name: dashboard
+    depends_on:
+      - db
     build:
       context: .
       dockerfile: ./apps/dashboard/Dockerfile
@@ -36,18 +40,6 @@ services:
       - 3001
     ports:
       - 3001:3001
-
-  express-server:
-    env_file: .env
-    container_name: express-server
-    build:
-      context: .
-      dockerfile: ./apps/express-server/Dockerfile
-    restart: always
-    expose:
-      - 8080
-    ports:
-      - 8080:8080
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 volumes:

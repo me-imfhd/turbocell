@@ -1,7 +1,6 @@
 FROM ubuntu:22.04 AS base
 
 RUN apt-get update && apt-get install -y curl ca-certificates
-RUN apt-get install -y python3 python3-pip
 
 RUN mkdir /usr/local/nvm
 ENV NVM_DIR /usr/local/nvm
