@@ -14,10 +14,11 @@ generator zod {
   provider              = "zod-prisma"
   output                = "./zod" // (default) the directory where generated zod schemas will be saved
   relationModel         = true // (default) Create and export both plain and related models.
-  modelCase             = "camelCase" // Output models using camel case (ex. userModel, postModel)
-  modelSuffix           = "Schema" // (default) Suffix to apply to your prisma models when naming Zod schemas
+  modelCase             = "PascalCase" // Output models using camel case (ex. userModel, postModel)
+  modelSuffix           = "Model" // (default) Suffix to apply to your prisma models when naming Zod schemas
   useDecimalJs          = true // represent the prisma Decimal type using Decimal.js (as Prisma does)
   prismaJsonNullability = true // (default) uses prisma's scheme for JSON field nullability
+
 }
 
 // if you change this from cuid to uuid please make sure you using cuid everywhere while validating with zod
@@ -25,7 +26,7 @@ generator zod {
 // if using cuid use the same to validate
 // the boilerplate vailates it by cuid so its recommended that you don't change it
 model Account {
-  id                String   @id @default(cuid())
+  id                String   @id @default(uuid())
   userId            String
   type              String
   provider          String
@@ -48,7 +49,7 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(uuid())
   sessionToken String   @unique
   userId       String
   expires      DateTime
@@ -59,7 +60,7 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id @default(uuid())
   name          String?
   email         String?   @unique
   emailVerified DateTime?
@@ -83,7 +84,7 @@ model VerificationToken {
 }
 
 model Computer {
-  id    String @id @default(cuid())
+  id    String @id @default(uuid())
   brand String
   cores Int
 }

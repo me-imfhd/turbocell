@@ -1,5 +1,5 @@
 import { generateOpenApiDocument } from "trpc-openapi";
-import { appRouter } from "../server/routers/_app";
+import { appRouter } from "../routers/_app";
 
 export const openApiDocument = generateOpenApiDocument(appRouter, {
   title: "Turbo Cell Open Api Swagger",

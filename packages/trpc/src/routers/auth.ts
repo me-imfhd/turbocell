@@ -1,13 +1,12 @@
 import { TRPCError } from "@trpc/server";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import { getUser } from "@repo/auth/server";
 import { db } from "@repo/db";
 import { z } from "zod";
 
 export const authRouter = createTRPCRouter({
   getSession: publicProcedure
     .meta({
-      /* 👉 */ openapi: { method: "GET", path: "/get-session", tags: ["auth"] },
+      openapi: { method: "GET", path: "/get-session", tags: ["auth"] },
     })
     .input(z.undefined())
     .output(z.object({ message: z.string() }))
@@ -23,7 +22,6 @@ export const authRouter = createTRPCRouter({
           },
         });
         if (!dbUser) {
-          // create user in db
           await db.user.create({
             data: {
               id: user.id,
@@ -42,8 +40,7 @@ export const authRouter = createTRPCRouter({
   getEasterEgg: protectedProcedure
     .input(z.undefined())
     .output(z.string())
-    .query(({ ctx }) => {
-      const user = ctx.session?.user;
+    .query(() => {
       return "You can see this secret message means you trying things out and you are logged in!";
     }),
 });

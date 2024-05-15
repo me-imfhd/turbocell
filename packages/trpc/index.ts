@@ -1,5 +1,5 @@
-export type { AppRouter } from "./server/routers/_app";
-export { appRouter } from "./server/routers/_app";
+export type { AppRouter } from "./src/routers/_app";
+export { appRouter } from "./src/routers/_app";
 
 // input and output types inference export
 import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
@@ -7,7 +7,7 @@ import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
  * Inference helpers for input types
  * @example type HelloInput = RouterInputs['example']['hello']
  **/
-import type { AppRouter } from "./server/routers/_app";
+import type { AppRouter } from "./src/routers/_app";
 export type RouterInputs = inferRouterInputs<AppRouter>;
 
 /**
@@ -15,4 +15,3 @@ export type RouterInputs = inferRouterInputs<AppRouter>;
  * @example type HelloOutput = RouterOutputs['example']['hello']
  **/
 export type RouterOutputs = inferRouterOutputs<AppRouter>;
-
