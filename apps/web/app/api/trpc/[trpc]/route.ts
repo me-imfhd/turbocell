@@ -1,6 +1,6 @@
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { appRouter } from "@repo/trpc";
-import { createContext } from "@repo/trpc/server/context";
+import { createContext } from "@repo/trpc/src/trpc/context";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest & Request, res: NextApiResponse) => {

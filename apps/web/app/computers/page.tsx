@@ -1,6 +1,6 @@
 "use client";
 import { ComputerData } from "@/lib/client-side-hooks/ComputerData";
-import { trpc } from "@repo/trpc/trpc/client";
+import { trpc } from "@repo/trpc/src/trpc/client";
 import { useSession } from "@repo/auth/react";
 import { Button, Shell } from "@repo/ui/components";
 import React, { useState } from "react";

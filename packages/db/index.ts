@@ -15,3 +15,4 @@ export const db =
 
 if (process.env.NODE_ENV !== "production") global.db = db;
 export * from "./prisma/zod";
+export {z} from "zod"

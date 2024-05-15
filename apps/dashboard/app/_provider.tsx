@@ -1,7 +1,7 @@
 "use client";
 
 import { SessionProvider } from "@repo/auth/react";
-import TrpcProvider from "@repo/trpc/trpc/Provider";
+import TrpcProvider from "@repo/trpc/src/trpc/Provider";
 import { ThemeProvider } from "@repo/ui/components/ThemeProvider";
 import type { PropsWithChildren } from "react";
 

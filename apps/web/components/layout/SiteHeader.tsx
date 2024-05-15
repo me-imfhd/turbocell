@@ -2,8 +2,9 @@ import React, { Suspense } from "react";
 import { Skeleton, buttonVariants } from "@repo/ui/components";
 import { cn } from "@repo/ui/cn";
 import { MainNav } from "./main-nav";
+import { ProfileHeader } from "./profile-header";
 
-export const SiteHeader = async ({ children }: React.PropsWithChildren) => {
+export const SiteHeader = async () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center">
@@ -22,8 +23,7 @@ export const SiteHeader = async ({ children }: React.PropsWithChildren) => {
                 </Skeleton>
               }
             >
-              {/* <ProfileHeader /> */}
-              {children}
+              <ProfileHeader />
             </Suspense>
           </nav>
         </div>

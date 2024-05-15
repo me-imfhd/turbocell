@@ -1,4 +1,4 @@
-import { openApiDocument } from "@repo/trpc/openApi";
+import { openApiDocument } from "@repo/trpc/src/trpc/openapi";
 
 // Respond with our OpenAPI schema
 export async function GET() {

@@ -1,7 +1,7 @@
 import EmailProvider from "next-auth/providers/email";
 import DiscordProvider from "next-auth/providers/discord";
 import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from "next-auth/providers/facebook";
+import GitHubProvider from "next-auth/providers/github";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 // import type { Adapter } from "@auth/core/adapters";
@@ -11,13 +11,13 @@ import {
   getServerSession,
 } from "next-auth";
 import { db } from "@repo/db";
-import type { sessionSchema, userSchema, z } from "@repo/db";
+import type { SessionModel, UserModel, z } from "@repo/db";
 import NextAuth from "./next-auth";
 import { CustomsendVerificationRequest } from "./sendVerificationRequest";
 
 export type { Session, DefaultSession as DefaultAuthSession } from "next-auth";
 
-export const providers = ["discord", "google", "facebook"] as const;
+export const providers = ["discord", "google", "github"] as const;
 export type OAuthProviders = (typeof providers)[number];
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -26,8 +26,8 @@ export type OAuthProviders = (typeof providers)[number];
  * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
  */
 declare module "next-auth" {
-  interface User extends z.infer<typeof userSchema> {}
-  interface Session extends z.infer<typeof sessionSchema>, DefaultSession {
+  interface User extends z.infer<typeof UserModel> {}
+  interface Session extends z.infer<typeof SessionModel>, DefaultSession {
     user: DefaultSession["user"] & {
       id: string;
     };
@@ -89,10 +89,10 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_CLIENT_ID!,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
-    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!
+    })
   ],
   callbacks: {
     // async signIn({ user, account, email }) {

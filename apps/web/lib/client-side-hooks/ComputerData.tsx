@@ -1,5 +1,5 @@
 "use client";
-import { trpc } from "@repo/trpc/trpc/client";
+import { trpc } from "@repo/trpc/src/trpc/client";
 import { Button, Skeleton } from "@repo/ui/components";
 import { toast } from "sonner";
 
@@ -43,9 +43,7 @@ export function ComputerData() {
         <Button
           size={"sm"}
           onClick={() => {
-            createComp.mutate({
-              insertComputerParams: { brand: "intel", cores: 3 },
-            });
+            createComp.mutate({ brand: "intel", cores: 3 });
           }}
         >
           Create Computer

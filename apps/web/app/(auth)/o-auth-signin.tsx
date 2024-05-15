@@ -15,7 +15,7 @@ type OAuthProviderProps = {
 }[];
 const oauthprovider: OAuthProviderProps = [
   { name: "Google", provider: "google", icon: "google" },
-  { name: "Facebook", provider: "facebook", icon: "facebook" },
+  { name: "Github", provider: "github", icon: "github" },
   { name: "Discord", provider: "discord", icon: "discord" },
 ];
 
@@ -59,7 +59,7 @@ const OAuthSignIn = () => {
                 aria-label="loading..."
               />
             ) : (
-              <Icon className="mr-2 h-4 w-4" aria-label="laoding..." />
+              <Icon className="mr-2 h-4 w-4" aria-label="loading..." />
             )}
             Continue with {provider.name}
           </Button>

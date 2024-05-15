@@ -17,7 +17,6 @@
     "@repo/db": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/ui": "workspace:*",
-    "@repo/utils": "workspace:*",
     "autoprefixer": "^10.4.16",
     "million": "2.6.0-beta.12",
     "next": "14.0.1",
