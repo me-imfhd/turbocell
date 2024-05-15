@@ -5,15 +5,10 @@ export const userSchema = z.object({
   id: z.string(),
   name: z.string().nullish(),
   email: z.string().nullish(),
-  hashedPassword: z.string().nullish(),
   emailVerified: z.date().nullish(),
   image: z.string().nullish(),
   createdAt: z.date(),
   updatedAt: z.date(),
-  stripeCustomerId: z.string().nullish(),
-  stripeSubscriptionId: z.string().nullish(),
-  stripePriceId: z.string().nullish(),
-  stripeCurrentPeriodEnd: z.date().nullish(),
 })
 
 export interface CompleteUser extends z.infer<typeof userSchema> {

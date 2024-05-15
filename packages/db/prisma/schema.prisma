@@ -1,9 +1,9 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 datasource db {
-  provider = "postgres"
+  provider     = "postgres"
   relationMode = "prisma"
-  url      = env("DATABASE_URL")
+  url          = env("DATABASE_URL")
 }
 
 generator client {
@@ -43,6 +43,7 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+  @@index([userId])
   @@map(name: "accounts")
 }
 
@@ -53,6 +54,7 @@ model Session {
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  @@index([userId])
   @@map(name: "sessions")
 }
 
@@ -60,7 +62,6 @@ model User {
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
-  hashedPassword String?
   emailVerified DateTime?
   image         String?   @db.Text
   createdAt     DateTime  @default(now()) @map(name: "created_at")
@@ -68,11 +69,6 @@ model User {
 
   accounts Account[]
   sessions Session[]
-
-  stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
-  stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
-  stripePriceId          String?   @map(name: "stripe_price_id")
-  stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
 
   @@map(name: "users")
 }
@@ -85,7 +81,6 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map(name: "verification_tokens")
 }
-
 
 model Computer {
   id    String @id @default(cuid())
