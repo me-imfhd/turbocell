@@ -1,6 +1,5 @@
 import { db } from "@repo/db";
-import { TRPCError } from "@trpc/server";
-import { IdType, idSchema } from "../common";
+import { IdType, idSchema, throwTRPCError } from "../common";
 
 export const getComputers = async () => {
   try {
@@ -8,10 +7,7 @@ export const getComputers = async () => {
     const totc = await db.computer.count();
     return { computers: c, totalComputer: totc };
   } catch (err) {
-    throw new TRPCError({
-      code: "INTERNAL_SERVER_ERROR",
-      message: (err as Error).message ?? "Error, please try again",
-    });
+    return throwTRPCError(err);
   }
 };
 
@@ -21,9 +17,6 @@ export const getComputerById = async (id: IdType) => {
     const c = await db.computer.findFirst({ where: { id } });
     return { computer: c };
   } catch (err) {
-    throw new TRPCError({
-      code: "INTERNAL_SERVER_ERROR",
-      message: (err as Error).message ?? "Error, please try again",
-    });
+    return throwTRPCError(err);
   }
 };

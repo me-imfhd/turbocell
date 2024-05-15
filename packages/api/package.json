@@ -12,10 +12,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.576.0",
+    "@aws-sdk/s3-presigned-post": "^3.576.0",
+    "@aws-sdk/s3-request-presigner": "^3.576.0",
     "@next/eslint-plugin-next": "^13.5.4",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@trpc/server": "^10.38.5",
+    "axios": "^1.6.8",
     "react": "^18",
     "superjson": "1.13.3",
     "zod": "^3.22.4"
