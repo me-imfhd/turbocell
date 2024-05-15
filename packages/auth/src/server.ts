@@ -5,11 +5,7 @@ import GitHubProvider from "next-auth/providers/github";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 // import type { Adapter } from "@auth/core/adapters";
-import {
-  NextAuthOptions,
-  type DefaultSession,
-  getServerSession,
-} from "next-auth";
+import { NextAuthOptions, type DefaultSession } from "next-auth";
 import { db } from "@repo/db";
 import type { SessionModel, UserModel, z } from "@repo/db";
 import NextAuth from "./next-auth";
@@ -91,8 +87,8 @@ export const authOptions: NextAuthOptions = {
     }),
     GitHubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!
-    })
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+    }),
   ],
   callbacks: {
     // async signIn({ user, account, email }) {
@@ -122,14 +118,3 @@ export const authOptions: NextAuthOptions = {
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
 export { getServerSession } from "next-auth";
-
-export async function getUser() {
-  try {
-    const session = await getServerSession(authOptions);
-    const user = session?.user;
-    return user;
-  } catch (err) {
-    console.error(err);
-    throw new Error((err as Error).message ?? "Error, please try again");
-  }
-}

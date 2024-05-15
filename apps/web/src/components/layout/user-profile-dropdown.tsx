@@ -16,10 +16,10 @@ import { Icons } from "@repo/ui/icons";
 import { Session } from "@repo/auth/server";
 
 export const UserProfileDropdown = ({
-  data,
+  user,
   initials,
 }: {
-  data: Session;
+  user: Session["user"];
   initials: string;
 }) => {
   return (
@@ -31,10 +31,7 @@ export const UserProfileDropdown = ({
             className="relative h-8 w-8 rounded-full"
           >
             <Avatar className="h-8 w-8">
-              <AvatarImage
-                src={data.user?.image as string}
-                alt={data.user?.name ?? ""}
-              />
+              <AvatarImage src={user.image as string} alt={user.name ?? ""} />
               <AvatarFallback>{initials}</AvatarFallback>
             </Avatar>
           </Button>
@@ -42,11 +39,9 @@ export const UserProfileDropdown = ({
         <DropdownMenuContent className="w-56" align="end" forceMount>
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
-              <p className="text-sm font-medium leading-none">
-                {data.user?.name}
-              </p>
+              <p className="text-sm font-medium leading-none">{user.name}</p>
               <p className="text-xs leading-none text-muted-foreground">
-                {data.user?.email}
+                {user.email}
               </p>
             </div>
           </DropdownMenuLabel>

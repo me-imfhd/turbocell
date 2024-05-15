@@ -6,11 +6,14 @@ import {
   CLOUDFRONT_URL,
   IdType,
   REGION,
+  checkAuth,
   throwTRPCError,
 } from "../common";
 import { S3Client } from "@aws-sdk/client-s3";
 import axios from "axios";
 import { db } from "@repo/db";
+import { preSignedUrlLimit } from "../rate-limit";
+import { TRPCError } from "@trpc/server";
 
 const s3Client = new S3Client({
   credentials: {
@@ -20,11 +23,19 @@ const s3Client = new S3Client({
   region: REGION,
 });
 
-export const getPresignedUrl = async (userId: IdType) => {
+export const getPresignedUrl = async () => {
+  const { id } = await checkAuth();
+  const { success } = await preSignedUrlLimit.limit(id);
+  if (!success) {
+    throw new TRPCError({
+      code: "TOO_MANY_REQUESTS",
+      message: "Rate Limit Exceeded, try after some time",
+    });
+  }
   try {
     const { url, fields } = await createPresignedPost(s3Client, {
       Bucket: BUCKET_NAME,
-      Key: `turbocell/${userId}/image.jpg`,
+      Key: `turbocell/${id}/image.jpg`,
       Conditions: [
         ["content-length-range", 0, 5 * 1024 * 1024], // 5 MB max
       ],
@@ -43,8 +54,7 @@ export const getPresignedUrl = async (userId: IdType) => {
 // call on client side
 export const uploadImage = async (userId: IdType, file: File) => {
   try {
-    const { fields, preSignedUrl } = await getPresignedUrl(userId);
-    const presignedUrl = preSignedUrl;
+    const { fields, preSignedUrl } = await getPresignedUrl();
     const formData = new FormData();
     formData.set("bucket", fields["bucket"]!);
     formData.set("X-Amz-Algorithm", fields["X-Amz-Algorithm"]!);
@@ -56,7 +66,7 @@ export const uploadImage = async (userId: IdType, file: File) => {
     formData.set("X-Amz-Signature", fields["X-Amz-Signature"]!);
     formData.set("X-Amz-Algorithm", fields["X-Amz-Algorithm"]!);
     formData.append("file", file);
-    axios.post(presignedUrl, formData);
+    axios.post(preSignedUrl, formData);
 
     const image = `${CLOUDFRONT_URL}/${fields["key"]!}`;
     await db.user.update({ where: { id: userId }, data: { image } });

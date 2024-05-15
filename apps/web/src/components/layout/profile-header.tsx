@@ -1,13 +1,11 @@
-
 import React from "react";
 import Link from "next/link";
-import { authOptions, getServerSession } from "@repo/auth/server";
 import { buttonVariants } from "@repo/ui/components";
 import { UserProfileDropdown } from "./user-profile-dropdown";
+import { auth } from "@repo/api/src/common";
 
 export const ProfileHeader = async () => {
-  const data = await getServerSession(authOptions);
-  const user = data?.user;
+  const user = await auth();
   const initials = `${user?.name?.charAt(0) ?? ""}`;
   return (
     <>
@@ -15,7 +13,7 @@ export const ProfileHeader = async () => {
         <>
           <span>Go To Dashboard</span>
           <UserProfileDropdown
-            data={data}
+            user={user}
             initials={initials}
           ></UserProfileDropdown>
         </>
