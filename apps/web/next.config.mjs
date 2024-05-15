@@ -1,6 +1,9 @@
 import { withSentryConfig } from "@sentry/nextjs";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    ppr: true,
+  },
   transpilePackages: [
     "@repo/api",
     "@repo/trpc",
@@ -58,31 +61,6 @@ const nextConfig = {
       },
     ];
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve = {
-        ...config.resolve,
-        fallback: {
-          // fixes proxy-agent dependencies
-          net: false,
-          dns: false,
-          tls: false,
-          assert: false,
-          child_process: false,
-          // fixes next-i18next dependencies
-          path: false,
-          fs: false,
-          // fixes mapbox dependencies
-          events: false,
-          // fixes sentry dependencies
-          process: false,
-        },
-      };
-    }
-    // config.module.exprContextCritical = false; // Workaround to suppress next-i18next warning, see https://github.com/isaachinman/next-i18next/issues/1545
-
-    return config;
-  },
 };
 
 export default withSentryConfig(nextConfig, {
@@ -106,6 +84,7 @@ export default withSentryConfig(nextConfig, {
   // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
   // side errors will fail.
   // tunnelRoute: "/monitoring",
+  telemetry: false,
 
   // Hides source maps from generated client bundles
   hideSourceMaps: true,

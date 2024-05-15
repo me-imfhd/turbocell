@@ -2,10 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { buttonVariants } from "@repo/ui/components";
 import { UserProfileDropdown } from "./user-profile-dropdown";
-import { auth } from "@repo/api/src/common";
+import { authOptions, getServerSession } from "@repo/auth/server";
 
 export const ProfileHeader = async () => {
-  const user = await auth();
+  const session = await getServerSession(authOptions);
+  const user = session?.user;
   const initials = `${user?.name?.charAt(0) ?? ""}`;
   return (
     <>
