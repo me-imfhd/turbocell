@@ -1,55 +1,176 @@
-## Turbocell
+<div align="center">
+  <img src="https://pbs.twimg.com/profile_images/1584620135490338816/tCCcROZD_200x200.png" alt="logo" width="200" height="auto" />
+  <h1>Turbocell</h1>
+  <p>
+    Load up turbocell and build a production grade web application instantly on vercel free plan.
+  </p>
+<!-- Badges -->
+<p>
+  <a href="https://github.com/me-imfhd/turbocell/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/me-imfhd/turbocell" alt="contributors" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/github/last-commit/me-imfhd/turbocell" alt="last update" />
+  </a>
+  <a href="https://github.com/me-imfhd/turbocell/network/members">
+    <img src="https://img.shields.io/github/forks/me-imfhd/turbocell" alt="forks" />
+  </a>
+  <a href="https://github.com/me-imfhd/turbocell/stargazers">
+    <img src="https://img.shields.io/github/stars/me-imfhd/turbocell" alt="stars" />
+  </a>
+  <a href="https://github.com/me-imfhd/turbocell/issues/">
+    <img src="https://img.shields.io/github/issues/me-imfhd/turbocell" alt="open issues" />
+  </a>
+  <a href="https://github.com/me-imfhd/turbocell/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/me-imfhd/turbocell.svg" alt="license" />
+  </a>
+</p>
+<h4>
+    <a href="https://turbocell-web.vercel.app/">View Demo</a>
+  <span> · </span>
+    <a href="https://turbocell-docs.vercel.app/">Documentation</a>
+  <span> · </span>
+    <a href="https://github.com/me-imfhd/turbocell/issues/">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/me-imfhd/turbocell/issues/">Request Feature</a>
+  </h4>
+</div>
+<br />
+<!-- Table of Contents -->
+# :notebook_with_decorative_cover: Table of Contents
 
-**Load the turbocell and build a production grade web application instantly.**
+- [About the Project](#star2-about-the-project)
+  * [Tech Stack](#space_invader-tech-stack)
+  * [Features](#dart-features)
+- [Getting Started](#toolbox-getting-started)
+  * [Installation](#bangbang-installation)
+  * [Run Locally](#running-run-locally)
+- [Contact](#handshake-contact)
 
-## Features :
+<!-- About the Project -->
+## :star2: About the Project
 
-1. **Turborepo** - Used turbo repo for building project across the monorepo seamlessly with benifits like caching and ease deployement.
+<!-- TechStack -->
+### :space_invader: Tech Stack
 
-2. **Docker** - Used to deploy seperate apps seperately with the help of turbo
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
+    <li><a href="https://nextjs.org/">Next.js - SSG, SSR, CSR</a></li>
+    <li><a href="https://reactjs.org/">React.js - Client and Server Components</a></li>
+    <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
+	<li><a href="https://tailwindcss.com/">ShadCN</a></li>
+	<li><a href="https://tailwindcss.com/">Sooner Toasts</a></li>
 
-3. **Nextjs 14 App Router Implementation** - Upgraded to Next.js 14 app router for enhanced routing and server/client components.
+  </ul>
+</details>
 
-4. **Next-auth OAuth Providers** - Enabled OAuth authentication with Next-auth for secure user logins.
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
+    <li><a href="https://go.dev/">Node.js</a></li>
+    <li><a href="https://nestjs.com/">Trpc</a></li>
+    <li><a href="https://socket.io/">NextAuth</a></li>
+    <li><a href="https://www.prisma.io/">Prisma ORM</a></li>    
+  </ul>
+</details>
 
-5. **Trpc Router w/ App Router** - Implemented type-safe RPC Api routing and fronted routing with Nextjs App Router.
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://redis.io/">Redis</a></li>
+  </ul>
+</details>
 
-6. **Trpc Procedures, Contexts** - Protect and Router your apis with private procedures and access native http request and response objects with contexts.
+<details>
+<summary>DevOps</summary>
+  <ul>
+    <li><a href="https://www.docker.com/">Docker</a></li>
+  </ul>
+</details>
 
-7. **Dark Mode** - Added dark and light mode for a better user experience.
+<!-- Features -->
+### :dart: Features
 
-8. **Sonner** - Integrated user and developer-friendly toast notifications.
+- OAuth and Magic Links Login
+- Cross Domain, Session Based, Cookie Authentication
+- Rate Limiting with Upstash Redis
+- Error Monitoring with Sentry
+- Analytics with Posthog
+- Auto Generate Zod Schema for Prisma Database Schemas
+- Dark Mode with next-themes and shadcn
+- S3 for file upload
+- Cloudfront CDNs for serving static content
+- Tooling Workspace - Tailwind, TypeScript, ESLint, and GitHub Actions
+- Independent implementation of functional APIs following MVC architecture
+- Client, Server Components, Streaming with Suspense and Server Actions
+- Trpc Router for Routing endpoint in complete type-safety
+- Autogenerated Swagger pages with trpc-openapi
 
-9. **AWS S3 & Cloudfront** - Used to upload image to S3 and serve them via cloudfront CDN, with full protection.
+<!-- Getting Started -->
+## 	:toolbox: Getting Started
 
-10. **Upstash Rate Limiter** - Rate Limiting for your application
+<!-- Installation -->
+### :bangbang: Installation
 
-11. **Sentry** - Track Errors in your applications through a dashboard
+This project uses PNPM as package manager
 
-12. **Posthog** - Product Analytics for your application
+```bash
+ npm install --global pnpm
+```
 
-13. **Cross-Domain Authentication** - Login in one application get logged in respectives sub domains of main domain automatically with same sessions
+<!-- Run Locally -->
+### :running: Run Locally
 
-14. **Postgres Database & Prisma ORM & AutoGen Zod Schema generator** - Used Prisma's type generator for type safety and enhanced API logic development.
+Clone the project
 
-15. **Functional Api Endpoints** - Separated business logic from trpc routers, promoting MVC architecture.
+```bash
+  git clone https://github.com/me-imfhd/turbocell.git
+```
 
-16. **Tooling workspace** - Managed tools like tailwind, eslint, and tsconfig separately from the packages workspace.
+Go to the project directory
 
-17. **Shadcn Integration** - Integrated the powerful Unstyled non-component UI library.
+```bash
+  cd turbocell
+```
 
-18. **Github Actions**
+Own the template
 
-## Project Structure:
-   **11 workspace projects**
-    - apps/web - nextjs 14 app router app
-    - apps/dashboard - nextjs 14 app router app
-    - packages/api - isolated interfaces and implementation of functional APIs
-    - packages/auth - next-auth
-    - packages/db - prisma and zod generators
-    - packages/shadcn - unstyled UI library, radix UI, provides simplicity
-    - packages/ui - resuable ui components and layouts
-    - tooling/eslint - linting tool
-    - tooling/typescript - tsconfigs
-    - tooling/tailwind - tailwind config, global CSS, and CSS variables
-    - tooling/github-actions - github actions
+```bash
+  rm -rf .git
+  git init
+  git remote add origin main https://github.com/<your-user-id>/<your-empty-repo>
+  git add .
+  git commit -m "init"
+  git push origin main
+```
+
+Install dependencies
+
+```bash
+  pnpm install
+```
+
+Start the local postgres database
+
+```bash
+  docker compose up -d
+  cp .env.example .env
+  pnpm db:push
+```
+
+Start developing
+
+```bash
+  pnpm dev
+```
+
+<!-- Contact -->
+## :handshake: Contact
+
+Your Name - [@mefhd2](https://twitter.com/mefhd2) - fahadahmad63862@gmail.com
+
+Project Link: [https://github.com/me-imfhd/turbocell](https://github.com/me-imfhd/turbocell)
