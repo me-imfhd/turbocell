@@ -171,6 +171,6 @@ Start developing
 <!-- Contact -->
 ## :handshake: Contact
 
-Your Name - [@mefhd2](https://twitter.com/mefhd2) - fahadahmad63862@gmail.com
+My Twitter & Email - [@mefhd2](https://twitter.com/mefhd2) - fahadahmad63862@gmail.com
 
 Project Link: [https://github.com/me-imfhd/turbocell](https://github.com/me-imfhd/turbocell)
