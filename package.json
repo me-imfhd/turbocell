@@ -1,6 +1,21 @@
 {
   "name": "repo",
   "private": true,
+  "author": "me-imfhd",
+  "keywords": [
+    "stater-kit",
+    "turborepo",
+    "nextjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/me-imfhd/turbocell.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/me-imfhd/turbocell/issues"
+  },
+  "homepage": "https://github.com/me-imfhd/turbocell#readme",
   "engines": {
     "node": ">=v18.18.0"
   },
