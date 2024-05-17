@@ -13,33 +13,33 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
 
-  web:
-    env_file: .env
-    container_name: web
-    depends_on:
-      - db
-    build:
-      context: .
-      dockerfile: ./apps/web/Dockerfile
-    restart: always
-    expose:
-      - 3000
-    ports:
-      - 3000:3000
+  # web:
+  #   env_file: .env
+  #   container_name: web
+  #   depends_on:
+  #     - db
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/web/Dockerfile
+  #   restart: always
+  #   expose:
+  #     - 3000
+  #   ports:
+  #     - 3000:3000
 
-  dashboard:
-    env_file: .env
-    container_name: dashboard
-    depends_on:
-      - db
-    build:
-      context: .
-      dockerfile: ./apps/dashboard/Dockerfile
-    restart: always
-    expose:
-      - 3001
-    ports:
-      - 3001:3001
+  # dashboard:
+  #   env_file: .env
+  #   container_name: dashboard
+  #   depends_on:
+  #     - db
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/dashboard/Dockerfile
+  #   restart: always
+  #   expose:
+  #     - 3001
+  #   ports:
+  #     - 3001:3001
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 volumes:

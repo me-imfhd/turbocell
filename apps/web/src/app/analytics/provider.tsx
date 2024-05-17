@@ -26,11 +26,11 @@ export function PostHogAuthProvider({
 }) {
   const session = useSession();
   useEffect(() => {
-    if (session.status === "authenticated") {
+    if (session.status === "authenticated" && session.data.user) {
       posthog.identify(session.userId, {
-        email: session.user.email,
-        name: session.user.name,
-        image: session.user.image,
+        email: session.data.user.email,
+        name: session.data.user.name,
+        image: session.data.user.image,
       });
     } else if (session.status === "unauthenticated") {
       posthog.reset();
