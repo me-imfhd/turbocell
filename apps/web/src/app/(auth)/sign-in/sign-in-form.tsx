@@ -6,6 +6,7 @@ import React, { useState } from "react";
 
 export function SignInForm() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   return (
     <>
       <div className="grid gap-2 sm:gap-4">
@@ -21,10 +22,13 @@ export function SignInForm() {
         />
       </div>
       <Button
+        disabled={loading}
         onClick={async () => {
+          setLoading(true);
           await signIn("email", { email, callbackUrl: "/" });
+          setLoading(false);
         }}
-        className="w-full py-5"
+        className={`w-full py-5 ${loading && "cursor-not-allowed"}`}
       >
         Continue With Email
       </Button>
