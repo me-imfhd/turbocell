@@ -7,3 +7,11 @@ export const preSignedUrlLimit = new Ratelimit({
   analytics: true,
   prefix: "@upstash/ratelimit",
 });
+
+export const createComputerLimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(5, "120 s"),
+  analytics: true,
+  prefix: "@upstash/ratelimit",
+  
+});

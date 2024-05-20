@@ -10,12 +10,23 @@ export const getComputers = async () => {
     return throwTRPCError(err);
   }
 };
+export type GetComputerReturns = Awaited<ReturnType<typeof getComputers>>;
 
 export const getComputerById = async (id: IdType) => {
-  idSchema.parse({ id });
+  idSchema.parse(id);
   try {
     const c = await db.computer.findFirst({ where: { id } });
     return { computer: c };
+  } catch (err) {
+    return throwTRPCError(err);
+  }
+};
+
+export const getUserComputers = async (userId: IdType) => {
+  idSchema.parse(userId);
+  try {
+    const c = await db.computer.findMany({ where: { userId } });
+    return { computers: c };
   } catch (err) {
     return throwTRPCError(err);
   }
