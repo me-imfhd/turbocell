@@ -1,43 +1,21 @@
-"use client";
 import { ComputerData } from "@/src/lib/client-side-hooks/ComputerData";
-import { trpc } from "@repo/trpc/src/trpc/client";
-import { useSession } from "@repo/auth/react";
-import { Button, Shell } from "@repo/ui/components";
-import React, { useState } from "react";
+import { Shell } from "@repo/ui/components";
+import React, { Suspense } from "react";
+import { checkAuth } from "@repo/api/src/common";
+import { getComputers } from "@repo/api/src/computers";
+import { Loader } from "@repo/ui/icons";
 
-export default function Page() {
-  const session = trpc.auth.getSession.useQuery();
-  const [sessionMessage, setSessionMessage] = useState<{
-    message: string;
-  }>();
-  const user = useSession();
+export default async function Page() {
+  await checkAuth();
+  const allComputers = await getComputers();
   return (
     <Shell
       as={"div"}
       className="flex flex-col place-items-center justify-center"
     >
-      {!sessionMessage ? (
-        <Button
-          onClick={() => {
-            try {
-              setSessionMessage(session.data);
-            } catch (error) {
-              console.log(error);
-            }
-          }}
-        >
-          Get Session Message
-        </Button>
-      ) : (
-        <>
-          <pre>{JSON.stringify(sessionMessage)}</pre>
-        </>
-      )}
-      <div>{JSON.stringify(user.data?.user)}</div>
-      <ComputerData></ComputerData>
+      <Suspense fallback={<Loader className="animate-spin w-4 h-4" />}>
+        <ComputerData allComputers={allComputers}></ComputerData>
+      </Suspense>
     </Shell>
   );
-}
-
-{
 }

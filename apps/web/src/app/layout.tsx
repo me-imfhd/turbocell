@@ -29,7 +29,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Provider>
           {children}
           <TailwindResposivenessIndicator />
-          <Toaster />
+          <Toaster richColors/>
         </Provider>
       </body>
     </html>

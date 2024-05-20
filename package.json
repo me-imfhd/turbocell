@@ -25,6 +25,8 @@
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo clean",
     "db:generate": "turbo db:generate",
+    "db:migrate": "turbo db:migrate",
+    "db:migrate:deploy": "turbo db:migrate:deploy",
     "db:push": "turbo db:push",
     "db:studio": "turbo db:studio",
     "dev": "turbo dev --parallel",

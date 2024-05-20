@@ -1,47 +1,50 @@
 "use client";
+import { GetComputerReturns } from "@repo/api/src/computers";
 import { trpc } from "@repo/trpc/src/trpc/client";
-import { Button, Skeleton } from "@repo/ui/components";
+import { Button } from "@repo/ui/components";
 import { toast } from "sonner";
 
-export function ComputerData() {
-  const utils = trpc.useContext();
-  const { data: getComp, isLoading: getIsLoading } =
-    trpc.computers.getComputers.useQuery();
+export function ComputerData({
+  allComputers,
+}: {
+  allComputers: GetComputerReturns;
+}) {
+  const computers = trpc.computers.getComputers.useQuery(undefined, {
+    initialData: allComputers,
+  });
   const createComp = trpc.computers.createComputer.useMutation({
-    onSuccess: async () => {
-      await utils.computers.getComputers.invalidate();
+    onSuccess: async ({ computer: { id } }) => {
+      const comps = await computers.refetch();
+      toast.success(
+        `Your created a computer, computer id: ${id}, total numbers of computers you hold: ${comps.data?.totalComputer}`
+      );
     },
     onError: (error) => {
-      toast(`An error occurred: ${error.message}`);
+      toast.error(error.message);
     },
   });
-  const deleteAllComputers = trpc.computers.deleteAllComputer.useMutation({
-    onSuccess: async () => {
-      await utils.computers.getComputers.invalidate();
-    },
-    onError: (error) => {
-      toast(`An error occurred: ${error.message}`);
-    },
-  });
+  const deleteUsersAllComputers =
+    trpc.computers.deleteUsersAllComputers.useMutation({
+      onSuccess: async ({ computersDeleted }) => {
+        toast.success(
+          `You deleted all your computers, total numbers of computers you deleted: ${computersDeleted}`
+        );
+        computers.refetch();
+      },
+      onError: (error) => {
+        toast.error(error.message);
+      },
+    });
 
   return (
     <div className="flex flex-col place-items-center justify-center space-y-4">
-      {getIsLoading || createComp.isLoading || deleteAllComputers.isLoading ? (
-        <Skeleton className="bg-muted w-full h-44"></Skeleton>
-      ) : (
-        <>
-          <div className="w-full bg-gradient-to-r from-background to-accent border rounded-md p-6">
-            <pre>{JSON.stringify(getComp, null, 2)}</pre>
-          </div>
-          <div className="w-full bg-gradient-to-r from-background to-accent border rounded-md p-6">
-            <pre>{JSON.stringify(deleteAllComputers.data, null, 2)}</pre>
-          </div>
-        </>
-      )}
-      <div>{createComp.error?.message}</div>
+      <div className="w-full bg-gradient-to-r from-background to-accent border rounded-md p-6">
+        <pre>{JSON.stringify(computers.data.computers, null, 2)}</pre>
+      </div>
       <div className="m-4 space-x-4">
         <Button
           size={"sm"}
+          isLoading={createComp.isLoading}
           onClick={() => {
             createComp.mutate({ brand: "intel", cores: 3 });
           }}
@@ -49,10 +52,11 @@ export function ComputerData() {
           Create Computer
         </Button>
         <Button
+          isLoading={deleteUsersAllComputers.isLoading}
           variant={"destructive"}
           size={"sm"}
           onClick={() => {
-            deleteAllComputers.mutate();
+            deleteUsersAllComputers.mutate();
           }}
         >
           Delete All Computers
