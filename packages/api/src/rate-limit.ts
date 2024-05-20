@@ -1,3 +1,5 @@
+import "server-only";
+// requires env, thus should do operation server side only
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 
