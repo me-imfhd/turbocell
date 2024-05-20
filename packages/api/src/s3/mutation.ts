@@ -6,7 +6,6 @@ import {
   CLOUDFRONT_URL,
   IdType,
   REGION,
-  checkAuth,
   throwTRPCError,
 } from "../common";
 import { S3Client } from "@aws-sdk/client-s3";
@@ -14,6 +13,7 @@ import axios from "axios";
 import { db } from "@repo/db";
 import { preSignedUrlLimit } from "../rate-limit";
 import { TRPCError } from "@trpc/server";
+import { checkAuth } from "@repo/auth/server";
 
 const s3Client = new S3Client({
   credentials: {

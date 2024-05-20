@@ -30,6 +30,7 @@
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
     "@repo/db": "workspace:*",
+    "next": "^14.2.3",
     "next-auth": "^4.24.5",
     "nodemailer": "^6.9.7"
   },

@@ -5,11 +5,16 @@ import GitHubProvider from "next-auth/providers/github";
 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 // import type { Adapter } from "@auth/core/adapters";
-import { NextAuthOptions, type DefaultSession } from "next-auth";
+import {
+  NextAuthOptions,
+  type DefaultSession,
+  getServerSession,
+} from "next-auth";
 import { db } from "@repo/db";
 import type { SessionModel, UserModel, z } from "@repo/db";
 import NextAuth from "./next-auth";
 import { CustomsendVerificationRequest } from "./sendVerificationRequest";
+import { redirect } from "next/navigation";
 
 export type { Session, DefaultSession as DefaultAuthSession } from "next-auth";
 
@@ -119,3 +124,17 @@ export const authOptions: NextAuthOptions = {
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
 export { getServerSession } from "next-auth";
+
+export const auth = async () => {
+  const session = await getServerSession(authOptions);
+  const user = session?.user;
+  return user;
+};
+
+export const checkAuth = async () => {
+  const session = await auth();
+  if (!session?.id) {
+    return redirect("/sign-in");
+  }
+  return session;
+};
