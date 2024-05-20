@@ -1,10 +1,11 @@
 import {
   createComputer,
-  deleteAllComputers,
   updateComputer,
   getComputers,
   insertComputerParams,
   updateComputerParams,
+  getUserComputers,
+  deleteUsersAllComputers,
 } from "@repo/api/src/computers";
 
 import { publicProcedure, createTRPCRouter, protectedProcedure } from "../trpc";
@@ -26,6 +27,19 @@ export const computersRouter = createTRPCRouter({
     .query(async () => {
       return getComputers();
     }),
+  getUserComputers: protectedProcedure
+    .meta({
+      openapi: {
+        method: "GET",
+        path: "/get-user-computers",
+        tags: ["computers"],
+      },
+    })
+    .input(z.undefined())
+    .output(z.object({ computers: z.array(ComputerModel) }))
+    .query(async ({ ctx: { userId } }) => {
+      return getUserComputers(userId);
+    }),
   createComputer: protectedProcedure
     .meta({
       openapi: {
@@ -34,10 +48,10 @@ export const computersRouter = createTRPCRouter({
         tags: ["computers"],
       },
     })
-    .input(insertComputerParams)
+    .input(insertComputerParams.omit({ userId: true })) // no need to worry about sending userId from frontend, user just needs to be logged in
     .output(z.object({ computer: ComputerModel }))
-    .mutation(async ({ input }) => {
-      return createComputer(input);
+    .mutation(async ({ input, ctx: { userId } }) => {
+      return createComputer({ ...input, userId });
     }),
   updateComputer: protectedProcedure
     .meta({
@@ -47,12 +61,12 @@ export const computersRouter = createTRPCRouter({
         tags: ["computers"],
       },
     })
-    .input(updateComputerParams)
+    .input(updateComputerParams.omit({ userId: true }))
     .output(z.object({ computer: ComputerModel }))
-    .mutation(async ({ input }) => {
-      return updateComputer(input);
+    .mutation(async ({ input, ctx: { userId } }) => {
+      return updateComputer({ ...input, userId });
     }),
-  deleteAllComputer: protectedProcedure
+  deleteUsersAllComputers: protectedProcedure
     .meta({
       openapi: {
         method: "DELETE",
@@ -62,7 +76,7 @@ export const computersRouter = createTRPCRouter({
     })
     .input(z.undefined())
     .output(z.object({ computersDeleted: z.number() }))
-    .mutation(async () => {
-      return deleteAllComputers();
+    .mutation(async ({ ctx: { userId } }) => {
+      return deleteUsersAllComputers(userId);
     }),
 });
