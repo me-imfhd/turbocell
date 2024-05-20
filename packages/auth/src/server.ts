@@ -134,7 +134,11 @@ export const auth = async () => {
 export const checkAuth = async () => {
   const session = await auth();
   if (!session?.id) {
-    return redirect("/sign-in");
+    const redirectUri =
+      process.env.VERCEL_ENV === "production"
+        ? `${process.env.NEXT_PUBLIC_APP_URL}/sign-in`
+        : "http://localhost:3000/sign-in";
+    return redirect(redirectUri);
   }
   return session;
 };

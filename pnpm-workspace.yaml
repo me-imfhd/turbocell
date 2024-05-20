@@ -1,5 +1,5 @@
 packages:
   - "apps/web"
-  # - "apps/dashboard"
+  - "apps/dashboard"
   - "packages/*"
   - "tooling/*"

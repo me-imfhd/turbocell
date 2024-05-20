@@ -1,10 +1,11 @@
 import { AuthLayoutImage } from "@repo/ui/layout";
+import THX from "@/src/public/images/THX.webp";
 
 export default function AuthLayout({ children }: React.PropsWithChildren) {
   return (
     <div className="grid min-h-screen grid-cols-1 overflow-hidden md:grid-cols-3 lg:grid-cols-2">
       <AuthLayoutImage
-        imagesrc="/images/THX.webp"
+        imagesrc={THX}
         alt="stars"
         photographer="Casey Horner"
         photographerId="https://unsplash.com/@mischievous_penguins"

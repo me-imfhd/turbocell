@@ -38,9 +38,6 @@ export function ComputerData({
 
   return (
     <div className="flex flex-col place-items-center justify-center space-y-4">
-      <div className="w-full bg-gradient-to-r from-background to-accent border rounded-md p-6">
-        <pre>{JSON.stringify(computers.data.computers, null, 2)}</pre>
-      </div>
       <div className="m-4 space-x-4">
         <Button
           size={"sm"}
@@ -61,6 +58,9 @@ export function ComputerData({
         >
           Delete All Computers
         </Button>
+      </div>
+      <div className="w-full bg-gradient-to-r from-background to-accent border rounded-md p-6">
+        <pre>{JSON.stringify(computers.data.computers, null, 2)}</pre>
       </div>
     </div>
   );

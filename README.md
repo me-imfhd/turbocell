@@ -98,6 +98,7 @@
 - OAuth and Magic Links Login
 - Cross Domain, Session Based, Cookie Authentication
 - Rate Limiting with Upstash Redis
+- Sonner Notifications on api interactions
 - Error Monitoring with Sentry
 - Analytics with Posthog
 - Auto Generate Zod Schema for Prisma Database Schemas

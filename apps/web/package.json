@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "dotenv -e ../../.env next dev -- -p 3000",
+    "build": "dotenv -e ../../.env next build",
+    "start": "dotenv -e ../../.env next start -- -p 3000",
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv-cli": "^7.2.1",
     "@repo/api": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
@@ -29,7 +30,7 @@
     "sonner": "^1.0.3",
     "swagger-ui-react": "4.11.1",
     "tailwindcss-animate": "^1.0.6",
-    "zod": "^3.22.3"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

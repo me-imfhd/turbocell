@@ -7,10 +7,11 @@ import {
   getUserComputers,
   deleteUsersAllComputers,
 } from "@repo/api/src/computers";
-
+import { createComputerLimit } from "@repo/api/src/rate-limit";
 import { publicProcedure, createTRPCRouter, protectedProcedure } from "../trpc";
 import { z } from "zod";
 import { ComputerModel } from "@repo/db";
+import { TRPCError } from "@trpc/server";
 export const computersRouter = createTRPCRouter({
   getComputers: publicProcedure
     .meta({
@@ -51,6 +52,14 @@ export const computersRouter = createTRPCRouter({
     .input(insertComputerParams.omit({ userId: true })) // no need to worry about sending userId from frontend, user just needs to be logged in
     .output(z.object({ computer: ComputerModel }))
     .mutation(async ({ input, ctx: { userId } }) => {
+      const RL = await createComputerLimit.limit(userId);
+      if (!RL.success) {
+        throw new TRPCError({
+          code: "TOO_MANY_REQUESTS",
+          message: "Rate Limit Exceeded, Try after few minutes.",
+        });
+      }
+      console.log("Remaining Limit: ", RL.remaining);
       return createComputer({ ...input, userId });
     }),
   updateComputer: protectedProcedure
