@@ -7,6 +7,8 @@
   "scripts": {
     "db:studio": "dotenv -e ../../.env prisma studio",
     "db:generate": "prisma generate",
+    "db:migrate": "dotenv -e ../../.env prisma migrate dev",
+    "db:migrate:deploy": "dotenv -e ../../.env prisma migrate deploy",
     "db:push": "dotenv -e ../../.env prisma db push --skip-generate",
     "postinstall": "prisma generate"
   },

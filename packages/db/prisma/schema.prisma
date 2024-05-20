@@ -18,7 +18,6 @@ generator zod {
   modelSuffix           = "Model" // (default) Suffix to apply to your prisma models when naming Zod schemas
   useDecimalJs          = true // represent the prisma Decimal type using Decimal.js (as Prisma does)
   prismaJsonNullability = true // (default) uses prisma's scheme for JSON field nullability
-
 }
 
 // if you change this from cuid to uuid please make sure you using cuid everywhere while validating with zod
@@ -68,8 +67,9 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
-  accounts Account[]
-  sessions Session[]
+  accounts  Account[]
+  sessions  Session[]
+  computers Computer[]
 
   @@map(name: "users")
 }
@@ -84,7 +84,11 @@ model VerificationToken {
 }
 
 model Computer {
-  id    String @id @default(uuid())
-  brand String
-  cores Int
+  id     String @id @default(uuid())
+  brand  String
+  cores  Int
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
