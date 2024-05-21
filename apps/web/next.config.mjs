@@ -40,7 +40,7 @@ const nextConfig = {
           {
             key: "Access-Control-Allow-Origin",
             value: process.env.NEXT_PUBLIC_DEPLOYMENT_ENV
-              ? "https://dashboard.repo.vercel.app"
+              ? "https://turbocell-dashboard.vercel.app"
               : "http://localhost:3001",
           }, // replace this with your actual origin
           {

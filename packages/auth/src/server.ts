@@ -136,7 +136,7 @@ export const checkAuth = async () => {
   if (!session?.id) {
     const redirectUri =
       process.env.VERCEL_ENV === "production"
-        ? `${process.env.NEXT_PUBLIC_APP_URL}/sign-in`
+        ? `https://turbocell-web.vercel.app/sign-in`
         : "http://localhost:3000/sign-in";
     return redirect(redirectUri);
   }
