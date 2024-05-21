@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  web:
+    env_file: .env
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    restart: always
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+
+  dashboard:
+    env_file: .env
+    container_name: dashboard
+    build:
+      context: .
+      dockerfile: ./apps/dashboard/Dockerfile
+    restart: always
+    expose:
+      - 3001
+    ports:
+      - 3001:3001

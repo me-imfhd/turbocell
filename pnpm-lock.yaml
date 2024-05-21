@@ -11,12 +11,6 @@ importers:
       '@manypkg/cli':
         specifier: ^0.21.0
         version: 0.21.1
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:tooling/eslint
-      '@repo/tsconfig':
-        specifier: workspace:*
-        version: link:tooling/typescript
       '@turbo/gen':
         specifier: ^1.10.14
         version: 1.11.2(@types/node@20.10.5)(typescript@5.3.3)
