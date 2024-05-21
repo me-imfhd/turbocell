@@ -25,6 +25,8 @@
     "next-safe-action": "^6.2.0",
     "react": "^18",
     "react-dom": "^18",
+    "@hookform/resolvers": "^3.4.2",
+    "react-hook-form": "^7.49.2",
     "sonner": "^1.0.3",
     "tailwindcss-animate": "^1.0.6",
     "zod": "^3.23.8"
