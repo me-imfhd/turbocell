@@ -66,7 +66,7 @@ const HeroSection = () => {
         </div>
         <div className="flex justify-center mt-8">
           <Button asChild size={"lg"} className="text-xl" variant={"default"}>
-            <Link href={"/create"}>Start Creating, its free</Link>
+            <Link href={"https://github.com/me-imfhd/turbocell"}>Start Creating, its free</Link>
           </Button>
         </div>
       </div>
